@@ -1,201 +1,201 @@
 body.jobs-layout {
 
-    h2 {
-     font-family: $sentinel-medium-font-family;
-     margin: 20px 0;
-    }
+  h2 {
+    font-family: $sentinel-medium-font-family;
+    margin: 20px 0;
+  }
 
-    #jobs-icons {
-        li {
-            margin-bottom: 20px;
-        }
-    }
-
-    #job-list-cont {
-        margin-bottom: 60px;
-        ul {
-            margin: 0;
-            padding: 0;
-        }
-        a {
-          @include breakpoint(tablet) {
-            @include _(clearfix);
-          }
-        }
-    }
-
-    #page-content {
-        padding-bottom: 0;
-    }
-
-    .testimonials {
-        /* Hide this section on mobile */
-        display: none;
-
-        h4 {
-          color: $brand-navy-blue;
-          font-size: 2.750em;
-          font-weight: 500;
-          margin: 0;
-        }
-
-        img {
-          border-radius: 3px;
-          float: left;
-          height: 50px;
-          margin-right: 15px;
-          width: 50px;
-        }
-
-        .hide {
-            display: none;
-        }
-
-        .name {
-          font-size: 1.125em;
-          margin: 4px 0 -3px;
-        }
-
-        .employee-title {
-          color: $light-text-color;
-          font-weight: 500;
-          letter-spacing: 1px;
-          margin: 0;
-          text-transform: uppercase;
-        }
-    }
-
-    .jobs-list {
-        background-color: #ebeff1;
-        li {
-            border: 1px solid #eee;
-            list-style: none;
-
-            a {
-                background-color: #fff;
-                color: #131313;
-                display: block;
-                font-size: 14px;
-                padding: .9em 23px;
-                text-align: center;
-
-                &:hover {
-                    text-decoration: none;
-                    background-color: $faint-gray-bg;
-                }
-            }
-        }
-
-    }
-
-    .department-title {
-        font-family: $body-font-family;
-        color: $brand-navy-blue;
-        font-size: 1em;
-        font-weight: 500;
-        margin: 1.5em 23px .5em 23px;
-        text-transform: uppercase;
-
-        &:first-child {
-            &:after {
-                color: black;
-                content: "LOCATION";
-                float: right;
-                font-size: 0.9em;
-                font-weight: 500;
-                margin-top: 0.2em;
-            }
-        }
-    }
-
-    .job-location {
-        color: #444;
-        float: none;
-        display: block;
-        font-size: .9em;
-    }
-
-    .benefits,
-    .communities {
-        li {
-            color: $text-color;
-            padding-left: 50px;
-            min-height: 60px;
-            background-repeat: no-repeat;
-        }
-
-        h6,
-        p {
-            margin: 0;
-            font-size: 0.9em;
-            text-align: left;
-        }
-
-        h6 {
-            text-transform: uppercase;
-        }
-    }
-
-    .communities {
+  #jobs-icons {
+    li {
       margin-bottom: 20px;
-      margin-left: 50px;
+    }
+  }
+
+  #job-list-cont {
+    margin-bottom: 60px;
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+    a {
+      @include breakpoint(tablet) {
+        @include _(clearfix);
+      }
+    }
+  }
+
+  #page-content {
+    padding-bottom: 0;
+  }
+
+  .testimonials {
+    /* Hide this section on mobile */
+    display: none;
+
+    h4 {
+      color: $brand-navy-blue;
+      font-size: 2.750em;
+      font-weight: 500;
+      margin: 0;
     }
 
-    #apple {
-        -moz-background-size: 40px 50px;
-        -webkit-background-size: 40px 50px;
-        background-size: 40px 50px;
-        background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/gear.svg');
+    img {
+      border-radius: 3px;
+      float: left;
+      height: 50px;
+      margin-right: 15px;
+      width: 50px;
     }
 
-    #bart {
-        -moz-background-size: 40px 42px;
-        -webkit-background-size: 40px 42px;
-        background-size: 40px 42px;
-        background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/muni.svg');
+    .hide {
+      display: none;
     }
 
-    #burger {
-        -moz-background-size: 40px 38px;
-        -webkit-background-size: 40px 38px;
-        background-size: 40px 38px;
-        background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/food.svg');
+    .name {
+      font-size: 1.125em;
+      margin: 4px 0 -3px;
     }
 
-    #calendar {
-        -moz-background-size: 40px 42px;
-        -webkit-background-size: 40px 42px;
-        background-size: 40px 42px;
-        background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/calendar.svg');
+    .employee-title {
+      color: $light-text-color;
+      font-weight: 500;
+      letter-spacing: 1px;
+      margin: 0;
+      text-transform: uppercase;
+    }
+  }
+
+  .jobs-list {
+    background-color: #ebeff1;
+    li {
+      border: 1px solid #eee;
+      list-style: none;
+
+      a {
+        background-color: #fff;
+        color: #131313;
+        display: block;
+        font-size: 14px;
+        padding: .9em 23px;
+        text-align: center;
+
+        &:hover {
+          text-decoration: none;
+          background-color: $faint-gray-bg;
+        }
+      }
     }
 
-    #health {
-        -moz-background-size: 40px 60px;
-        -webkit-background-size: 40px 60px;
-        background-size: 40px 60px;
-        background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/health.svg');
+  }
+
+  .department-title {
+    font-family: $body-font-family;
+    color: $brand-navy-blue;
+    font-size: 1em;
+    font-weight: 500;
+    margin: 1.5em 23px .5em 23px;
+    text-transform: uppercase;
+
+    &:first-child {
+      &:after {
+        color: black;
+        content: "LOCATION";
+        float: right;
+        font-size: 0.9em;
+        font-weight: 500;
+        margin-top: 0.2em;
+      }
+    }
+  }
+
+  .job-location {
+    color: #444;
+    float: none;
+    display: block;
+    font-size: .9em;
+  }
+
+  .benefits,
+  .communities {
+    li {
+      color: $text-color;
+      padding-left: 50px;
+      min-height: 60px;
+      background-repeat: no-repeat;
     }
 
-    #heart {
-        -moz-background-size: 40px 36px;
-        -webkit-background-size: 40px 36px;
-        background-size: 40px 36px;
-        background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/gym.svg');
+    h6,
+    p {
+      margin: 0;
+      font-size: 0.9em;
+      text-align: left;
     }
 
-    #piggybank {
-        -moz-background-size: 40px 34px;
-        -webkit-background-size: 40px 34px;
-        background-size: 40px 34px;
-        background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/piggy.svg');
+    h6 {
+      text-transform: uppercase;
     }
+  }
 
-    #pingpong {
-        -moz-background-size: 40px 46px;
-        -webkit-background-size: 40px 46px;
-        background-size: 40px 46px;
-        background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/pingpong.svg');
-    }
+  .communities {
+    margin-bottom: 20px;
+    margin-left: 50px;
+  }
+
+  #apple {
+    -moz-background-size: 40px 50px;
+    -webkit-background-size: 40px 50px;
+    background-size: 40px 50px;
+    background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/gear.svg');
+  }
+
+  #bart {
+    -moz-background-size: 40px 42px;
+    -webkit-background-size: 40px 42px;
+    background-size: 40px 42px;
+    background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/muni.svg');
+  }
+
+  #burger {
+    -moz-background-size: 40px 38px;
+    -webkit-background-size: 40px 38px;
+    background-size: 40px 38px;
+    background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/food.svg');
+  }
+
+  #calendar {
+    -moz-background-size: 40px 42px;
+    -webkit-background-size: 40px 42px;
+    background-size: 40px 42px;
+    background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/calendar.svg');
+  }
+
+  #health {
+    -moz-background-size: 40px 60px;
+    -webkit-background-size: 40px 60px;
+    background-size: 40px 60px;
+    background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/health.svg');
+  }
+
+  #heart {
+    -moz-background-size: 40px 36px;
+    -webkit-background-size: 40px 36px;
+    background-size: 40px 36px;
+    background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/gym.svg');
+  }
+
+  #piggybank {
+    -moz-background-size: 40px 34px;
+    -webkit-background-size: 40px 34px;
+    background-size: 40px 34px;
+    background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/piggy.svg');
+  }
+
+  #pingpong {
+    -moz-background-size: 40px 46px;
+    -webkit-background-size: 40px 46px;
+    background-size: 40px 46px;
+    background-image: url('https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/pingpong.svg');
+  }
   .dropdown-cont {
     border-radius: 1px;
     padding: 7px 25px;
@@ -210,7 +210,7 @@ body.jobs-layout {
     h2 { text-align: center; }
 
     #lead-image {
-      background: image-url("jobs/office-photo-shanann.jpg") no-repeat center top;
+      background: url("https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/jobs/office-photo-shanann.jpg") no-repeat center top;
       background-size: cover;
       height: 660px;
       position: relative;
@@ -272,34 +272,34 @@ body.jobs-layout {
 }
 
 @media only screen and(min-width: $desktop-min-width) {
-    body.jobs-layout {
-        #main-nav-cont {
-            background: none;
-        }
-
-        #top-nav-cont {
-            //border-bottom: none;
-        }
-
-        #main {
-            margin-top: -58px;
-        }
-
-        #main-nav-cont {
-            position: relative;
-            z-index: 2;
-        }
-        .benefits,
-        .communities {
-            padding: 40px 0;
-        }
-
-        .communities {
-          width: 37%;
-        }
-
-        #job-list-cont {
-          width: 760px;
-        }
+  body.jobs-layout {
+    #main-nav-cont {
+      background: none;
     }
+
+    #top-nav-cont {
+      //border-bottom: none;
+    }
+
+    #main {
+      margin-top: -58px;
+    }
+
+    #main-nav-cont {
+      position: relative;
+      z-index: 2;
+    }
+    .benefits,
+    .communities {
+      padding: 40px 0;
+    }
+
+    .communities {
+      width: 37%;
+    }
+
+    #job-list-cont {
+      width: 760px;
+    }
+  }
 }
