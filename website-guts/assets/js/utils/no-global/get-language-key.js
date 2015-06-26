@@ -4,24 +4,18 @@
  * @param {String} `data` string of form data encoded by oForm
  * @return {String} encoded locale string to be appended to the oForm `data` string in the oForm middleware
  */
+function tld2locale(tld){
+  switch(tld){
+    case 'de': return 'de_DE';
+    case 'fr': return 'fr_FR';
+    case 'es': return 'es_ES';
+    case 'jp': return 'ja_JP';
+    default: return 'en_US';
+  }
+}
 
 module.exports = function() {
-  var DEFAULT_KEY = 'en_US';
+  // extract TLD from current URL
   var tld = window.location.hostname.split('.').pop();
-  var langKey;
-
-  if(window.optly.l10n && window.optly.l10n.locales) {
-    for(var key in window.optly.l10n.locales) {
-      if(key === tld) {
-        langKey = window.optly.l10n.locales[key];
-        break;
-      }
-    }
-  }
-
-  if(!langKey) {
-    langKey = DEFAULT_KEY;
-  }
-
-  return window.encodeURI('&locale=' + langKey);
+  return window.encodeURI('&locale=' + tld2locale(tld));
 };

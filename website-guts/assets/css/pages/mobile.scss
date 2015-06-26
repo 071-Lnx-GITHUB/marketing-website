@@ -100,7 +100,6 @@ body.mobile-page {
     }
     padding: 60px 0;
     > * {
-      font-family: $body-font-family;
       color: $mobile-page-grey;
     }
     h1,
@@ -136,13 +135,8 @@ body.mobile-page {
     p {
       line-height: 2;
     }
-    i {
-      font-family: $sentinel-font-family;
-      font-weight: 500;
-    }
-    strong {
-      font-weight: 500;
-    }
+    i,
+    strong { font-weight: 500; }
     img {
       display: inline-block;
       width: 100%;

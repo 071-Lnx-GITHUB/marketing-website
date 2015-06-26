@@ -88,7 +88,7 @@ body.non-profits-page {
       transition: all 0.2s linear;
     }
     &.successful-submit {
-      &:hover:before, 
+      &:hover:before,
       &:before {
         transform: translateX(100%);
       }
@@ -126,28 +126,15 @@ body.non-profits-page {
     padding: 60px 0;
     text-align: center;
     > * {
-      font-family: $body-font-family;
       text-align: center;
     }
     h1,
     h2,
     h3,
-    strong {
-      font-family: $body-font-family;
-    }
-    h3 {
-      font-weight: 100;
-    }
-    p {
-      line-height: 2;
-    }
-    i {
-      font-family: $sentinel-font-family;
-      font-weight: 500;
-    }
-    strong {
-      font-weight: 500;
-    }
+    h3 { font-weight: 100; }
+    p { line-height: 2; }
+    i,
+    strong { font-weight: 500; }
     img {
       display: inline-block;
       width: 100%;
@@ -273,8 +260,8 @@ body.non-profits-page {
       display: inline-block;
       &:after {
         content: "";
-        width: 0; 
-        height: 0; 
+        width: 0;
+        height: 0;
         border-top: 5px solid transparent;
         border-bottom: 5px solid transparent;
         border-left: 7px solid #fff;
