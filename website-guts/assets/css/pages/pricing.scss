@@ -1,5 +1,5 @@
 body.pricing {
-  #page-content { background-color: white; }
+  #page-content { background-color: $white; }
   .current-plan-message { display: none; }
   /*           */
   /*PAGE HEADER*/
@@ -143,13 +143,13 @@ body.pricing {
 }
 
 body.pricing.plan-enterprise {
-  .starter-cta {display: none;}
-  .enterprise-cta {display: none;}
-  .current-plan-message.enterprise-message {display: block;}
+  .starter-cta { display: none; }
+  .enterprise-cta { display: none; }
+  .current-plan-message.enterprise-message { display: block; }
 }
 
 body.pricing.plan-free_light {
-  .starter-cta  { display: none; }
+  .starter-cta { display: none; }
   .current-plan-message.starter-message { display: block; }
 }
 
@@ -162,9 +162,7 @@ body.pricing.plan-free_light {
       }
     }
     .title-section {
-      .title-copy {
-        font-size: 3em;
-      }
+      .title-copy { font-size: 3em; }
     }
     .benefits-section {
       .benefit-item {
