@@ -1,12 +1,12 @@
 //for scroll tracking
-w.optimizelyScrollTrackerID = '/pricing';
+w.optimizelyScrollTrackerID = '/plans';
 
 $('#talk-to-us').on('click', function(e){
   w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
   e.preventDefault();
 });
 
-$('#feature-list-talk-to-us').on('click', function(e){
+$('.js-enterprise-plan-cta').on('click', function(e){
   w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
   e.preventDefault();
 });
@@ -42,11 +42,11 @@ var updatePlanInfo = function(){
       w.optly.mrkt.user.acctData.plan_id === 'enterprise-twoyear' ||
       startsWithC.test(w.optly.mrkt.user.acctData.plan_id)
     ) {
-      $('#feature-list-get-started-now').remove();
+      $('.js-starter-plan-cta').remove();
     }
   }
 
-  $('#feature-list-get-started-now').on('click', function(e){
+  $('.js-starter-plan-cta').on('click', function(e){
     $('#signup-form input[name="Initial_Form_Source__c"]').val('Pricing Signup form');
     $('#signup-form input[name="Inbound_Lead_Form_Type__c"]').val('Pricing Signup form');
     if(typeof w.optly.mrkt.user.acctData === 'object'){
@@ -92,7 +92,7 @@ var updatePlanInfo = function(){
         //sign the user up for the starter plan
 
         //prevents user from creating multiple accounts while waiting for ajax call to return, greys out button:
-        $('#feature-list-get-started-now').off('click').addClass('disabled');
+        $('.js-starter-plan-cta').off('click').addClass('disabled');
         var redirectPath = w.apiDomain + '/welcome';
         if (w.optly.mrkt.utils.getURLParameter('source') === 'mobile_editor') {
           var continueTo = w.optly.mrkt.utils.getURLParameter('continue_to');
