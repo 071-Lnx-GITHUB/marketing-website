@@ -1,6 +1,6 @@
 ---
 layout: no-sub-nav-optional-page-header
-TR_visible_title: Plans
+TR_visible_title: Choose Between Optimizely's Two Plans
 body_class:
 - pricing
 no_container: true
@@ -23,57 +23,9 @@ TR_og_description: "Get started optimizing instantly, or build a custom plan for
   <div class="container">
     <div class="page-subheader-cont">
       <h1>{{this.visible_title}}</h1>
-      <div class="header-cta-container">
-        {{#with page_data.page_header}}
-        <a class="talk-button" id="talk-to-us" href="#">{{cta}}</a>
-        <p>{{or_word}}</p>
-        <p id="SL-pricing-phone-number-1" class="SL_swap">
-        <span>
-          US: <a href="tel:{{us_phone_number}}">{{us_phone_number}}</a><br>
-        </span>
-        <span>
-          UK: <a href="tel:{{uk_phone_number}}">{{uk_phone_number}}</a>
-        </span>
-        </p>
-        {{/with}}
-      </div>
     </div>
   </div>
 </div>
-
-
-<!--             -->
-<!--Title Section-->
-<!--             -->
-{{#with page_data.title_section}}
-<section class="title-section">
-  <h1 class="title-copy">{{{title}}}</h1>
-  <div class="buttons-container">
-    <a class="explore" id="explore-features" href="#feature-list">
-      <span>{{button_text}}</span>
-    </a>
-  </div>
-</section>
-{{/with}}
-
-
-<!--                -->
-<!--Benefits Section-->
-<!--                -->
-{{#with page_data.benefits_section}}
-<section class="benefits-section">
-  <h2 class="title-copy">{{title}}</h2>
-  <div class="benefit-items-container container">
-    {{#each benefits}}
-    <div class="benefit-item four" style="background-image: url('{{icon}}')">
-      <h3>{{title}}</h3>
-      <p{{#is @index 1}} id="SL_powerful-text" class="SL_swap"{{/is}}>{{desc}}</p>
-    </div>
-    {{/each}}
-  </div>
-</section>
-{{/with}}
-
 
 <!--             -->
 <!---Feature List-->

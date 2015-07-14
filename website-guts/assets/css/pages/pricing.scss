@@ -1,7 +1,6 @@
 body.pricing {
-  #page-content {
-    background-color: white;
-  }
+  #page-content { background-color: white; }
+  .current-plan-message { display: none; }
   /*           */
   /*PAGE HEADER*/
   /*           */
@@ -144,14 +143,14 @@ body.pricing {
 }
 
 body.pricing.plan-enterprise {
-  #feature-list-get-started-now {display: none;}
-  #feature-list-talk-to-us {display: none;}
-  #feature-list-enterprise-cta-cont .current-plan-message {display: block;}
+  .starter-cta {display: none;}
+  .enterprise-cta {display: none;}
+  .current-plan-message.enterprise-message {display: block;}
 }
 
 body.pricing.plan-free_light {
-  #feature-list-get-started-now {display: none;}
-  #feature-list-starter-cta-cont .current-plan-message {display: block;}
+  .starter-cta  { display: none; }
+  .current-plan-message.starter-message { display: block; }
 }
 
 @media screen and (min-width: $tablet-min-width) {
@@ -173,10 +172,5 @@ body.pricing.plan-free_light {
         width: 33%;
       }
     }
-  }
-}
-
-@media screen and (min-width: $desktop-min-width) {
-  body.pricing {
   }
 }

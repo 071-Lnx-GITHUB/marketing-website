@@ -3,7 +3,6 @@
 /*            */
 
 #feature-list {
-  .current-plan-message {display: none;}
   /*Title Section*/
   .title-table-header {
     * {
@@ -31,9 +30,7 @@
     }
   }
   /*Table Sections*/
-  .table ~ .table {
-    margin-top: 75px;
-  }
+  .table ~ .table { margin-top: 45px; }
   .table {
     .table-header {
       border-top: 2px solid #DFDFDF;
@@ -121,19 +118,20 @@
   }
   /*CTA Section*/
   .cta {
-    margin-bottom: 150px;
+    margin: 30px;
     * { text-align: center; }
     h1 {
       font: 1.7em $body-font-family;
       color: #696F72;
       line-height: 29px;
-      margin-bottom: 25px;
+      margin: 5px 0 25px;
     }
     .starter {
       width: 50%;
       float: left;
     }
     .enterprise {
+      padding-left: 5%;
       width: 50%;
       float: right;
     }
@@ -190,6 +188,7 @@
 
 @media only screen and (min-width: $desktop-min-width) {
   #feature-list {
+    margin-bottom: 75px;
     .title-table-header {
       .starter {
         margin-left: 34.043%;

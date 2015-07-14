@@ -18,6 +18,18 @@
   <!--Feature Tables-->
   <!--              -->
   {{#each tables}}
+  <div class="cta row">
+    <div class="starter columns four offset-four">
+      <h1>{{../calls_to_action.starter.label}}</h1>
+      <p class="current-plan-message starter-message">{{../current_plan_message}}</p>
+      <a class="starter-cta js-starter-plan-cta">{{../calls_to_action.starter.button_text}}</a>
+    </div>
+    <div class="enterprise columns four">
+      <h1>{{../calls_to_action.enterprise.label}}</h1>
+      <p class="current-plan-message enterprise-message">{{../current_plan_message}}</p>
+      <a class="enterprise-cta js-enterprise-plan-cta">{{../calls_to_action.enterprise.button_text}}</a>
+    </div>
+  </div>
   <div class="table">
     <div class="table-header row">
       <p class="table-title columns four">{{this.title}}</p>
@@ -76,13 +88,13 @@
   <div class="cta row">
     <div class="starter columns four offset-four" id="feature-list-starter-cta-cont">
       <h1 class="">{{calls_to_action.starter.label}}</h1>
-      <p class="current-plan-message">{{current_plan_message}}</p>
-      <a class="starter-cta" id="feature-list-get-started-now">{{calls_to_action.starter.button_text}}</a>
+      <p class="current-plan-message starter-message">{{current_plan_message}}</p>
+      <a class="starter-cta js-starter-plan-cta">{{calls_to_action.starter.button_text}}</a>
     </div>
     <div class="enterprise columns four" id="feature-list-enterprise-cta-cont">
       <h1 class="">{{calls_to_action.enterprise.label}}</h1>
-      <p class="current-plan-message">{{current_plan_message}}</p>
-      <a class="enterprise-cta" id="feature-list-talk-to-us">{{calls_to_action.enterprise.button_text}}</a>
+      <p class="current-plan-message enterprise-message">{{current_plan_message}}</p>
+      <a class="enterprise-cta js-enterprise-plan-cta" >{{calls_to_action.enterprise.button_text}}</a>
     </div>
   </div>
   {{/with}}
