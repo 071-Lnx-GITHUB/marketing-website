@@ -122,8 +122,8 @@ var updatePlanInfo = function(){
     e.preventDefault();
   });
 };
+updatePlanInfo();
 
-w.optly_q.push([updatePlanInfo]);
 w.optly.mrkt.activeModals['signup-form'].remove();
 var signupHelper = w.optly.mrkt.form.createAccount({formId: 'signup-form', dialogId: 'signup-dialog'});
 w.optly.mrkt.activeModals = w.optly.mrkt.activeModals || {};
