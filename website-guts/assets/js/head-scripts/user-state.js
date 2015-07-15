@@ -380,7 +380,7 @@ window.optly.mrkt.services.xhr = {
     var isCcTld = ccTLD.indexOf(tld) !== -1;
     var deferreds;
 
-    if ( !!this.readCookie('optimizely_signed_in') || /^www.optimizelystaging.com/.test(window.location.hostname) || isCcTld ) {
+    if ( !!this.readCookie('optimizely_signed_in') || isCcTld ) {
       deferreds = this.makeRequest(requestParams);
     } else {
       window.optly_q = window.optly.mrkt.Optly_Q();
