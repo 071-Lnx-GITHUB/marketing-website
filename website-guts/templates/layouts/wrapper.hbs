@@ -281,6 +281,9 @@ layout_modals:
           optly.mrkt = optly.mrkt || {};
           optly.mrkt.assetsDir = '{{assetsDir}}';
         </script>
+        {{#addLocaleDict}}
+          <script src="{{../assetsDir}}/js/dict.{{this.dictKey}}.js"></script>
+        {{/addLocaleDict}}
         <script src="{{assetsDir}}/js/commons.js" defer></script>
         <script src="{{assetsDir}}/js/bundle.js" defer></script>
         {{#if this.script_dependencies}}
