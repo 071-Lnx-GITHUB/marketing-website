@@ -17,6 +17,12 @@ var uiTest = {
   homepage: {
     src: ['test/homepage/*-spec.js']
   },
+  'features-and-plans': {
+    src: ['test/features-and-plans/*-spec.js']
+  },
+  'l10n': {
+    src: ['test/l10n/*-spec.js']
+   },
   'marketing-events': {
     src: ['test/marketing-events/*-spec.js']
   },

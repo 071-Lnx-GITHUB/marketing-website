@@ -167,10 +167,10 @@ module.exports = function(grunt) {
     'clean:postBuild'
   ]);
 
-  grunt.registerTask('ui-test', function(which) {
+  grunt.registerTask('ui-test', function() {
     var tasks = [
       'config:dev',
-      'jshint:test',
+      'jshint:test'
     ];
 
     if(!grunt.option('target')) {

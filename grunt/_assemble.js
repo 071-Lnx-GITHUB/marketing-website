@@ -22,8 +22,31 @@ var config = {
     modalsDir: '<%= config.guts %>/templates/components/modals',
     pageContentNamespace: 'page_data',
     subfoldersRoot: 'subfolders',
-    locales: {},
-    ppcKey: ppcKey
+    smartlingConfigs: {
+      'dev': 'smartlingConfig_sandbox_pseudo.json',
+      'real': 'smartlingConfig_sandbox_real.json',
+      'staging': 'smartlingConfig_sandbox_real.json',
+      'custom': 'smartlingConfig_custom.json',
+      'production': 'smartlingConfig_prod.json',
+    },
+    locales: {
+      'de': 'de_DE',
+      //'fr': 'fr_FR',
+      //'es': 'es_ES',
+      //'jp': 'ja_JP'
+    },
+    tranlatedTypes: [
+      'partials',
+      'modals'
+    ],
+    ppcKey: ppcKey,
+    omitFromSubfolders: [
+      '!om/**/*.hbs',
+      '!opticon/**/*.hbs',
+      '!features-and-plans/**/*.hbs',
+      '!feature-list/**/*.hbs',
+      '!404/**/*.hbs'
+    ]
   },
   modals: {
     options: {
