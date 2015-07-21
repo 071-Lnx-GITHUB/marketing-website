@@ -29,10 +29,17 @@
     margin-bottom: 10px;
     margin-top: 80px;
   }
-  .phone-number {
-    margin-top: 10px;
-    font-size: 1.9em;
+  .phone-container {
+    margin-right: auto;
+    margin-left: auto;
     text-align: center;
+  }
+  .phone-number {
+    text-align: left;
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1.2em;
+    text-align: left;
     color: #696F72;
     a {
       color: $brand-blue;
@@ -42,8 +49,9 @@
 
 @media only screen and (min-width: $tablet-min-width) {
   .faq-section {
-    .faq-container {
-      width: 500px;
+    .faq-container { width: 500px; }
+    .phone-number {
+      font-size: 1.9em; 
     }
   }
 }
