@@ -380,7 +380,7 @@ window.optly.mrkt.services.xhr = {
     var isCcTld = ccTLD.indexOf(tld) !== -1;
     var deferreds;
 
-    if ( !!this.readCookie('optimizely_signed_in') || isCcTld ) {
+    if ( !!this.readCookie('optimizely_signed_in') || /^www.optimizelystaging.com/.test(window.location.hostname) || isCcTld ) {
       deferreds = this.makeRequest(requestParams);
     } else {
       window.optly_q = window.optly.mrkt.Optly_Q();
@@ -394,10 +394,7 @@ window.optly.mrkt.services.xhr = {
 (function() {
   'use strict';
 
-  var acctParams,
-    expParams;
-
-  acctParams = {
+  var acctParams = {
     type: 'GET',
     url: window.apiDomain + '/account/info',
     properties: {
@@ -408,22 +405,5 @@ window.optly.mrkt.services.xhr = {
       withCredentials: true
     }
   };
-
-  expParams = {
-    type: 'GET',
-    url: window.apiDomain + '/experiment/load_recent?max_experiments=5',
-    properties: {
-      experiments: {
-        id: 'number',
-        description: 'string',
-        has_started: 'boolean',
-        can_edit: 'boolean'
-      }
-    },
-    xhrFields: {
-      withCredentials: true
-    }
-  };
-
-  window.optly.mrkt.services.xhr.getLoginStatus([acctParams, expParams]);
+  window.optly.mrkt.services.xhr.getLoginStatus(acctParams);
 }());
