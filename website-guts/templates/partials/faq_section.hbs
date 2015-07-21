@@ -10,9 +10,16 @@
     {{/each}}
   </div>
   <p class="contact-text">{{contact.text}}</p>
-  <p id="SL-pricing-phone-number-2" class="SL_swap phone-number">
-  US: <a href="tel:{{contact.us_phone_number}}">{{contact.us_phone_number}}</a><br>
-  UK: <a href="tel:{{contact.uk_phone_number}}">{{contact.uk_phone_number}}</a>
-  </p>
+  <div class="phone-container"> 
+    <p id="SL-pricing-phone-number-2" class="SL_swap phone-number">
+    US: <a href="tel:{{contact.us_phone_number}}">{{contact.us_phone_number}}</a><br>
+    UK: <a href="tel:{{contact.uk_phone_number}}">{{contact.uk_phone_number}}</a><br>
+    NL: <a href="tel:{{contact.nl_phone_number}}">{{contact.nl_phone_number}}</a><br>
+    DE: <a href="tel:{{contact.de_phone_number}}">{{contact.de_phone_number}}</a><br>
+    FR: <a href="tel:{{contact.fr_phone_number}}">{{contact.fr_phone_number}}</a><br>
+    ES: <a href="tel:{{contact.es_phone_number}}">{{contact.es_phone_number}}</a><br>
+    JP: <a href="tel:{{contact.jp_phone_number}}">{{contact.jp_phone_number}}</a>
+    </p>
+  </div>
 {{/with}}
 </section>
