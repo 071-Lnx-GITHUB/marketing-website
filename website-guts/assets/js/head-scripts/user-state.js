@@ -160,7 +160,6 @@ window.optly.mrkt.services.xhr = {
       }
       $.when.(deferredPromise).then(function(response) {
         window.optly_q = window.optly.mrkt.Optly_Q(response);
-        return deferredPromise;
       });
     }
   },
