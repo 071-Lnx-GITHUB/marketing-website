@@ -1,10 +1,7 @@
 //for scroll tracking
 w.optimizelyScrollTrackerID = '/plans';
 
-$('#talk-to-us').on('click', function(e){
-  w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
-  e.preventDefault();
-});
+$('[smooth-scroll]').on('click', w.optly.mrkt.utils.smoothScroll);
 
 $('.js-enterprise-plan-cta').on('click', function(e){
   w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
