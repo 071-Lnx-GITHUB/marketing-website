@@ -158,7 +158,10 @@ window.optly.mrkt.services.xhr = {
       if (request.properties !== undefined) {
         this.handleErrors( deferredPromise, request.url, request.properties );
       }
-      return deferredPromise;
+      $.when.(deferredPromise).then(function(response) {
+        window.optly_q = window.optly.mrkt.Optly_Q(response);
+        return deferredPromise;
+      });
     }
   },
 
