@@ -148,19 +148,21 @@ window.optly.mrkt.services.xhr = {
       this.resolveDeferreds(deferreds);
       return deferreds;
     }
-    // If single request, then return the promise directly
     else {
-      deferredPromise = $.ajax({
+      deferredPromise = $.when( $.ajax({
         type: request.type,
         url: request.url,
         xhrFields: request.xhrFields ? request.xhrFields : {}
+      }) );
+      //if (request.properties !== undefined) {
+        //this.handleErrors( deferredPromise, request.url, request.properties );
+      //}
+      $.when(deferredPromise).then(function(data) {
+        oldQue = window.optly_q;
+        window.optly_q = window.optly.mrkt.Optly_Q(data);
+        window.optly_q.push(oldQue);
       });
-      if (request.properties !== undefined) {
-        this.handleErrors( deferredPromise, request.url, request.properties );
-      }
-      $.when.(deferredPromise).then(function(response) {
-        window.optly_q = window.optly.mrkt.Optly_Q(response);
-      });
+      return deferredPromise;
     }
   },
 
@@ -407,5 +409,6 @@ window.optly.mrkt.services.xhr = {
       withCredentials: true
     }
   };
+
   window.optly.mrkt.services.xhr.getLoginStatus(acctParams);
 }());
