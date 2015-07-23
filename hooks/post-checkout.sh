@@ -1,21 +1,13 @@
 #!/bin/bash
 
-# Check git config push default for safety.
-pushdefault=$(git config push.default || echo '')
-if [ "$pushdefault" != "current" ]; then
-  echo "WARNING: Your git config's push.default is not set to current branch.\
-  \nTo fix this, please run: git config --global push.default current && git config --local --unset push.default"
-fi
+source ~/.nvm/nvm.sh
 
-# Check git pull behavior for cleanliness.
-pullrebase=$(git config pull.rebase || echo '')
-pullff=$(git config pull.ff || echo '')
-gitversion=$(git --version)
-if [ "$pullrebase" == "true" ]; then
-  : # No warning.
-elif [ "$pullff" == "only" ] && [[ $gitversion =~ git\ version\ 2\.* ]]; then
-  : # No warning; this person probably keeps a clean git history.
-else
-  echo "WARNING: Your git config's pull.rebase is not set to true.\
-  \nTo fix this, please run: git config --global --bool pull.rebase true && git config --local --unset pull.rebase"
-fi
+# git hook to run a command after `git pull` if a specified file was changed
+changed_files="$(git diff-tree -r --name-only --no-commit-id HEAD@{1} HEAD)"
+
+check_run() {
+  echo "$changed_files" | grep --quiet "$1" && eval "$2"
+}
+
+check_run package.json "npm install"
+check_run bower.json "bower install"

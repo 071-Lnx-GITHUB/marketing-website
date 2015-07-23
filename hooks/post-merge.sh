@@ -1,45 +1,13 @@
 #!/bin/bash
 
-# Check if dependencies have changed after pull/merge and install if so.
-echo "Checking if dependencies are up to date..."
+source ~/.nvm/nvm.sh
 
-cd ../../
-packagefilename='package.json'
-packagemd5=`md5 -q $packagefilename`
+# git hook to run a command after `git pull` if a specified file was changed
+changed_files="$(git diff-tree -r --name-only --no-commit-id HEAD@{1} HEAD)"
 
-installedpackagefilename='package.installed'
-installedpackagemd5=''
-if [ -f $installedpackagefilename ]; then
-    installedpackagemd5=`cat $installedpackagefilename`
-fi
+check_run() {
+  echo "$changed_files" | grep --quiet "$1" && eval "$2"
+}
 
-if [ "$packagemd5" == "$installedpackagemd5" ]; then
-  echo 'package.json dependencies are up to date.'
-else
-  echo 'package.json dependencies are out of date. Running `npm install`.'
-  echo "  package.json:       $packagemd5"
-  echo "  package.installed:  $installedpackagemd5"
-  echo "$packagemd5" > $installedpackagefilename
-
-  npm install
-fi
-
-# bowerfilename='bower.json'
-# bowermd5=`md5 -q $bowerfilename`
-
-# installedbowerfilename='bower.installed'
-# installedbowermd5=''
-# if [ -f $installedbowerfilename ]; then
-#     installedbowermd5=`cat $installedbowerfilename`
-# fi
-
-# if [ "$bowermd5" == "$installedbowermd5" ]; then
-#   echo 'bower.json dependencies are up to date.'
-# else
-#   echo 'bower.json dependencies are out of date. Running `bower install`.'
-#   echo "  bower.json:       $bowermd5"
-#   echo "  bower.installed:  $installedbowermd5"
-#   echo "$bowermd5" > $installedbowerfilename
-
-#   bower install
-# fi
+check_run package.json "npm install"
+check_run bower.json "bower install"
