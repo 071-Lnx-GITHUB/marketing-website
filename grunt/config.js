@@ -1,24 +1,26 @@
-//get configs
-var config = function(grunt, options) {
+module.exports = function(grunt) {
 
-  function getSecretCreds(environment) {
-    try{
-      var secret_creds = grunt.file.read('./configs/secret/'+environment+'Config.json', {encoding: 'utf-8'});
-      if(secret_creds){
+  var getSecretCreds = function(environment) {
+    try {
+      var filePath = './configs/secret/' + environment + 'Config.json';
+      var secret_creds = grunt.file.read(filePath, { encoding: 'utf-8' });
+      
+      if (secret_creds) {
         secret_creds = JSON.parse(secret_creds);
       }
       return secret_creds;
-    } catch(err){
+    }
+    catch (err) {
       console.log('error reading secret credentials: ', err);
       return false;
     }
-
-  }
+  };
 
   return {
     options: {
       logOutput: false
     },
+
     production: {
       options: {
         variables: {
@@ -48,6 +50,7 @@ var config = function(grunt, options) {
         }
       }
     },
+
     staging: {
       options: {
         variables: {
@@ -77,32 +80,7 @@ var config = function(grunt, options) {
         }
       }
     },
-    smartlingStaging: {
-      options: {
-        variables: {
-          secret: getSecretCreds('staging'),
-          environment: 'smartling-staging',
-          exclude_from_assemble: '**/fixture.hbs',
-          environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
-          apiDomain: '//app.optimizely.com',
-          assetsDir: '/assets',
-          link_path: '',
-          sassImagePath: '/assets/img',
-          imageUrl: '/assets/img',
-          compress_js: true,
-          drop_console: false,
-          concat_banner: '(function($, w, d){ \n\n' +
-            '  window.optly = window.optly || {}; \n\n' +
-            '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
-            '  try { \n\n',
-          concat_footer: '  } catch(error){ \n\n' +
-            '  //report errors to GA \n\n' +
-            '  window.console.log("js error: " + error);' +
-            '  } \n' +
-            '})(jQuery, window, document);'
-        }
-      }
-    },
+
     dev: {
       options: {
         variables: {
@@ -124,6 +102,7 @@ var config = function(grunt, options) {
         }
       }
     },
+
     release: {
       options: {
         variables: {
@@ -162,5 +141,3 @@ var config = function(grunt, options) {
   };
 
 };
-
-module.exports = config;

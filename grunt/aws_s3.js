@@ -3,51 +3,46 @@ module.exports = {
     accessKeyId: '<%= secret.aws_key %>',
     secretAccessKey: '<%= secret.aws_secret %>',
     uploadConcurrency: 50,
-    progress: 'progressBar',
-   },
-   staging: {
-     options: {
-       bucket: '<%= secret.s3_bucket %>'
-     },
-     expand: true,
-     src: '**',
-     cwd: '<%= config.dist %>/',
-     dest: '<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/',
-   },
-   production: {
-     options: {
-       bucket: '<%= secret.s3_bucket %>'
-     },
-     expand: true,
-     src: '**/*',
-     dest: '/',
-     cwd: '<%= config.dist %>/',
-   },
-   smartling: {
-     options: {
-       bucket: '<%= secret.smartling_bucket %>'
-     },
-     expand: true,
-     src: '**/*',
-     cwd: '<%= config.dist %>/',
-     dest: '/',
-   },
-   productionClear: {
-     options: {
-       differential: true,
-       bucket: '<%= secret.s3_bucket %>'
-     },
-     action: 'delete',
-     cwd: '<%= config.dist %>/',
-     dest: '/'
-   },
-   stagingClear: {
-     options: {
-       differential: true,
-       bucket: '<%= secret.s3_bucket %>'
-     },
-     action: 'delete',
-     cwd: '<%= config.dist %>/',
-     dest: '<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/',
+    progress: 'progressBar'
   },
+
+  production: {
+    options: {
+      bucket: '<%= secret.s3_bucket %>'
+    },
+    expand: true,
+    cwd: '<%= config.dist %>/',
+    src: '**',
+    dest: '/'
+  },
+
+  productionClear: {
+    options: {
+      bucket: '<%= secret.s3_bucket %>',
+      differential: true
+    },
+    action: 'delete',
+    cwd: '<%= config.dist %>/',
+    dest: '/'
+  },
+
+  staging: {
+    options: {
+      bucket: '<%= secret.s3_bucket %>'
+    },
+    expand: true,
+    cwd: '<%= config.dist %>/',
+    src: '**',
+    dest: '<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/'
+  },
+
+  stagingClear: {
+    options: {
+      bucket: '<%= secret.s3_bucket %>',
+      differential: true
+    },
+    action: 'delete',
+    cwd: '<%= config.dist %>/',
+    dest: '<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/'
+  }
 };
