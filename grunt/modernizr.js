@@ -1,24 +1,29 @@
 module.exports = {
   build: {
     devFile: '<%= config.guts %>/assets/js/libraries/modernizr.2.8.3.js',
-    outputFile: '<%= config.temp %>/assets/js/libraries/modernizr.2.8.3.min.js',
-    uglify: true,
-    tests: ['teststyles'],
     files: {
-      src: ['<%= config.guts %>/assets/js/**/*.js',
-            '!<%= config.guts %>/assets/js/libraries/*.js',
-            '<%= config.guts %>/assets/css/**/*.scss']
+      src: [
+        '<%= config.guts %>/assets/css/**/*.scss',
+        '<%= config.guts %>/assets/js/**/*.js',
+        '!<%= config.guts %>/assets/js/libraries/*.js'
+      ]
     },
+    outputFile: '<%= config.temp %>/assets/js/libraries/modernizr.2.8.3.min.js',
+
     extensibility : {
       addtest: true,
-      teststyles: true,
-      testprops: true,
       testallprops: true,
+      testprops: true,
+      teststyles: true
     },
-    matchCommunityTests: true,
-    parseFiles: true,
+
     extra: {
       'cssanimations': true
-    }
+    },
+
+    matchCommunityTests: true,
+    parseFiles: true,
+    tests: ['teststyles'],
+    uglify: true
   }
 };

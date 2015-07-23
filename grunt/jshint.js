@@ -1,34 +1,33 @@
 module.exports = {
+  // http://jshint.com/docs/options/
   options: {
-    trailing: true,
-    forin: false,
-    strict: false,
     curly: true,
-    esnext: true,
     eqeqeq: true,
-    indent: 4,
-    unused: 'vars',
+    esnext: true,
+    forin: false,
     latedef: true,
-    noempty: true,
     nonbsp: true,
+    quotmark: 'single',
+    strict: false,
     undef: true,
-    quotmark: 'single'
+    unused: 'vars' // TODO: 'strict'
   },
+
   test: {
     options: {
       browser: true,
-      node: true,
       globals: {
-        mocha: false,
-        it: false,
-        console: false,
-        describe: false,
         before: false,
         beforeEach: false,
+        console: false,
+        describe: false,
+        it: false,
+        mocha: false,
+        runs: false,
         waits: false,
-        waitsFor: false,
-        runs: false
-      }
+        waitsFor: false
+      },
+      node: true
     },
     files: {
       src: [
@@ -38,16 +37,18 @@ module.exports = {
       ]
     }
   },
+
+  // TODO: get this to pass?
   clientProd: {
     options: {
       browser: true,
       globals: {
-        jQuery: false,
         $: false,
-        Oform: false,
-        w: false,
         d: false,
-        Modernizr: true
+        jQuery: false,
+        Modernizr: true,
+        Oform: false,
+        w: false
       }
     },
     files: {
@@ -58,19 +59,21 @@ module.exports = {
       ]
     }
   },
+
+  // TODO: get this to pass?
   clientDev: {
     options: {
       browser: true,
       debug: true,
       globals: {
-        jQuery: false,
-        console: false,
         _gaq: false,
         $: false,
-        Oform: false,
-        w: false,
+        console: false,
         d: false,
-        Modernizr: true
+        jQuery: false,
+        Modernizr: true,
+        Oform: false,
+        w: false
       }
     },
     files: {
@@ -81,30 +84,31 @@ module.exports = {
       ]
     }
   },
+
   server: {
     options: {
-      node: true,
       debug: true,
       expr: true,
+      node: true,
       globals: {
-        mocha: false,
-        it: false,
+        before: false,
+        beforeEach: false,
         console: false,
         describe: false,
-        beforeEach: false,
-        before: false,
+        it: false,
+        mocha: false,
+        runs: false,
         waits: false,
-        waitsFor: false,
-        runs: false
+        waitsFor: false
       }
     },
     files: {
       src: [
-        '<%= config.guts %>/helpers/*.js',
-        'grunt/**/*.js',
         'Gruntfile.js',
-        '!grunt/assemble/test/fixture/**/*.js',
-        '!grunt/assemble/test/config/**/*.js'
+        'grunt/**/*.js',
+        '<%= config.guts %>/helpers/*.js',
+        '!grunt/assemble/test/config/**/*.js',
+        '!grunt/assemble/test/fixture/**/*.js'
       ]
     }
   }

@@ -7,6 +7,7 @@ module.exports = {
       return path.replace(/^dist/, '');
     }
   },
+
   html: {
     files: [
       {
@@ -17,6 +18,7 @@ module.exports = {
       }
     ]
   },
+
   css: {
     files: [
       {

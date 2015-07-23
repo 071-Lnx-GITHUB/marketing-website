@@ -1,10 +1,10 @@
-var webpack = require('webpack');
-var ProgressPlugin = require('webpack/lib/ProgressPlugin');
-var path = require('path');
 var _ = require('lodash');
 var makeConfig = require('./make-webpack-config');
+var path = require('path');
+var webpack = require('webpack');
+var ProgressPlugin = require('webpack/lib/ProgressPlugin');
 
-module.exports = function (grunt) {
+module.exports = function(grunt) {
 
   grunt.registerTask('webpack', 'Webpack', function () {
     var done = this.async();
@@ -24,10 +24,6 @@ module.exports = function (grunt) {
      *   'layouts/seo': ['./website-guts/assets/js/layouts/seo.js'],
      *   'pages/android': '[./website-guts/assets/js/pagess/android.js]'
      * };
-     *
-     */
-
-    /**
      */
     var expandPath = function(basePath, dirs) {
       return grunt.file.expand({cwd: basePath}, dirs).reduce(function(map, filepath) {

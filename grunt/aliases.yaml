@@ -1,0 +1,75 @@
+---
+default: server
+
+build-dev:
+  description: 'Build un-minified assets.'
+  tasks:
+    - 'jshint:test'
+    - 'jshint:server'
+    - 'clean:preBuild'
+    - 'assemble'
+    - 'modernizr'
+    - 'concat'
+    - 'webpack'
+    - 'sass:dev'
+    - 'postcss'
+    - 'copy'
+    - 'clean:postBuild'
+
+build-deploy:
+  description: 'Build assets to deploy.'
+  tasks:
+    - 'jshint:server'
+    - 'clean:preBuild'
+    - 'assemble'
+    - 'modernizr'
+    - 'concat'
+    - 'webpack'
+    - 'sass:prod'
+    - 'postcss'
+    - 'copy'
+    - 'uglify'
+    - 'filerev'
+    - 'userevvd'
+    - 'clean:postBuild'
+
+deploy-production:
+  description: '[RUN ON JENKINS] Build assets and deploy to production.'
+  tasks:
+    - 'config:production'
+    - 'build-deploy'
+    - 'aws_s3:productionClear'
+    - 'aws_s3:production'
+    - 'fastly:production'
+
+deploy-staging:
+  description: '[RUN ON JENKINS] Build assets and deploy to staging.'
+  tasks:
+    - 'gitinfo'
+    - 'config:staging'
+    - 'build-deploy'
+    - 'aws_s3:stagingClear'
+    - 'aws_s3:staging'
+    - 'fastly:staging'
+
+om-test:
+  description: 'Used by grunt ui-test TODO: clean up'
+  tasks:
+    - open
+
+server:
+  description: 'Build dev assets and run a local server with mocked enpoints.'
+  tasks:
+    - 'config:dev'
+    - 'build-dev'
+    - 'connect:livereload'
+    - 'watch'
+
+test:
+  description: 'Build dev assets, start server and run UI Nightmare tests. Server will die after tests complete.'
+  tasks:
+    - 'config:dev'
+    - 'build-dev'
+    - 'connect:resemble'
+    - 'om-test'
+    - 'mochaTest'

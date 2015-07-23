@@ -7,7 +7,7 @@ var _ = require('lodash');
 
 module.exports = function (grunt) {
 
-  grunt.registerTask('assemble', 'Assemble', function (target) {
+  grunt.registerTask('assemble', 'Assemble', function () {
     var done = this.async();
     var assemble = require('assemble');
 
@@ -16,7 +16,7 @@ module.exports = function (grunt) {
     var config = grunt.config.get('_assemble'); // old assemble config
     var options = config.options; // global options
     var env = options.environment;
-    var smartlingEnv = options.smartlingConfigs[ target || env ];
+    var smartlingEnv = options.smartlingConfigs[env];
     var loadGlobalData = require('./utils/load-global-data')(assemble);
 
     loadGlobalData(options);
