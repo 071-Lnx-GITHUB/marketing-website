@@ -31,3 +31,6 @@ configs/secret/*
 configs/smartlingConfig.json
 test/**/screenshots/*
 *.map
+
+bower.installed
+package.installed
