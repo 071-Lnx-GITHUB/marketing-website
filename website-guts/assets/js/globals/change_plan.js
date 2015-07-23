@@ -66,11 +66,7 @@ w.optly.mrkt.changePlanHelper = {
   },
   load: function(event, callback){
 
-    /*
-
-       Accepts a callback that gets run 1 second after the reporting finishes
-
-*/
+    // Accepts a callback that gets run 1 second after the reporting finishes
 
     if(event.target.status === 200){
 

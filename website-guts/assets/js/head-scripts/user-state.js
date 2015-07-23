@@ -154,9 +154,9 @@ window.optly.mrkt.services.xhr = {
         url: request.url,
         xhrFields: request.xhrFields ? request.xhrFields : {}
       }) );
-      //if (request.properties !== undefined) {
-        //this.handleErrors( deferredPromise, request.url, request.properties );
-      //}
+      if (request.properties !== undefined) {
+        this.handleErrors( deferredPromise, request.url, request.properties );
+      }
       $.when(deferredPromise).then(function(data) {
         oldQue = window.optly_q;
         window.optly_q = window.optly.mrkt.Optly_Q(data);
