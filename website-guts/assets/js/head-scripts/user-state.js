@@ -125,13 +125,11 @@ window.optly.mrkt.Optly_Q.prototype = {
 
 window.optly.mrkt.services.xhr = {
   makeRequest: function(request) {
-    var deferredPromise;
-
-    deferredPromise = $.when( $.ajax({
+    var deferredPromise = $.ajax({
       type: request.type,
       url: request.url,
       xhrFields: request.xhrFields ? request.xhrFields : {}
-    }) );
+    });
 
     if (request.properties !== undefined) {
       this.handleErrors( deferredPromise, request.url, request.properties );
