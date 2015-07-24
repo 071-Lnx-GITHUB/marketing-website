@@ -145,11 +145,6 @@ module.exports = function(grunt, options) {
                 res.writeHead(200, {'Content-Type': 'application/json'});
                 res.end( grunt.file.read(paths[0]) );
 
-              } else if(req.url === '/experiment/load_recent?max_experiments=5') {
-
-                res.writeHead(200, {'Content-Type': 'application/json'});
-                res.end( grunt.file.read('website-guts/endpoint-mocks/lastFiveExperiments.json') );
-
               } else if(req.url === '/account/signout') {
 
                   res.cookie('optimizely_signed_in', '', {maxAge: 0, expires: new Date(Date.now() - 500000000), httpOnly: false});
