@@ -61,7 +61,7 @@ var signinHelper = {
       deferred.then(function(expData) {
         window.optly_q.acctData = resp;
         window.optly_q.expData = expData;
-        window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData']);
+        window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData', 'expData']);
       });
     }
 

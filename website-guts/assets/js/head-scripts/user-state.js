@@ -125,45 +125,25 @@ window.optly.mrkt.Optly_Q.prototype = {
 
 window.optly.mrkt.services.xhr = {
   makeRequest: function(request) {
-    var deferreds = [], deferredPromise;
+    var deferredPromise;
 
-    // check if multiple requests are present
-    if ( $.isArray(request) ) {
-      for (var i = 0; i < request.length; i += 1) {
-        if (typeof request[i] === 'object') {
-          deferredPromise = $.ajax({
-            type: request[i].type,
-            url: request[i].url,
-            xhrFields: request[i].xhrFields ? request[i].xhrFields : {}
-          });
-          // parameters passed must be objects with a path and properties keys
-          if (request[i].properties !== undefined) {
-            this.handleErrors( deferredPromise, request[i].url, request[i].properties );
-          }
+    deferredPromise = $.when( $.ajax({
+      type: request.type,
+      url: request.url,
+      xhrFields: request.xhrFields ? request.xhrFields : {}
+    }) );
 
-          deferreds.push( deferredPromise );
-
-        }
-      }
-      this.resolveDeferreds(deferreds);
-      return deferreds;
+    if (request.properties !== undefined) {
+      this.handleErrors( deferredPromise, request.url, request.properties );
     }
-    else {
-      deferredPromise = $.when( $.ajax({
-        type: request.type,
-        url: request.url,
-        xhrFields: request.xhrFields ? request.xhrFields : {}
-      }) );
-      if (request.properties !== undefined) {
-        this.handleErrors( deferredPromise, request.url, request.properties );
-      }
-      $.when(deferredPromise).then(function(data) {
-        oldQue = window.optly_q;
-        window.optly_q = window.optly.mrkt.Optly_Q(data);
-        window.optly_q.push(oldQue);
-      });
-      return deferredPromise;
-    }
+
+    $.when(deferredPromise).then(function(data) {
+      oldQue = window.optly_q;
+      window.optly_q = window.optly.mrkt.Optly_Q(data);
+      window.optly_q.push(oldQue);
+    });
+
+    return deferredPromise;
   },
 
   logSegmentError: function(category, action, label) {
@@ -320,48 +300,6 @@ window.optly.mrkt.services.xhr = {
     var promiseThenSrc = String($.Deferred().then);
     var valueThenSrc = String(value.then);
     return promiseThenSrc === valueThenSrc;
-  },
-
-  resolveDeferreds: function(deferreds) {
-    var responses = [], oldQue;
-    $.when.apply($, deferreds).then(function() {
-      // get all arguments returned from done
-      var tranformedArgs = Array.prototype.slice.call(arguments);
-      $.each(tranformedArgs, function(index, resp) {
-        var respData = resp[0];
-        if( !this.isPromise( respData ) && resp[1] === 'success' ) {
-          responses.push(respData);
-        }
-        if (index === tranformedArgs.length - 1) {
-          oldQue = window.optly_q;
-
-          window.optly_q = window.optly.mrkt.Optly_Q(responses[0], responses[1]);
-          window.optly_q.push(oldQue);
-        }
-      }.bind(this) );
-    }.bind(this), function() {
-
-      deferreds[0].then(function(acctData) {
-        // check if acctData properties are not null
-        if(!!acctData.account_id && !!acctData.email) {
-          //if there is no error in account info instantiate the Q with no exp data
-          oldQue = window.optly_q;
-
-          window.optly_q = window.optly.mrkt.Optly_Q(acctData);
-          window.optly_q.expDataError = true;
-          window.optly_q.push(oldQue);
-        } else {
-          //TODO dfox-powell find way to delete the signed in cookie, potentially load jQuery cookie first Fri Dec  5 16:03:20 2014
-          //if acctData is null instantiate the Q with no arguments and remove optimizely signed in cookie
-          window.optly_q = window.optly.mrkt.Optly_Q();
-        }
-      }.bind(this), function() {
-        //if acctData error instantiate the Q with no arguments
-        window.optly_q = window.optly.mrkt.Optly_Q();
-      });
-    }.bind(this) );
-
-    return true;
   },
 
   readCookie: function (name) {
