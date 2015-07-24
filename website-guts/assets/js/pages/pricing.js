@@ -50,7 +50,7 @@ var updatePlanInfo = function(){
     $('#signup-form input[name="Initial_Form_Source__c"]').val('Pricing Signup form');
     $('#signup-form input[name="Inbound_Lead_Form_Type__c"]').val('Pricing Signup form');
     //user is signed in
-    if(typeof w.optly.mrkt.user.acctData === 'object' && w.optly.signedIn) {
+    if(typeof w.optly.mrkt.user.acctData === 'object' && w.optly.mrkt.user.acctData.account_id) {
 
       if(w.optly.mrkt.user.acctData.plan_id){
 
