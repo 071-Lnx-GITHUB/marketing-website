@@ -1,9 +1,18 @@
 body.plans {
   #page-content { background-color: $white; }
+
   .current-plan-message { display: none; }
-  /*           */
-  /*PAGE HEADER*/
-  /*           */
+  &.plan-enterprise {
+    .starter-cta { display: none; }
+    .enterprise-cta { display: none; }
+    .current-plan-message.enterprise-message { display: block; }
+  }
+  &.plan-free_light {
+    .starter-cta { display: none; }
+    .current-plan-message.starter-message { display: block; }
+  }
+
+  // PAGE HEADER
   #page-header {
     h1 {
       font: 1.5em $body-font-family;
@@ -60,9 +69,7 @@ body.plans {
     }
   }
 
-  /*             */
-  /*TITLE SECTION*/
-  /*             */
+  // TITLE SECTION
   .title-section {
     background: #F3F6F8;
     border: 1px solid #E6E6E6;
@@ -98,9 +105,7 @@ body.plans {
     }
   }
 
-  /*                */
-  /*BENEFITS SECTION*/
-  /*                */
+  // BENEFITS SECTION
   .benefits-section {
     background: white;
     .title-copy {
@@ -140,17 +145,6 @@ body.plans {
       }
     }
   }
-}
-
-body.plans.plan-enterprise {
-  .starter-cta { display: none; }
-  .enterprise-cta { display: none; }
-  .current-plan-message.enterprise-message { display: block; }
-}
-
-body.plans.plan-free_light {
-  .starter-cta { display: none; }
-  .current-plan-message.starter-message { display: block; }
 }
 
 @media screen and (min-width: $tablet-min-width) {
