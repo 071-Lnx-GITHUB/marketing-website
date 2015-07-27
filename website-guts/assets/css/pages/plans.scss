@@ -1,4 +1,4 @@
-body.pricing {
+body.plans {
   #page-content { background-color: $white; }
   .current-plan-message { display: none; }
   /*           */
@@ -142,19 +142,19 @@ body.pricing {
   }
 }
 
-body.pricing.plan-enterprise {
+body.plans.plan-enterprise {
   .starter-cta { display: none; }
   .enterprise-cta { display: none; }
   .current-plan-message.enterprise-message { display: block; }
 }
 
-body.pricing.plan-free_light {
+body.plans.plan-free_light {
   .starter-cta { display: none; }
   .current-plan-message.starter-message { display: block; }
 }
 
 @media screen and (min-width: $tablet-min-width) {
-  body.pricing {
+  body.plans {
     #page-header {
       h1 { 
         float: left; 
