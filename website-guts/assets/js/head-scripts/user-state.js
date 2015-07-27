@@ -136,9 +136,9 @@ window.optly.mrkt.services.xhr = {
     }
 
     $.when(deferredPromise).then(function(data) {
-      oldQue = window.optly_q;
+      var oldQueue = window.optly_q;
       window.optly_q = window.optly.mrkt.Optly_Q(data);
-      window.optly_q.push(oldQue);
+      window.optly_q.push(oldQueue);
     });
 
     return deferredPromise;
@@ -300,15 +300,6 @@ window.optly.mrkt.services.xhr = {
     return promiseThenSrc === valueThenSrc;
   },
 
-  readCookie: function (name) {
-    name = name.replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1');
-
-    var regex = new RegExp('(?:^|;)\\s?' + name + '=(.*?)(?:;|$)','i'),
-        match = document.cookie.match(regex);
-
-    return match && window.unescape(match[1]);
-  },
-
   getLoginStatus: function(requestParams) {
     var tld = window.location.hostname.split('.').pop();
     var ccTLD = [
@@ -320,7 +311,7 @@ window.optly.mrkt.services.xhr = {
     var isCcTld = ccTLD.indexOf(tld) !== -1;
     var deferreds;
 
-    if ( !!this.readCookie('optimizely_signed_in') || /^www.optimizelystaging.com/.test(window.location.hostname) || isCcTld ) {
+    if ( $.cookie('optimizely_signed_in') || /^www.optimizelystaging.com/.test(window.location.hostname) || isCcTld ) {
       deferreds = this.makeRequest(requestParams);
     } else {
       window.optly_q = window.optly.mrkt.Optly_Q();
