@@ -1,3 +1,8 @@
+/**
+ * Parses the files of our project searching for references to Modernizr.
+ * Then, it outputs a minified version of the library that includes only the features in use
+ */
+
 module.exports = {
   build: {
     devFile: '<%= config.guts %>/assets/js/libraries/modernizr.2.8.3.js',
