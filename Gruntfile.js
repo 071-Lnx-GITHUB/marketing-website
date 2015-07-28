@@ -16,15 +16,15 @@ module.exports = function(grunt) {
   require('load-grunt-config')(grunt, {
     jitGrunt: {
       staticMappings: {
-        replace: 'grunt-text-replace',
+        assemble: 'grunt/assemble/',
+        connect: 'grunt-contrib-connect',
         handlebars: 'grunt-contrib-handlebars',
+        mochaTest: 'grunt-mocha-test',
+        open: 'grunt-open',
+        replace: 'grunt-text-replace',
         resemble: 'grunt-resemble-cli',
         sass: 'grunt-sass',
-        connect: 'grunt-contrib-connect',
-        assemble: 'grunt/assemble/',
-        webpack: 'grunt/webpack/',
-        mochaTest: 'grunt-mocha-test',
-        open: 'grunt-open'
+        webpack: 'grunt/webpack/'
       }
     },
     data: {

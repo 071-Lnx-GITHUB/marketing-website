@@ -1,23 +1,21 @@
-/* jshint ignore:start */
-
-var path = require('path');
 var _ = require('lodash');
 var createStack = require('layout-stack');
-var through = require('through2');
 var generateKey = require('../utils/generate-key');
+var path = require('path');
+var through = require('through2');
 
 module.exports = function(assemble) {
   // transform the layout front matter into an object
   // that `layout-stack` requires
-  var mapLayouts = function (layouts) {
-    return Object.keys(layouts).reduce(function (acc, key) {
+  var mapLayouts = function(layouts) {
+    return Object.keys(layouts).reduce(function(acc, key) {
       acc[key] = layouts[key].data;
       return acc;
     }, {});
   };
 
   // middleware to merge the layout context into the current page context
-  return through.obj(function (file, enc, cb) {
+  return through.obj(function(file, enc, callback) {
     //the layout for the current file
     var layout = file.layout || file.options.layout || file.data.layout;
     // => partners
@@ -44,23 +42,22 @@ module.exports = function(assemble) {
 
       _.forEach(layouts[name], function(val, key) {
         //here swap the keys
-        if(ignoreKeys.indexOf(key) === -1) {
+        if (ignoreKeys.indexOf(key) === -1) {
           data[page][key] = val;
         }
 
       });
 
-      if(!Object.keys(data[page]).length) {
+      if (!Object.keys(data[page]).length) {
         delete data[page];
       }
 
     }
 
-    if(Object.keys(data).length) {
+    if (Object.keys(data).length) {
       file.data.layouts = data;
     }
     this.push(file);
-    cb();
+    callback();
   });
 };
-/* jshint ignore:end */

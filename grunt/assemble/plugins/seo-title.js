@@ -42,7 +42,6 @@ module.exports = function(assemble) {
    * - if SEO title exists use it
    * - if title exists then use the capitalized dirname plus a suffix
    * - if visible_title exists use it plus a suffix
-   *
    */
   return through.obj(function (file, enc, cb) {
     var fpData = parseFilePath(file.path);

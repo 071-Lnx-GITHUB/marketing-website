@@ -49,19 +49,22 @@ module.exports = function(assemble) {
     return keys !== latestKeys;
   }
 
-  try{
+  try {
     smartlingConfig = fs.readFileSync(path.join(process.cwd(), 'configs/secret', smartlingConfigFile), {encoding: 'utf8'});
-  } catch(err){
+  }
+  catch(err) {
     console.error('Cannot read Smartling config: ', err);
-    if(env !== 'production') {
+    if (env !== 'production') {
       console.error('reading default smartlingConfig.json');
       smartlingConfig = fs.readFileSync(path.join(process.cwd(), 'configs/secret/smartlingConfig.json'), {encoding: 'utf8'});
     }
   }
-  if(smartlingConfig){
+
+  if (smartlingConfig) {
     smartlingConfig = JSON.parse(smartlingConfig);
   }
-  if(process.env.SL_PREFIX){
+
+  if (process.env.SL_PREFIX) {
     smartlingConfig.PREFIX = process.env.SL_PREFIX;
   }
 

@@ -1,22 +1,24 @@
+var _ = require('lodash');
 var fs = require('fs');
-var path = require('path');
 var globby = require('globby');
 var matter = require('gray-matter');
-var _ = require('lodash');
+var path = require('path');
 
-module.exports = function (assemble) {
-  var locales = Object.keys(assemble.get('data.locales'));
+module.exports = function(assemble) {
   var lastRunTime = assemble.get('lastRunTime');
   var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var websiteRoot = assemble.get('data.websiteRoot');
 
-  function createMap(argsObj) {
+  var locales = Object.keys(assemble.get('data.locales'));
+
+  var createMap = function(argsObj) {
     var renameKey = assemble.option('renameKey');
     var langPath = argsObj.langPath;
     var readPath = argsObj.readPath;
     var map = argsObj.map;
     var key = renameKey(langPath);
     var stats = fs.statSync(readPath || langPath);
+
     if (lastRunTime && new Date(+stats.mtime) < new Date(lastRunTime)) {
       return map;
     }
@@ -27,7 +29,7 @@ module.exports = function (assemble) {
     return map;
   }
 
-  return function langLoader(args) {
+  return function(args) {
     var collection = {};
     var srcPattern = args.src;
     var fallbackPattern = args.fallback;

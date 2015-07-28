@@ -1,7 +1,7 @@
 {
   "environment": "development",
-  "staging": false,
-  "production": false,
+  "optimizelyProjectID": "1205230573",
   "segmentProjectID": "l4usxygsxg",
-  "optimizelyProjectID": "1205230573"
+  "production": false,
+  "staging": false
 }

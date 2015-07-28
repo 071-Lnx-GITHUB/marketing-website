@@ -1,13 +1,13 @@
 var path = require('path');
 
 /**
- *
- * @param {String} `fp` file path string
+ * @param {String} `filepath` file path string
  * @return {String} `key` file path string with extension removed
- *
  */
-module.exports = function(fp) {
-  var key = path.join( path.dirname(fp), path.basename(fp, path.extname(fp)) ).replace(process.cwd(), '');
+module.exports = function(filepath) {
+  var key = path.join(path.dirname(filepath), path.basename(filepath, path.extname(filepath)))
+                .replace(process.cwd(), '');
+
   if(key[0] !== '/') {
     key = '/' + key;
   }
