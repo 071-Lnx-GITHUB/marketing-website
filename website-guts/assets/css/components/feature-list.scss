@@ -51,6 +51,7 @@
           width: 100%;
           &[data-tooltip] {
             text-indent: 0;
+            margin-left: 0;
             &:before {
               background: none;
               height: 0;
