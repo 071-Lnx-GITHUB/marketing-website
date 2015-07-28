@@ -34,15 +34,7 @@ module.exports = function (grunt) {
     var push = require('assemble-push')(assemble);
     var buildInitialized = false;
 
-    var normalizeSrc = function normalizeSrc (cwd, sources) {
-      sources = Array.isArray(sources) ? sources : [sources];
-      return sources.map(function (src) {
-        if (src[0] === '!') {
-          return path.join('!' + cwd, src.substring(1));
-        }
-        return path.join(cwd, src);
-      });
-    };
+    var normalizeSrc = require('./utils/normalize-src');
 
     var omLayouts = path.join(config.om.options.layoutdir, '**/*.hbs');
     var omFiles = config.om.files[0];
