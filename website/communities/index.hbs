@@ -9,6 +9,8 @@ body_class:
 <div class="row" l10n-skip>
   <h2>{{group_name}}</h2>
   <img class="group-pic desktop-img" src="{{../assetsDir}}{{image}}" />
-  {{{text_content}}}
+  {{#each text_content.paragraphs}}
+    <p>{{{this}}}</p>
+  {{/each}}
 </div>
 {{/each}}
