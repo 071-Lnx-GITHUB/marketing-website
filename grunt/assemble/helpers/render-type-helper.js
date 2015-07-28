@@ -1,4 +1,3 @@
-'use strict';
 var extend = require('extend-shallow');
 
 module.exports = function(assemble) {

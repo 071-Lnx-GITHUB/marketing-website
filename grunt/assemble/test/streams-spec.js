@@ -1,5 +1,3 @@
-'use strict';
-
 var assemble = require('assemble');
 var smartling = require('../plugins/smartling');
 var instance = null;

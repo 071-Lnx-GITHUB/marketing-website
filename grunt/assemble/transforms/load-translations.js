@@ -1,4 +1,3 @@
-'use strict';
 var path = require('path');
 var extend = require('extend-shallow');
 /**

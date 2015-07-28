@@ -1,5 +1,3 @@
-'use strict';
-
 var ext = require('gulp-extname');
 var chalk = require('chalk');
 var path = require('path');

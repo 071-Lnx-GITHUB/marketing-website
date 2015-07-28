@@ -1,5 +1,3 @@
-'use strict';
-
 var _ = require('lodash');
 var through = require('through2');
 var hbsParser = require('l10n-tools/hbs-parser');
