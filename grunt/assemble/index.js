@@ -1,12 +1,11 @@
-var ext = require('gulp-extname');
 var chalk = require('chalk');
+var ext = require('gulp-extname');
 var path = require('path');
-var _ = require('lodash');
 
-module.exports = function (grunt) {
-
-  grunt.registerTask('assemble', 'Assemble', function () {
+module.exports = function(grunt) {
+  grunt.registerTask('assemble', 'Assemble', function() {
     var done = this.async();
+
     var assemble = require('assemble');
 
     //set the global data from external YML & env config
@@ -241,11 +240,12 @@ module.exports = function (grunt) {
 
     var logData = (function(){
       var lastPath = [];
-      function checkI(path) {
-        return !~lastPath.indexOf(path);
-      }
 
-      return function logData(fp, type) {
+      var checkI = function(path) {
+        return !~lastPath.indexOf(path);
+      };
+
+      return function(fp, type) {
         var key = generateKey(fp);
         var split = key.split('/');
         split = split.filter(function(item) {
@@ -260,24 +260,25 @@ module.exports = function (grunt) {
           subfolders: 'magenta'
         };
 
-        if(options.locales[two]) {
-          if(checkI(two)) {
+        if (options.locales[two]) {
+          if (checkI(two)) {
             console.log(chalk[ o[type] ].bold('rendering ' + type) + ' => ' + chalk.green(two.toUpperCase()));
             lastPath.push(two);
           }
-        } else if(two === 'om' || two === 'partners') {
-          if(checkI(two)) {
+        }
+        else if (two === 'om' || two === 'partners') {
+          if (checkI(two)) {
             console.log(chalk[ o[type] ].bold('rendering ') + ' => ' + chalk.green(type));
             lastPath.push(two);
           }
-        } else {
-          if(checkI(one)) {
+        }
+        else {
+          if (checkI(one)) {
             console.log(chalk[ o[type] ].bold('rendering ') + ' => ' + chalk.green(type));
             lastPath.push(one);
           }
         }
       };
-
     }());
 
     assemble.task('prep-smartling', function () {
@@ -300,11 +301,11 @@ module.exports = function (grunt) {
         });
     });
 
-    var buildOm = function buildOm() {
-        var start = process.hrtime();
-        var files = config[ppcKey].files[0];
+    var buildOm = function() {
+      var start = process.hrtime();
+      var files = config[ppcKey].files[0];
 
-        return assemble.src([omSrc])
+      return assemble.src([omSrc])
         .pipe(extractLayoutContext(assemble))
         .pipe(mergeLayoutContext())
         .pipe(addSeoTitle(assemble))
@@ -313,67 +314,67 @@ module.exports = function (grunt) {
         .on('data', function(file) {
           logData(file.path, 'om-pages');
         })
-        .on('end', function () {
+        .on('end', function() {
           var end = process.hrtime(start);
           console.log('finished rendering pages om', end);
         });
     };
 
-    var buildPages = function buildPages (reload) {
-        var start = process.hrtime();
+    var buildPages = function(reload) {
+      var start = process.hrtime();
 
-        var files = config.pages.files[0];
-        var opts = {
-          since: (assemble.get('lastRunTime') ? new Date(assemble.get('lastRunTime')) : null)
-        };
+      var files = config.pages.files[0];
+      var opts = {
+        since: (assemble.get('lastRunTime') ? new Date(assemble.get('lastRunTime')) : null)
+      };
 
-        //this excludes om pages && resources-list pages
-        return assemble.src(normalizeSrc(files.cwd, files.src).concat([
-            '!' + omSrc[0],
-            '!website/partners/**/*.hbs'
-          ]), opts)
-          .on('error', function (err) {
-            console.log('src error', err);
-          })
-          .pipe(ext())
-          .pipe(assemble.dest(files.dest))
-          .on('error', function (err) {
-            console.log('dest error', err);
-          })
-          .on('data', function(file) {
-             logData(file.path, 'pages');
-          })
-          .on('end', function () {
-            var end = process.hrtime(start);
-            console.log('finished rendering pages', end);
-            assemble.set('lastRunTime', new Date());
-          });
+      //this excludes om pages && resources-list pages
+      return assemble.src(normalizeSrc(files.cwd, files.src).concat([
+          '!' + omSrc[0],
+          '!website/partners/**/*.hbs'
+        ]), opts)
+        .on('error', function(err) {
+          console.log('src error', err);
+        })
+        .pipe(ext())
+        .pipe(assemble.dest(files.dest))
+        .on('error', function(err) {
+          console.log('dest error', err);
+        })
+        .on('data', function(file) {
+           logData(file.path, 'pages');
+        })
+        .on('end', function() {
+          var end = process.hrtime(start);
+          console.log('finished rendering pages', end);
+          assemble.set('lastRunTime', new Date());
+        });
     };
 
-    var buildPartners = function buildPartners() {
-        var start = process.hrtime();
+    var buildPartners = function() {
+      var start = process.hrtime();
 
-        var files = config.partners.files[0];
-        return assemble.src(normalizeSrc(files.cwd, files.src))
-          .pipe(ext())
-          .pipe(assemble.dest(path.join(files.dest, 'partners')))
-          .on('data', function(file) {
-             logData(file.path, 'partners');
-          })
-          .on('error', function (err) {
-            console.log('dest error', err);
-          })
-          .on('end', function () {
-            var end = process.hrtime(start);
-            console.log('finished rendering partners', end);
-          });
+      var files = config.partners.files[0];
+      return assemble.src(normalizeSrc(files.cwd, files.src))
+        .pipe(ext())
+        .pipe(assemble.dest(path.join(files.dest, 'partners')))
+        .on('data', function(file) {
+           logData(file.path, 'partners');
+        })
+        .on('error', function(err) {
+          console.log('dest error', err);
+        })
+        .on('end', function() {
+          var end = process.hrtime(start);
+          console.log('finished rendering partners', end);
+        });
     };
 
     assemble.task('om-pages', buildOm);
     assemble.task('pages', ['prep-smartling'], buildPages);
     assemble.task('partners', ['prep-smartling'], buildPartners);
 
-    assemble.task('subfolders', ['partners'],  function buildSubfolders() {
+    assemble.task('subfolders', ['partners'],  function() {
       var start = process.hrtime();
       var files = config.pages.files[0];
 
@@ -394,17 +395,17 @@ module.exports = function (grunt) {
       .on('data', function(file) {
          logData(file.path, 'subfolders');
       })
-      .on('error', function (err) {
+      .on('error', function(err) {
         console.log('dest error', err);
       })
-      .on('end', function () {
+      .on('end', function() {
         var end = process.hrtime(start);
         console.log('finished rendering subfolders', end);
       });
     });
 
     assemble.task('loadAll', ['resetLastRunTime'], function() {
-      if(buildInitialized) {
+      if (buildInitialized) {
         loadAll(true);
       } else {
         buildInitialized = true;
@@ -415,7 +416,7 @@ module.exports = function (grunt) {
     assemble.task('loadOm', loader(loadOmLayouts));
     assemble.task('rebuild:pages', buildPages);
 
-    assemble.task('resetLastRunTime', function (cb) {
+    assemble.task('resetLastRunTime', function(cb) {
       assemble.set('lastRunTime', null);
       cb();
     });
@@ -427,7 +428,7 @@ module.exports = function (grunt) {
     assemble.task('layouts:om', ['loadOm'], buildOm);
     assemble.task('build:all', ['loadAll', 'om-pages', 'pages', 'partners', 'subfolders']);
 
-    assemble.task('watch', ['om-pages', 'partners', 'pages'], function () {
+    assemble.task('watch', ['om-pages', 'partners', 'pages'], function() {
 
       //only build om if anything om related changes
       assemble.watch([
@@ -477,13 +478,14 @@ module.exports = function (grunt) {
 
     var tasks;
 
-    if(env === 'dev') {
+    if (env === 'dev') {
       tasks = [
         'build:all',
         'watch',
         'done'
       ];
-    } else {
+    }
+    else {
       tasks = [
         'build:all',
         'done'
@@ -491,7 +493,7 @@ module.exports = function (grunt) {
     }
 
     assemble.run(tasks);
-
   });
+
   return {};
 };
