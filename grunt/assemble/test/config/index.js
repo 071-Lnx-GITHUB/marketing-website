@@ -9,8 +9,7 @@ var configObj = {
   link_path: '/dist',
   apiDomain: '',
   sassImagePath: '/dist/assets/img',
-  environment: 'dev',
-  environmentData: 'website-guts/data/environments/development/environmentVariables.json'
+  environment: 'dev'
 };
 
 grunt.initConfig(configObj);

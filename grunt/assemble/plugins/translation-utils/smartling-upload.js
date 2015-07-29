@@ -9,7 +9,6 @@ var hbsParser = require('l10n-tools/hbs-parser');
 var smartling = require('l10n-tools/smartling');
 var glob = require('glob');
 var mkdirp = require('mkdirp');
-var _ = require('lodash');
 var generateKey = require('../../utils/generate-key');
 
 module.exports = function(assemble) {

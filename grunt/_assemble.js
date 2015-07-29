@@ -3,25 +3,32 @@ var ppcKey = 'om';
 
 var config = {
   options: {
-    layoutDir: '<%= config.guts %>/templates/layouts/**/*.hbs',
     assetsDir: '<%= grunt.config.get("assetsDir") %>',
-    linkPath: '<%= grunt.config.get("link_path") %>',
-    apiDomain: '<%= grunt.config.get("apiDomain") %>',
-    sassImagePath: '<%= grunt.config.get("sassImagePath") %>',
-    environment: '<%= grunt.config.get("environment") %>',
+    client: ['<%= config.guts %>/templates/client/**/*.hbs'],
     data: [
       '<%= config.content %>/**/global_*.{yml,yaml,json}',
       '<%= grunt.config.get("environmentData") %>'
     ],
-    partials: ['<%= config.guts %>/templates/partials/*.hbs'],
-    client: ['<%= config.guts %>/templates/client/**/*.hbs'],
     helpers: ['<%= config.helpers %>/**/*.js'],
-    basename: path.basename(process.cwd()),
-    websiteRoot: 'website',
-    websiteGuts: '<%= config.guts %>',
+    layoutDir: '<%= config.guts %>/templates/layouts/**/*.hbs',
+    linkPath: '<%= grunt.config.get("link_path") %>',
     modalsDir: '<%= config.guts %>/templates/components/modals',
+    partials: ['<%= config.guts %>/templates/partials/*.hbs'],
+    sassImagePath: '<%= grunt.config.get("sassImagePath") %>',
+
+    apiDomain: '<%= grunt.config.get("apiDomain") %>',
+    basename: path.basename(process.cwd()),
+    environment: '<%= grunt.config.get("environment") %>',
     pageContentNamespace: 'page_data',
-    subfoldersRoot: 'subfolders',
+    websiteGuts: '<%= config.guts %>',
+    websiteRoot: 'website',
+
+    locales: {
+      'de': 'de_DE',
+      //'fr': 'fr_FR',
+      //'es': 'es_ES',
+      //'jp': 'ja_JP'
+    },
     smartlingConfigs: {
       'dev': 'smartlingConfig_sandbox_pseudo.json',
       'real': 'smartlingConfig_sandbox_real.json',
@@ -29,76 +36,74 @@ var config = {
       'custom': 'smartlingConfig_custom.json',
       'production': 'smartlingConfig_prod.json',
     },
-    locales: {
-      'de': 'de_DE',
-      //'fr': 'fr_FR',
-      //'es': 'es_ES',
-      //'jp': 'ja_JP'
-    },
+    subfoldersRoot: 'subfolders',
     tranlatedTypes: [
       'partials',
       'modals'
     ],
+
     ppcKey: ppcKey,
     omitFromSubfolders: [
-      '!om/**/*.hbs',
-      '!opticon/**/*.hbs',
-      '!features-and-plans/**/*.hbs',
+      '!404/**/*.hbs',
       '!feature-list/**/*.hbs',
-      '!404/**/*.hbs'
+      '!features-and-plans/**/*.hbs',
+      '!opticon/**/*.hbs',
+      '!' + ppcKey + '/**/*.hbs'
     ]
   },
+
   modals: {
+    files: {
+      cwd: '<%= config.guts %>/',
+      src: 'templates/components/modals/**/*.hbs'
+    },
     options: {
       ext: '.hbs'
-    },
-    files: [
-      {
-        src: 'templates/components/modals/**/*.hbs',
-        cwd: '<%= config.guts %>/'
-      }
-    ]
+    }
   },
-  resources: {
-    files: [
-      {
-        src: ['resources/resources-list/**/*.hbs'],
-        dest: '<%= config.dist %>/',
-        cwd: '<%= config.content %>/'
-      }
-    ]
-  },
-  partners: {
-    files: [
-      {
-        src: ['partners/**/*.hbs'],
-        dest: '<%= config.dist %>/',
-        cwd: '<%= config.content %>/'
-      }
-    ]
-  },
+
   pages: {
-    files: [
-      {
-        src: ['**/*.hbs', '!resources/resources-list/**/*.hbs', '!om/**/*.hbs'],
-        dest: '<%= config.dist %>/',
-        cwd: '<%= config.content %>/'
-      }
-    ]
+    files: {
+      cwd: '<%= config.content %>/',
+      src: [
+        '**/*.hbs',
+        '!partners/**/*.hbs',
+        '!resources/resources-list/**/*.hbs',
+        '!' + ppcKey + '/**/*.hbs'
+      ],
+      dest: '<%= config.dist %>/'
+    }
+  },
+
+  partners: {
+    files: {
+      cwd: '<%= config.content %>/',
+      src: 'partners/**/*.hbs',
+      dest: '<%= config.dist %>/'
+    }
+  },
+
+  resources: {
+    files: {
+      cwd: '<%= config.content %>/',
+      src: 'resources/resources-list/**/*.hbs',
+      dest: '<%= config.dist %>/'
+    }
   }
 };
 
 config[ppcKey] = {
+  files: {
+    cwd: '<%= config.content %>/',
+    src: [
+      ppcKey + '/**/*.hbs',
+      '!<%= grunt.config.get("exclude_from_assemble") %>'
+    ],
+    dest: '<%= config.dist %>/'
+  },
   options: {
     layoutdir: '<%= config.guts %>/templates/' + ppcKey + '/layouts/'
-  },
-  files: [
-    {
-      src: [ppcKey + '/**/*.hbs', '!<%= grunt.config.get("exclude_from_assemble") %>'],
-      dest: '<%= config.dist %>/',
-      cwd: '<%= config.content %>/'
-    }
-  ]
+  }
 };
 
 module.exports = config;

@@ -26,7 +26,6 @@ module.exports = function(grunt) {
         variables: {
           secret: getSecretCreds('production'),
           environment: 'production',
-          environmentData: 'website-guts/data/environments/production/environmentVariables.json',
           apiDomain: '//app.optimizely.com',
           assetsDir: '/dist/assets',
           imageUrl: '/dist/assets/img',
@@ -56,9 +55,8 @@ module.exports = function(grunt) {
         variables: {
           secret: getSecretCreds('staging'),
           environment: 'staging',
-          exclude_from_assemble: 'bobloblaw.hbs',
+          exclude_from_assemble: '',
           apiDomain: '//app.optimizely.com',
-          environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
           assetsDir: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets',
           link_path: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>',
           sassImagePath: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets/img',
@@ -85,8 +83,7 @@ module.exports = function(grunt) {
       options: {
         variables: {
           environment: 'dev',
-          exclude_from_assemble: 'bobloblaw.hbs',
-          environmentData: 'website-guts/data/environments/development/environmentVariables.json',
+          exclude_from_assemble: '',
           apiDomain: '',
           assetsDir: '/dist/assets',
           link_path: '/dist',
@@ -107,9 +104,8 @@ module.exports = function(grunt) {
       options: {
         variables: {
           environment: 'staging',
-          exclude_from_assemble: 'bobloblaw.hbs',
+          exclude_from_assemble: '',
           apiDomain: '//app.optimizely.test',
-          environmentData: 'website-guts/data/environments/staging/environmentVariables.json',
           assetsDir: '/dist/assets',
           link_path: '',
           sassImagePath: '/dist/assets/img',

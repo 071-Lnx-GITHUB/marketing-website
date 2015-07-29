@@ -68,7 +68,7 @@
     "matter": "^0.2.0",
     "mkdirp": "0.5.0",
     "moment": "^2.10.2",
-    "oform": "git+ssh://git@github.com/optimizely/oform.git",
+    "oForm": "git+ssh://git@github.com/optimizely/oform.git",
     "optimizely-marked": "0.0.4",
     "optimizely-lego": "^0.0.1",
     "plasma": "^0.6.1",
