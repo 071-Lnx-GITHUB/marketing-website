@@ -21,38 +21,25 @@ faq_content:
   TR_sections:
   -
     TR_sub_title: "What is Optimizely's Stats Engine?"
-    MD_description: "Optimizely’s sample size calculator is different from other statistical significance calculators. It is based on the formula used in [Optimizely’s Stats Engine](/statistics). Stats Engine calculates statistical significance using sequential testing and false discovery rate controls. When combined, these two techniques mean you no longer need to wait for a pre-set sample size to ensure the validity of your results. If Optimizely tells you that a result is 95% significant, you can make a decision with 95% confidence. [Learn more](/statistics)"
-
+    description: "<p>Optimizely’s sample size calculator is different from other statistical significance calculators. It is based on the formula used in <a href='/statistics'>Optimizely’s Stats Engine</a>. Stats Engine calculates statistical significance using sequential testing and false discovery rate controls. When combined, these two techniques mean you no longer need to wait for a pre-set sample size to ensure the validity of your results. If Optimizely tells you that a result is 95% significant, you can make a decision with 95% confidence. <a href='/statistics'>Learn more</a></p>"
   -
     TR_sub_title: "How many visitors do I need for my A/B test?"
-    MD_description: "This statistical significance calculator allows you to calculate the sample size for each variation in your test you will need, on average, to measure the desired change in your conversion rate. In many cases, if Optimizely detects an effect larger than the one you are looking for, you will be able to end your test early."
+    description: "<p>This statistical significance calculator allows you to calculate the sample size for each variation in your test you will need, on average, to measure the desired change in your conversion rate. In many cases, if Optimizely detects an effect larger than the one you are looking for, you will be able to end your test early.</p>"
   -
     TR_sub_title: "Why is your calculator different from other sample size calculators?"
-    MD_description:
-      "
-      Our A/B test sample size calculator is powered by the formula behind our new Stats Engine, which uses a two-tailed sequential likelihood ratio test with false discovery rate controls to calculate statistical significance.
-
-
-      With this methodology, you no longer need to use the sample size calculator to ensure the validity of your results. Instead, the A/B test calculator is best used as a tool for planning out your testing program to find out how long you may need to wait before Optimizely can determine whether your results are significant, depending on the effect you want to observe.
-      "
+    description: "<p>Our A/B test sample size calculator is powered by the formula behind our new Stats Engine, which uses a two-tailed sequential likelihood ratio test with false discovery rate controls to calculate statistical significance.</p><p>With this methodology, you no longer need to use the sample size calculator to ensure the validity of your results. Instead, the A/B test calculator is best used as a tool for planning out your testing program to find out how long you may need to wait before Optimizely can determine whether your results are significant, depending on the effect you want to observe.</p>"
   -
     TR_sub_title: "How do I determine the baseline conversion rate?"
-    MD_description: "You can look at historical data on how this page has typically performed in the past, from a tool like Google Analytics or other website analytics you use. [Learn more](https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#baseline)"
+    description: "<p>You can look at historical data on how this page has typically performed in the past, from a tool like Google Analytics or other website analytics you use. <a href='https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#baseline'>Learn more</a></p>"
   -
     TR_sub_title: "What is Minimum Detectable Effect (MDE)?"
-    MD_description: "In traditional hypothesis testing, the MDE is essentially the sensitivity of your test. In other words, it is the smallest relative change in conversion rate you are interested in detecting. For example, if your baseline conversion rate is 20%, and you set an MDE of 10%, your test would detect any changes that move your conversion rate outside the absolute range of 18% to 22% (a 10% relative effect is a 2% absolute change in conversion rate in this example). [Learn more](https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#minimum)"
+    description: "<p>In traditional hypothesis testing, the MDE is essentially the sensitivity of your test. In other words, it is the smallest relative change in conversion rate you are interested in detecting. For example, if your baseline conversion rate is 20%, and you set an MDE of 10%, your test would detect any changes that move your conversion rate outside the absolute range of 18% to 22% (a 10% relative effect is a 2% absolute change in conversion rate in this example). <a href='https://help.optimizely.com/hc/en-us/articles/200133789-How-long-to-run-a-test#minimum'>Learn more</a></p>"
   -
     TR_sub_title: "How do I estimate a value for minimum detectable effect (MDE)?"
-    MD_description:
-      "
-      Decide how willing you are to trade off sensitivity of your test versus how long you might need to run your test for. The smaller the MDE, the more sensitive you are asking your test to be, and the larger sample size you will need.
-
-
-      Keep in mind that statistical significance in Optimizely’s Stats Engine shows you the chance that your results will ever be significant, while the experiment is running. If the effect that our Stats Engine observes is larger than the minimum detectable effect you are looking for, your test may declare a winner or loser up to twice as fast as if you had to wait for your pre-set sample size. Given more time, Stats Engine may also find a smaller MDE than the one you expect. [Learn more](https://help.optimizely.com/hc/en-us/articles/200039895)
-      "
+    description: "<p>Decide how willing you are to trade off sensitivity of your test versus how long you might need to run your test for. The smaller the MDE, the more sensitive you are asking your test to be, and the larger sample size you will need.</p><p>Keep in mind that statistical significance in Optimizely’s Stats Engine shows you the chance that your results will ever be significant, while the experiment is running. If the effect that our Stats Engine observes is larger than the minimum detectable effect you are looking for, your test may declare a winner or loser up to twice as fast as if you had to wait for your pre-set sample size. Given more time, Stats Engine may also find a smaller MDE than the one you expect. <a href='https://help.optimizely.com/hc/en-us/articles/200039895'>Learn more</a></p>"
   -
     sub_title: "Where is statistical power in your sample size calculator?"
-    MD_description: "Statistical power is essentially a measure of whether your test has adequate data to reach a conclusive result. Optimizely’s new Stats Engine runs tests that always achieve a power of one, meaning that the test always has adequate data to show you results that are valid at that moment, and will eventually detect a difference if there is one. This means that you can make a decision as soon as your results reach significance without worrying about power."
+    description: "<p>Statistical power is essentially a measure of whether your test has adequate data to reach a conclusive result. Optimizely’s new Stats Engine runs tests that always achieve a power of one, meaning that the test always has adequate data to show you results that are valid at that moment, and will eventually detect a difference if there is one. This means that you can make a decision as soon as your results reach significance without worrying about power.</p>"
 
 cta:
   TR_title: "Learn more about Optimizely"
