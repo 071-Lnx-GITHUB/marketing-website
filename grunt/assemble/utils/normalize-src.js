@@ -25,17 +25,16 @@ module.exports = function(files) {
   files.forEach(function(file) {
     var sources = Array.isArray(file.src) ? file.src : [file.src];
 
-    sources.forEach(function(src) {
-      if (file.cwd) {
-        normalizedSrc.push(
-          (src[0] === '!') ?
-            path.join('!' + file.cwd, src.substring(1)) :
-            path.join(file.cwd, src));
-      }
-      else {
-        normalizedSrc.push(src);
-      }
-    });
+    if (file.cwd) {
+      sources.forEach(function(src) {
+        normalizedSrc.push((src[0] === '!') ?
+          path.join('!' + file.cwd, src.substring(1)) :
+          path.join(file.cwd, src));
+      });
+    }
+    else {
+      normalizedSrc = normalizedSrc.concat(sources);
+    }
   });
 
   return normalizedSrc;

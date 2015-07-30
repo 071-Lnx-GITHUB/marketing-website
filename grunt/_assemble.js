@@ -5,56 +5,86 @@ var config = {
   options: {
     assetsDir: '<%= grunt.config.get("assetsDir") %>',
     client: ['<%= config.guts %>/templates/client/**/*.hbs'],
-    data: [
-      '<%= config.content %>/**/global_*.{yml,yaml,json}',
-      '<%= grunt.config.get("environmentData") %>'
-    ],
-    helpers: ['<%= config.helpers %>/**/*.js'],
-    layoutDir: '<%= config.guts %>/templates/layouts/**/*.hbs',
     linkPath: '<%= grunt.config.get("link_path") %>',
-    modalsDir: '<%= config.guts %>/templates/components/modals',
-    partials: ['<%= config.guts %>/templates/partials/*.hbs'],
     sassImagePath: '<%= grunt.config.get("sassImagePath") %>',
 
     apiDomain: '<%= grunt.config.get("apiDomain") %>',
     basename: path.basename(process.cwd()),
     environment: '<%= grunt.config.get("environment") %>',
-    pageContentNamespace: 'page_data',
+    pageDataNamespace: 'page_data',
     websiteGuts: '<%= config.guts %>',
     websiteRoot: 'website',
 
-    locales: {
-      'de': 'de_DE',
-      //'fr': 'fr_FR',
-      //'es': 'es_ES',
-      //'jp': 'ja_JP'
-    },
-    smartlingConfigs: {
-      'dev': 'smartlingConfig_sandbox_pseudo.json',
-      'real': 'smartlingConfig_sandbox_real.json',
-      'staging': 'smartlingConfig_sandbox_real.json',
-      'custom': 'smartlingConfig_custom.json',
-      'production': 'smartlingConfig_prod.json',
-    },
-    subfoldersRoot: 'subfolders',
-    tranlatedTypes: [
-      'partials',
-      'modals'
+    // locale code for the global US English site
+    globalLocale: 'en_US',
+
+    // there is a corresponding folder for each locale in 'localesRoot'
+    locales: [
+      'de_DE',
+      'fr_FR',
+      'es_ES',
+      'ja_JP'
     ],
 
+    // maps output "subfolder" to source folder in localesRoot
+    // (there can be many output folders to source folder)
+    // note: source folder must exist in 'locales' above
+    localesMap: {
+      'de': 'de_DE',
+      'fr': 'fr_FR',
+      'es': 'es_ES',
+      'jp': 'ja_JP'
+    },
+
+    // root directory for locales source files
+    localesRoot: 'locales',
+
+    // smartlingConfigs: {
+    //   'dev': 'smartlingConfig_sandbox_pseudo.json',
+    //   'real': 'smartlingConfig_sandbox_real.json',
+    //   'staging': 'smartlingConfig_sandbox_real.json',
+    //   'custom': 'smartlingConfig_custom.json',
+    //   'production': 'smartlingConfig_prod.json',
+    // },
+    // tranlatedTypes: [
+    //   'partials',
+    //   'modals'
+    // ],
+
     ppcKey: ppcKey,
-    omitFromSubfolders: [
-      '!404/**/*.hbs',
-      '!feature-list/**/*.hbs',
-      '!features-and-plans/**/*.hbs',
-      '!opticon/**/*.hbs',
-      '!' + ppcKey + '/**/*.hbs'
-    ]
+    // omitFromSubfolders: [
+    //   '!404/**/*.hbs',
+    //   '!feature-list/**/*.hbs',
+    //   '!features-and-plans/**/*.hbs',
+    //   '!opticon/**/*.hbs',
+    //   '!' + ppcKey + '/**/*.hbs'
+    // ]
+  },
+
+  globalYml: {
+    files: {
+      cwd: '<%= config.content %>',
+      src: '**/global_*.yml'
+    }
+  },
+
+  helpers: {
+    files: {
+      cwd: '<%= config.helpers %>',
+      src: '**/*.js'
+    }
+  },
+
+  layouts: {
+    files: {
+      cwd: '<%= config.guts %>',
+      src: 'templates/layouts/**/*.hbs'
+    }
   },
 
   modals: {
     files: {
-      cwd: '<%= config.guts %>/',
+      cwd: '<%= config.guts %>',
       src: 'templates/components/modals/**/*.hbs'
     },
     options: {
@@ -64,7 +94,7 @@ var config = {
 
   pages: {
     files: {
-      cwd: '<%= config.content %>/',
+      cwd: '<%= config.content %>',
       src: [
         '**/*.hbs',
         '!partners/**/*.hbs',
@@ -75,9 +105,16 @@ var config = {
     }
   },
 
+  partials: {
+    files: {
+      cwd: '<%= config.guts %>',
+      src: 'templates/partials/*.hbs'
+    }
+  },
+
   partners: {
     files: {
-      cwd: '<%= config.content %>/',
+      cwd: '<%= config.content %>',
       src: 'partners/**/*.hbs',
       dest: '<%= config.dist %>/'
     }
@@ -85,7 +122,7 @@ var config = {
 
   resources: {
     files: {
-      cwd: '<%= config.content %>/',
+      cwd: '<%= config.content %>',
       src: 'resources/resources-list/**/*.hbs',
       dest: '<%= config.dist %>/'
     }
@@ -94,7 +131,7 @@ var config = {
 
 config[ppcKey] = {
   files: {
-    cwd: '<%= config.content %>/',
+    cwd: '<%= config.content %>',
     src: [
       ppcKey + '/**/*.hbs',
       '!<%= grunt.config.get("exclude_from_assemble") %>'

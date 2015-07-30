@@ -8,7 +8,7 @@ module.exports = function(filepath) {
   var key = path.join(path.dirname(filepath), path.basename(filepath, path.extname(filepath)))
                 .replace(process.cwd(), '');
 
-  if(key[0] !== '/') {
+  if (key[0] !== '/') {
     key = '/' + key;
   }
 
