@@ -12,9 +12,10 @@ var mkdirp = require('mkdirp');
 var generateKey = require('../../utils/generate-key');
 
 module.exports = function(assemble) {
-  var websiteGuts = assemble.get('data.websiteGuts');
-  var env = assemble.get('data.environment');
-  var smartlingConfigFile = assemble.get('smartlingEnvConfig');
+  var options = assemble.get('config.options');
+  var websiteGuts = options.websiteGuts;
+  var env = options.environment;
+  var smartlingConfigFile = options.smartlingConfigs[options.environment];
   console.log('CURRENT SMARTLING CONFIG => %s', smartlingConfigFile);
   var smartlingConfig;
   var createDirs = [
@@ -23,7 +24,7 @@ module.exports = function(assemble) {
     'dist/assets/js'
   ];
   var translations = {};
-  var locales = assemble.get('data.locales');
+  var locales = options.locales;
   var localeCodes = Object.keys(locales).map(function(subfolder) {
     return locales[subfolder];
   });

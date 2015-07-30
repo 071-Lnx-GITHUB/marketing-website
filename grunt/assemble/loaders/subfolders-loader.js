@@ -3,22 +3,23 @@ var fs = require('fs');
 var globby = require('globby');
 var matter = require('gray-matter');
 var path = require('path');
+var generateKey = require('../utils/generate-key');
 
 module.exports = function(assemble) {
   var lastRunTime = assemble.get('lastRunTime');
   var subfoldersRoot = assemble.get('data.subfoldersRoot');
   var websiteRoot = assemble.get('data.websiteRoot');
 
-  var locales = Object.keys(assemble.get('data.locales'));
+  var locales = assemble.get('config.options.locales');
 
   var createMap = function(argsObj) {
-    var renameKey = assemble.option('renameKey');
     var langPath = argsObj.langPath;
     var readPath = argsObj.readPath;
     var map = argsObj.map;
-    var key = renameKey(langPath);
+    var key = generateKey(langPath);
     var stats = fs.statSync(readPath || langPath);
 
+    // return if file hasn't been modified since last run
     if (lastRunTime && new Date(+stats.mtime) < new Date(lastRunTime)) {
       return map;
     }
@@ -68,6 +69,7 @@ module.exports = function(assemble) {
         });
       });
 
+      // TODO: merge vs assign?
       _.extend(collection, map);
 
     });

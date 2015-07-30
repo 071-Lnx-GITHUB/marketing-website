@@ -2,7 +2,7 @@ var _ = require('lodash');
 
 module.exports = function(assemble) {
   var websiteRoot = assemble.get('data.websiteRoot');
-  var localeKeys = Object.keys(assemble.get('data.locales'));
+  var localeKeys = assemble.get('config.options.locales');
   localeKeys.unshift(websiteRoot);
 
   /**

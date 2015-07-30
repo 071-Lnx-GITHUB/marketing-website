@@ -5,13 +5,13 @@ var config = {
   options: {
     assetsDir: '<%= grunt.config.get("assetsDir") %>',
     client: ['<%= config.guts %>/templates/client/**/*.hbs'],
-    linkPath: '<%= grunt.config.get("link_path") %>',
-    sassImagePath: '<%= grunt.config.get("sassImagePath") %>',
 
     apiDomain: '<%= grunt.config.get("apiDomain") %>',
     basename: path.basename(process.cwd()),
     environment: '<%= grunt.config.get("environment") %>',
+    linkPath: '<%= grunt.config.get("linkPath") %>',
     pageDataNamespace: 'page_data',
+    sassImagePath: '<%= grunt.config.get("sassImagePath") %>',
     websiteGuts: '<%= config.guts %>',
     websiteRoot: 'website',
 
@@ -130,16 +130,21 @@ var config = {
 };
 
 config[ppcKey] = {
-  files: {
-    cwd: '<%= config.content %>',
-    src: [
-      ppcKey + '/**/*.hbs',
-      '!<%= grunt.config.get("exclude_from_assemble") %>'
-    ],
-    dest: '<%= config.dist %>/'
+  pages: {
+    files: {
+      cwd: '<%= config.content %>',
+      src: [
+        ppcKey + '/**/*.hbs',
+        '!<%= grunt.config.get("exclude_from_assemble") %>'
+      ],
+      dest: '<%= config.dist %>/'
+    }
   },
-  options: {
-    layoutdir: '<%= config.guts %>/templates/' + ppcKey + '/layouts/'
+  layouts: {
+    files: {
+      cwd: '<%= config.guts %>',
+      src: 'templates/' + ppcKey + '/layouts/**/*.hbs'
+    }
   }
 };
 

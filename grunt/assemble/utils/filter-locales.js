@@ -1,5 +1,5 @@
 module.exports = function(assemble) {
-  var locales = assemble.get('data.locales');
+  var locales = assemble.get('config.options.locales');
   /**
    *
    * filter to add all locales with the same language key

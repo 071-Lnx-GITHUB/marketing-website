@@ -1,5 +1,5 @@
-var through = require('through2');
 var _ = require('lodash');
+var through = require('through2');
 
 module.exports = function(assemble) {
   var parseFilePath = require('../utils/parse-file-path')(assemble);
@@ -12,7 +12,7 @@ module.exports = function(assemble) {
    */
   function cap(str) {
     var firstChar = str.charAt(0);
-    if(isNaN(firstChar)) {
+    if (isNaN(firstChar)) {
       return firstChar.toUpperCase() + str.slice(1);
     } else {
       return str;
@@ -27,7 +27,7 @@ module.exports = function(assemble) {
    */
   function parseDirname(str) {
     var split;
-    if(str.indexOf('-') !== -1) {
+    if (str.indexOf('-') !== -1) {
       split = str.split('-');
       return split.map(function(splitStr) {
         return cap(splitStr);
@@ -43,24 +43,25 @@ module.exports = function(assemble) {
    * - if title exists then use the capitalized dirname plus a suffix
    * - if visible_title exists use it plus a suffix
    */
-  return through.obj(function (file, enc, cb) {
+  return through.obj(function(file, enc, callback) {
     var fpData = parseFilePath(file.path);
-    var addSeoTitle = fpData.isRoot || fpData.isSubfolder;
+
     var possibleTitles = [
       'TR_visible_title',
       'title'
     ];
-    var seoTitle = [ 'TR_seo_title', 'seo_title' ];
+    var seoTitle = ['TR_seo_title', 'seo_title'];
     var seoSuffix = ' - Optimizely';
-    var keys = Object.keys(file.data);
     var defaultTitle = 'Optimizely: Make every experience count';
+
+    var keys = Object.keys(file.data);
     var altTitle, dirname;
 
-    if(addSeoTitle) {
-
-      if(!_.intersection(keys, seoTitle).length) {
+    if (fpData.isRoot || fpData.isSubfolder) {
+      if (!_.intersection(keys, seoTitle).length) {
         altTitle = _.intersection(possibleTitles, keys)[0];
-        switch(altTitle) {
+
+        switch (altTitle) {
           case possibleTitles[1]:
             dirname = file.data.src.dirname;
             dirname = dirname.substr(dirname.lastIndexOf('/') + 1);
@@ -68,13 +69,11 @@ module.exports = function(assemble) {
             break;
           default:
             file.data.TR_seo_title = altTitle ? file.data[altTitle] + seoSuffix : defaultTitle;
-            break;
         }
       }
-
     }
 
     this.push(file);
-    cb();
+    callback();
   });
 };

@@ -7,29 +7,34 @@ module.exports = function(assemble) {
   var removeTranslationKeys = require('../utils/remove-translation-keys')(assemble);
   var parseFilePath = require('../utils/parse-file-path')(assemble);
   var getGlobalYml = require('./translation-utils/get-global-yml');
+
   var globalData = assemble.get('data');
-  var globalYml = getGlobalYml(globalData);
-  var lang = assemble.get('lang') || {};
+  var globalYml = getGlobalYml(globalData); // TODO: fix this so it doesn't mucking with globalData
   var pageData = assemble.get('pageData');
   var pageDataClone = _.cloneDeep(pageData);
-  var websiteRoot = assemble.get('data.websiteRoot');
-  var locales = assemble.get('data.locales');
+
+  var locales = assemble.get('config.options.locales');
+  var websiteRoot = assemble.get('config.options.websiteRoot');
+
+  var lang = assemble.get('lang') || {}; // TODO: rename this
 
   /**
    * add the global yml keys flagged for translation to the lang object to be parsed and sent to smartling
    */
   lang.global = createTranslationDict(globalYml, 'global');
 
-  return through.obj(function(file, enc, cb) {
+  return through.obj(function(file, enc, callback) {
     var filePathData = parseFilePath(file.path);
     var locale = filePathData.locale;
     var dataKey = filePathData.dataKey;
-    var trYfm, trYml, layoutData;
 
     pageDataClone[locale] = pageDataClone[locale] || {};
     pageDataClone[locale][dataKey] = pageDataClone[locale][dataKey] || {};
+
     lang[locale] = lang[locale] || {};
     lang[locale][dataKey] = lang[locale][dataKey] || {};
+
+    var trYfm, trYml, layoutData;
 
     /**
      * cache the layout data and remove it from the file.data object before translation parsing
@@ -75,8 +80,8 @@ module.exports = function(assemble) {
     }
 
     this.push(file);
-    cb();
-  }, function(cb) {
+    callback();
+  }, function(callback) {
     var curryTryCatch = require('../utils/curry-try-catch');
     var mergeSubfolderYml = curryTryCatch(require('./translation-utils/merge-subfolder-yml')(assemble));
     mergeSubfolderYml(lang, pageDataClone);
@@ -158,11 +163,10 @@ module.exports = function(assemble) {
         assemble.set('rootData', pageDataClone[websiteRoot]);
         assemble.set('translated', translated);
         assemble.set('translations', translations); // Store retrieved from Smartling translations object
-        cb();
+        callback();
       })
       .catch(function(error) {
         this.emit('error', error);
       }.bind(this));
   });
-
 };

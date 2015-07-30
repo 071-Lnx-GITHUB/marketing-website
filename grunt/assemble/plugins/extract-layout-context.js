@@ -14,14 +14,18 @@ module.exports = function(assemble) {
     }, {});
   };
 
+  // TODO: optimize this
   // middleware to merge the layout context into the current page context
   return through.obj(function(file, enc, callback) {
-    //the layout for the current file
-    var layout = file.layout || file.options.layout || file.data.layout;
+    // the layout for the current file
+    // var layout = file.layout || file.options.layout || file.data.layout;
+    var layout = file.data.layout;
+
     // => partners
-    //all of the layouts on assemble normalized with a key of layout name
-    //value of YAML front matter for layout and SRC and DEST mappings
+    // all of the layouts on assemble normalized with a key of layout name
+    // value of YAML front matter for layout and SRC and DEST mappings
     var layouts = mapLayouts(assemble.views.layouts);
+
     // => layout frontmatter
 
     //stack is an array of layout mappings, i.e. => ['wrapper', 'partners']

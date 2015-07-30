@@ -3,7 +3,7 @@ var extendWhile = require('../utils/extend-while');
 
 module.exports = function(assemble) {
   var websiteRoot = assemble.get('data.websiteRoot');
-  var locales = assemble.get('data.locales');
+  var locales = assemble.get('config.options.locales');
   var parseFilePath = require('../utils/parse-file-path')(assemble);
   var removeTranslationKeys = require('../utils/remove-translation-keys')(assemble);
   var lastLocale;

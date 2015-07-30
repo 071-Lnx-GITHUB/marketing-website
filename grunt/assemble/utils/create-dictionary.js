@@ -1,20 +1,17 @@
-var path = require('path');
 var _ = require('lodash');
-var marked = require('optimizely-marked');
-var splitKey = require('./split-key');
 var kindOf = require('kind-of');
+var marked = require('optimizely-marked');
+var path = require('path');
+var splitKey = require('./split-key');
 
 /**
- *
  * @param {Object} `assemble` the Assemble instance
  * @return {Object} a new object with only values to be translated and their associate translation keys.
- *
  */
 module.exports = function(assemble) {
-  var locales = assemble.get('data.locales');
+  var locales = assemble.get('config.options.locales');
 
   /**
-   *
    * Array will only be translated if key defining the array has a TR or MD flag
    * otherwise keys like layout_body_class or src containing arrays would be put into
    * translation dict. If the array contains only strings all those strings will be returned
@@ -84,13 +81,13 @@ module.exports = function(assemble) {
    * @param {String} `locale` locale the fileData is associated with
    * @return {Object} an object containing only key/value pairs flagged for translation
    */
-  var createDictionary = function createDictionary(fileData, locale) {
+  var createDictionary = function(fileData, locale) {
     //return early if given an empty object or a non `maplike` structure
     //use `kindOf` because buffers are misenterpreted by loadash
     if (kindOf(fileData) !== 'object') {
       return {};
     }
-    var linkPath = assemble.get('data.linkPath');
+    var linkPath = assemble.get('config.options.linkPath');
     var data = fileData.data || fileData;
     var translationKeys = [
       'TR',
@@ -98,7 +95,7 @@ module.exports = function(assemble) {
       'HTML'
     ];
 
-    if (Object.keys(locales).indexOf(locale) !== -1) {
+    if (locales.indexOf(locale) !== -1) {
       linkPath = path.join(linkPath, locale);
     }
 
@@ -135,7 +132,8 @@ module.exports = function(assemble) {
         }
 
         //fucking null....are you kidding me!!!!
-      } else if (_.isPlainObject(data[key])) {
+      }
+      else if (_.isPlainObject(data[key])) {
         recursed = createDictionary(data[key]);
         //this is important, keeps keys with empty values from being added
         if (Object.keys(recursed).length > 0) {

@@ -2,7 +2,7 @@ var _ = require('lodash');
 var splitKey = require('./split-key');
 
 module.exports = function(assemble) {
-  var linkPath = assemble.get('data.linkPath');
+  var linkPath = assemble.get('config.options.linkPath');
 
   /**
    * Utility function for removing TR|MD|HTML YML translation prefixes
@@ -25,9 +25,9 @@ module.exports = function(assemble) {
     function processTransArray(arr, parserFn) {
       arr.forEach(function(item) {
 
-        if(_.isPlainObject(item)) {
+        if (_.isPlainObject(item)) {
           parserFn(item);
-        } else if(_.isArray(item)) {
+        } else if (_.isArray(item)) {
           processTransArray(item);
         }
 
@@ -51,18 +51,18 @@ module.exports = function(assemble) {
          */
         split = splitKey(key);
 
-        if(_.isArray(split)) {
+        if (_.isArray(split)) {
           parsedKey = {
             prefix: split[0],
             key: split[1]
           };
         }
 
-        if(parsedKey) {
+        if (parsedKey) {
 
-          if(_.isPlainObject(val)) {
+          if (_.isPlainObject(val)) {
             val = removeTranslationKeys(val);
-          } else if(_.isArray(val)) {
+          } else if (_.isArray(val)) {
             val = processTransArray(val, removeTranslationKeys);
           } else {
             /**
@@ -79,9 +79,9 @@ module.exports = function(assemble) {
              * ex. `/press` & `/resources/split-testing`
              * TODO: don't hardcode linkPath, but this is tricky because assemble.get('linkPath') varies per locale
              */
-            if(parsedKey.prefix === 'HTML' && locale) {
+            if (parsedKey.prefix === 'HTML' && locale) {
               var pathRe = new RegExp(linkPath + '\/(?!' + locale + '\/)', 'g');
-              if(locale && pathRe.test(val)) {
+              if (locale && pathRe.test(val)) {
                 val = val.replace(pathRe, linkPath + '/' + locale + '/');
               }
             }
@@ -93,8 +93,8 @@ module.exports = function(assemble) {
            * Important to check for existing key because this allows pre-translated values
            * in external YML to overwrite translated values of parent YML
            */
-          if(!fileData[ parsedKey.key ]) {
-            fileData[ parsedKey.key ] = val;
+          if (!fileData[parsedKey.key]) {
+            fileData[parsedKey.key] = val;
           }
           delete fileData[key];
 
@@ -104,13 +104,13 @@ module.exports = function(assemble) {
            * Recurse the object to remove translation keys even if the top-level key is not
            * flagged for translation.
            */
-          if(_.isPlainObject(val)) {
+          if (_.isPlainObject(val)) {
             fileData[key] = removeTranslationKeys(val);
           }
 
-        }//end if checking for `parsedKey`
+        } //end if checking for `parsedKey`
 
-      });//end forEach
+      }); //end forEach
 
       return fileData;
     }
