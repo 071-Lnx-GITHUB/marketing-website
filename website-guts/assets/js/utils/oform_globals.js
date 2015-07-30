@@ -298,43 +298,45 @@
     }
 
     /* legacy reporting - to be deprecated */
+    if (!(reportingObject.Inbound_Lead_Form_Type__c === 'Contact Sales')) {
 
-    w.analytics.track('/account/create/success', {
-      category: 'account',
-      label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-    });
+      w.analytics.track('/account/create/success', {
+        category: 'account',
+        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      });
 
-    w.analytics.track('/account/signin', {
-      category: 'account',
-      label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
-    }, {
-      integrations: {
-        'Marketo': false
+      w.analytics.track('/account/signin', {
+        category: 'account',
+        label: w.optly.mrkt.utils.trimTrailingSlash(w.location.pathname)
+      }, {
+        integrations: {
+          'Marketo': false
+        }
+      });
+
+      w.analytics.track('/event/plan/null', {}, {
+        integrations: {
+          'All': false,
+          'Marketo': true
+        }
+      });
+
+      var reportingPlan;
+
+      if(typeof(response.plan) == 'string'){
+        reportingPlan = response.plan;
+      } else {
+        reportingPlan = 'null';
       }
-    });
 
-    w.analytics.track('/event/plan/null', {}, {
-      integrations: {
-        'All': false,
-        'Marketo': true
-      }
-    });
-
-    var reportingPlan;
-
-    if(typeof(response.plan) == 'string'){
-      reportingPlan = response.plan;
-    } else {
-      reportingPlan = 'null';
+      w.analytics.track('/event/plan' + reportingPlan, {}, {
+        integrations: {
+          'All': false,
+          'Marketo': true
+        }
+      });
+      w.analytics.page('/plan/' + response.plan);
     }
-
-    w.analytics.track('/event/plan' + reportingPlan, {}, {
-      integrations: {
-        'All': false,
-        'Marketo': true
-      }
-    });
-    w.analytics.page('/plan/' + response.plan);
 
     /* new reporting */
 
