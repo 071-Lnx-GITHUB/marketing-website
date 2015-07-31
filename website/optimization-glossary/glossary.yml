@@ -1,0 +1,39 @@
+TR_title: "Optimization Glossary"
+alphabet: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+glossary:
+  -
+    TR_term: "AB Testing"
+    TR_summary: "A method of comparing two versions of a webpage or mobile app experience against each other to determine which performs best."
+    link: "/ab-testing/"
+  -
+    TR_term: "AB Testing Tool"
+    TR_summary: "The best A/B testing tools allow you to make changes without technical support, integrate with all of your favorite tools, provide clear reporting and insights, and more to build your data-driven business."
+    link: "/resources/ab-testing-tool/"
+  -
+    TR_term: "Conversion Optimization Tools"
+    TR_summary: "Essential tools for conversion optimization include: your A/B testing platform, web or mobile app analytics, marketing automation, heat mapping service, and customer relationship management provider."
+    link: "resources/conversion-optimization-tools"
+  -
+    TR_term: "Improve Conversion Rates"
+    TR_summary: "A method of comparing two versions of a webpage or mobile app experience against each other to determine which performs best."
+    link: "/resources/improve-conversion-rates"
+  -
+    TR_term: "iOS AB Testing"
+    TR_summary: "The process of running a controlled experiment comparing one or more versions of an iOS app against the original to improve certain metrics."
+    link: "/resources/ios-ab-testing"
+  -
+    TR_term: "Multivariate Testing"
+    TR_summary: "A technique for testing a hypothesis where multiple variables are modified, in order to determine the best combination of variations on those elements of a website or mobile app."
+    link: "/resources/multivariate-testing/"
+  -
+    TR_term: "Online Marketing"
+    TR_summary: "The strategy for leveraging web-based channels to spread a message about a company’s brand, products, or services to its potential customers."
+    link: "/resources/online-marketing"
+  -
+    TR_term: "Split Testing"
+    TR_summary: "A strategy for conducting controlled, randomized experiments with the goal of improving a metric, such as clicks, form completions, or purchases on a website or mobile app."
+    link: "/split-testing/"
+  -
+    TR_term: "Split Testing Tool"
+    TR_summary: "A split testing tool should let you make changes with a visual editor, while tracking results immediately on metrics that matter to your business."
+    link: "/resources/split-testing-tool"
