@@ -3,7 +3,7 @@ var hbsParser = require('l10n-tools/hbs-parser');
 var through = require('through2');
 
 module.exports = function(assemble) {
-  var createTranslationDict = require('../utils/create-dictionary')(assemble);
+  var createDictionary = require('../utils/create-dictionary')(assemble);
   var removeTranslationKeys = require('../utils/remove-translation-keys')(assemble);
   var parseFilePath = require('../utils/parse-file-path')(assemble);
   var getGlobalYml = require('./translation-utils/get-global-yml');
@@ -21,16 +21,18 @@ module.exports = function(assemble) {
   /**
    * add the global yml keys flagged for translation to the lang object to be parsed and sent to smartling
    */
-  lang.global = createTranslationDict(globalYml, 'global');
+  lang.global = createDictionary(globalYml, 'global');
 
-  return through.obj(function(file, enc, callback) {
+  var transform = function(file, enc, callback) {
     var filePathData = parseFilePath(file.path);
-    var locale = filePathData.locale;
+    var locale = filePathData.locale; // TODO: not always locale
     var dataKey = filePathData.dataKey;
 
+    // all data for pages
     pageDataClone[locale] = pageDataClone[locale] || {};
     pageDataClone[locale][dataKey] = pageDataClone[locale][dataKey] || {};
 
+    // data to translate
     lang[locale] = lang[locale] || {};
     lang[locale][dataKey] = lang[locale][dataKey] || {};
 
@@ -48,14 +50,14 @@ module.exports = function(assemble) {
     /**
      * get TR|MD prefixed keys and swap out MD content for HTML content
      */
-    trYfm = createTranslationDict(file, locale);
+    trYfm = createDictionary(file, locale);
 
     /**
      * add all the parsed YFM to the page data object
      */
     _.merge(pageDataClone[locale][dataKey], trYfm);
 
-    trYml = createTranslationDict(pageDataClone[locale][dataKey], locale);
+    trYml = createDictionary(pageDataClone[locale][dataKey], locale);
 
     /**
      * Add extracted phrases as translation key so they will be sent to smartling
@@ -81,13 +83,20 @@ module.exports = function(assemble) {
 
     this.push(file);
     callback();
-  }, function(callback) {
+  };
+
+  var flush = function(callback) {
+    // TODO: how many times is this called? hopefully once
     var curryTryCatch = require('../utils/curry-try-catch');
     var mergeSubfolderYml = curryTryCatch(require('./translation-utils/merge-subfolder-yml')(assemble));
+
+    // set local data to a merge of local data and english data
+    // only for yml files that don't have a template in the same folder
+    // mutates lang and pageDataClone
     mergeSubfolderYml(lang, pageDataClone);
     assemble.set('lang', lang);
-    var sendToSmartling = curryTryCatch(require('./translation-utils/smartling-upload')(assemble));
 
+    var sendToSmartling = curryTryCatch(require('./translation-utils/smartling-upload')(assemble));
     sendToSmartling().then(function(resolved) {
         var populateSubfolderData = curryTryCatch(require('./translation-utils/populate-subfolder-data')(assemble));
         var translatePageData = curryTryCatch(require('./translation-utils/translate-page-data')(assemble));
@@ -168,5 +177,7 @@ module.exports = function(assemble) {
       .catch(function(error) {
         this.emit('error', error);
       }.bind(this));
-  });
+  };
+
+  return through.obj(transform, flush);
 };

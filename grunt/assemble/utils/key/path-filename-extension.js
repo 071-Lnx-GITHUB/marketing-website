@@ -5,11 +5,11 @@ var path = require('path');
  * @return {String} `key` used to store and look up data for a file
  */
 module.exports = function(filepath) {
-  var key = path.join(path.dirname(filepath), path.basename(filepath, path.extname(filepath)))
+  var key = path.join(path.dirname(filepath), path.basename(filepath))
                 .replace(process.cwd(), '');
 
-  if (key[0] === '/') {
-    key = key.substr(1);
+  if (key[0] !== '/') {
+    key = '/' + key;
   }
 
   return key;

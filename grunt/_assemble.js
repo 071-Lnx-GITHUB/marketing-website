@@ -15,6 +15,8 @@ var config = {
     websiteGuts: '<%= config.guts %>',
     websiteRoot: 'website',
 
+    globalYmlFilenamePrefix: 'global_',
+
     // locale code for the global US English site
     globalLocale: 'en_US',
 
@@ -59,13 +61,6 @@ var config = {
     //   '!opticon/**/*.hbs',
     //   '!' + ppcKey + '/**/*.hbs'
     // ]
-  },
-
-  globalYml: {
-    files: {
-      cwd: '<%= config.content %>',
-      src: '**/global_*.yml'
-    }
   },
 
   helpers: {

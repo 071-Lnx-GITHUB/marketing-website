@@ -1,6 +1,6 @@
 var marked = require('optimizely-marked');
 
-module.exports = function omarkdown (options)  {
+module.exports = function(options)  {
   marked.setOptions({
     linkPath: this.context.linkPath,
     smartypants: true

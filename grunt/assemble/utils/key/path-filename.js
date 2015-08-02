@@ -9,7 +9,7 @@ module.exports = function(filepath) {
                 .replace(process.cwd(), '');
 
   if (key[0] === '/') {
-    key = key.substr(1);
+    key = key.substring(1);
   }
 
   return key;

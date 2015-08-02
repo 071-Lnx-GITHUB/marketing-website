@@ -4,6 +4,7 @@ var generateKey = require('../utils/generate-key');
 var path = require('path');
 var through = require('through2');
 
+// add 'file.data.layouts' array containing all of the layouts that are used by a given file
 module.exports = function(assemble) {
   // transform the layout front matter into an object
   // that `layout-stack` requires
@@ -61,6 +62,7 @@ module.exports = function(assemble) {
     if (Object.keys(data).length) {
       file.data.layouts = data;
     }
+
     this.push(file);
     callback();
   });

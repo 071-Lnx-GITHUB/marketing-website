@@ -1,498 +1,411 @@
-var chalk = require('chalk');
-var ext = require('gulp-extname');
+var _ = require('lodash');
+var assemble = require('assemble');
 var path = require('path');
+
+var addSeoTitle = require('./plugins/seo-title');
+var extractLayoutContext = require('./plugins/extract-layout-context');
+var sendToSmartling = require('./plugins/smartling');
+
+var generateKey = require('./utils/generate-key');
+var normalizeSrc = require('./utils/normalize-src');
+
+// var chalk = require('chalk');
+// var ext = require('gulp-extname');
+// var langLoader = require('./loaders/subfolders-loader');
+// var localizeLinkPath = require('./middleware/localize-link-path');
+// var mergeLayoutContext = require('./plugins/merge-layout-context');
+// var mergeTranslatedData = require('./middleware/merge-translated-data');
+// var resourceListType = require('./plugins/store-resource-list-types');
 
 module.exports = function(grunt) {
   grunt.registerTask('assemble', 'Assemble', function() {
     var done = this.async();
 
-    var assemble = require('assemble');
+    // Set convenience variables for _assemble.js and import into assemble.
+    var config = grunt.config.get('_assemble');
+    var options = config.options;
+    assemble.set('config', config);
 
-    //set the global data from external YML & env config
-    //special key for YML data for translation dictionary retrieval
-    var config = grunt.config.get('_assemble'); // old assemble config
-    var options = config.options; // global options
-    var env = options.environment;
-    var smartlingEnv = options.smartlingConfigs[env];
-    var loadGlobalData = require('./utils/load-global-data')(assemble);
-
-    loadGlobalData(options);
-    assemble.set('smartlingEnvConfig', smartlingEnv);
-
-    var langLoader = require('./loaders/subfolders-loader');
+    var load = require('./utils/load')(assemble);
     var renderTypeHelper = require('./helpers/render-type-helper')(assemble);
-    var localizeLinkPath = require('./middleware/localize-link-path');
-    var extractLayoutContext = require('./plugins/extract-layout-context');
-    var mergeLayoutContext = require('./plugins/merge-layout-context');
-    var collectionMiddleware = require('./middleware/onload-collection')(assemble);
-    var mergeTranslatedData = require('./middleware/merge-translated-data');
-    var resourceListType = require('./plugins/store-resource-list-types');
-    var sendToSmartling = require('./plugins/smartling');
-    var addSeoTitle = require('./plugins/seo-title');
-    var typeLoader = require('./loaders/type-loader');
-    var push = require('assemble-push')(assemble);
-    var buildInitialized = false;
+//     var collectionMiddleware = require('./middleware/onload-collection')(assemble);
+//     var push = require('assemble-push')(assemble);
 
-    var normalizeSrc = require('./utils/normalize-src');
+    // TODO: fix this shit
+    var omSrc = normalizeSrc(config.om.pages.files).filter(function(src) {
+      return (src[0] !== '!');
+    });
+    
+//     var logData = (function() {
+//       var lastPath = [];
 
-    var omLayouts = path.join(config.om.options.layoutdir, '**/*.hbs');
-    var omFiles = config.om.files[0];
-    var omSrc = normalizeSrc(omFiles.cwd, omFiles.src).filter(function(src) {
-      if(src.indexOf('!') === -1) {
-        return true;
-      }
-    })[0];
-    var generateKey = require('./utils/generate-key');
-    var renameKey = assemble.option('renameKey');
-    var ppcKey = options.ppcKey;
+//       var checkI = function(path) {
+//         return !~lastPath.indexOf(path);
+//       };
 
-    var loader = function loader(typeFn, cb) {
-      return function() {
-        var currentRenameKey = assemble.option('renameKey');
-        assemble.option('renameKey', renameKey);
-        if(Array.isArray(typeFn)) {
-          typeFn.forEach(function(fn) {
-            fn();
-          });
-        } else {
-          typeFn();
-        }
-        assemble.option('renameKey', currentRenameKey);
-        if (cb) {
-          cb();
-        }
-      };
-    };
+//       return function(fp, type) {
+//         console.log('index.js');
+//         var key = generateKey(fp);
+//         var split = key.split('/');
+//         split = split.filter(function(item) {
+//           return !!item;
+//         });
+//         var one = split[0];
+//         var two = split[1];
+//         var o = {
+//           'om-pages': 'magenta',
+//           pages: 'blue',
+//           partners: 'red',
+//           subfolders: 'magenta'
+//         };
 
-    assemble.asyncHelper('partial', renderTypeHelper('partials'));
+//         if (options.locales[two]) {
+//           if (checkI(two)) {
+//             console.log(chalk[ o[type] ].bold('rendering ' + type) + ' => ' + chalk.green(two.toUpperCase()));
+//             lastPath.push(two);
+//           }
+//         }
+//         else if (two === 'om' || two === 'partners') {
+//           if (checkI(two)) {
+//             console.log(chalk[ o[type] ].bold('rendering ') + ' => ' + chalk.green(type));
+//             lastPath.push(two);
+//           }
+//         }
+//         else {
+//           if (checkI(one)) {
+//             console.log(chalk[ o[type] ].bold('rendering ') + ' => ' + chalk.green(type));
+//             lastPath.push(one);
+//           }
+//         }
+//       };
+//     }());
 
-    function loadLayouts () {
-      assemble.layouts([options.layoutDir]);
-    }
+//     var buildOm = function() {
+//       var start = process.hrtime();
+//       var files = config[options.ppcKey].files[0];
 
-    function loadPartials () {
-      assemble.partials(options.partials, [typeLoader(assemble)]);
-    }
+//       return assemble.src([omSrc])
+//         .pipe(extractLayoutContext(assemble))
+//         .pipe(mergeLayoutContext())
+//         .pipe(addSeoTitle(assemble))
+//         .pipe(ext())
+//         .pipe(assemble.dest(path.join(files.dest, options.ppcKey)))
+//         .on('data', function(file) {
+//           logData(file.path, 'om-pages');
+//         })
+//         .on('end', function() {
+//           var end = process.hrtime(start);
+//           console.log('finished rendering pages om', end);
+//         });
+//     };
 
-    function loadOmLayouts () {
-      //append special path for ppc layouts in order to prevent naming conflicts between layouts
-      assemble.layouts([omLayouts], [function (layouts, options) {
-        return Object.keys(layouts).reduce(function (o, key) {
-          var layout = layouts[key];
-          var concatKey = ppcKey + '-';
-          if(layout.data && layout.data.layout) {
-            layout.data.layout = concatKey + layout.data.layout;
-          }
+//     var buildPages = function(reload) {
+//       var start = process.hrtime();
 
-          o[concatKey + key] = layout;
-          return o;
-        }, {});
-      }]);
-    }
+//       var files = config.pages.files;
+//       var opts = {
+//         since: (assemble.get('lastRunTime') ? new Date(assemble.get('lastRunTime')) : null)
+//       };
 
-    assemble.helpers(options.helpers);
+//       //this excludes om pages && resources-list pages
+//       return assemble.src(normalizeSrc(files).concat([
+//           '!' + omSrc[0],
+//           '!website/partners/**/*.hbs'
+//         ]), opts)
+//         .on('error', function(err) {
+//           console.log('src error', err);
+//         })
+//         .pipe(ext())
+//         .pipe(assemble.dest(files.dest))
+//         .on('error', function(err) {
+//           console.log('dest error', err);
+//         })
+//         .on('data', function(file) {
+//            logData(file.path, 'pages');
+//         })
+//         .on('end', function() {
+//           var end = process.hrtime(start);
+//           console.log('finished rendering pages', end);
+//           assemble.set('lastRunTime', new Date());
+//         });
+//     };
 
-    //make more dynamic to get language dirs in an array
-    assemble.create('subfolder', {
-      isRenderable: true
-    }, [langLoader(assemble)]);
+//     var buildPartners = function() {
+//       var start = process.hrtime();
 
-    // create custom template type `modals`
+//       var files = config.partners.files;
+//       return assemble.src(normalizeSrc(files))
+//         .pipe(ext())
+//         .pipe(assemble.dest(path.join(files.dest, 'partners')))
+//         .on('data', function(file) {
+//            logData(file.path, 'partners');
+//         })
+//         .on('error', function(err) {
+//           console.log('dest error', err);
+//         })
+//         .on('end', function() {
+//           var end = process.hrtime(start);
+//           console.log('finished rendering partners', end);
+//         });
+//     };
+
+//     // ----------------------------------------------------------------------
+//     // ----------------------------------------------------------------------
+
+    // Store default rename key for later. It uses the filename minus extension.
+    assemble.set('defaultRenameKey', assemble.option('renameKey'));
+
+    // Set rename key to longer format: filepath with no extension.
+    assemble.option('renameKey', generateKey);
+
+    // Add custom template types and helpers.
+    assemble.helpers(normalizeSrc(config.helpers.files));
+
     assemble.create('modal', 'modals', {
       isPartial: true,
       isRenderable: true
     });
     assemble.asyncHelper('modal', renderTypeHelper('modals'));
 
-    // create custom template type `resources`
     assemble.create('resource', 'resources', {
       isPartial: true,
-      isRenderable: false,
+      isRenderable: false
     });
+    assemble.asyncHelper('partial', renderTypeHelper('partials'));
 
-    var loadModals = function loadModals() {
-      var modalFiles = config.modals.files[0];
-      assemble.modals(normalizeSrc(modalFiles.cwd, modalFiles.src), [typeLoader(assemble)]);
-    };
+//     //make more dynamic to get language dirs in an array
+//     assemble.create('subfolder', {
+//       isRenderable: true
+//     }, [langLoader(assemble)]);
 
-    var loadResources = function loadResources() {
-      var currentRenameKey = assemble.option('renameKey');
-      //set rename key to longer format, fp without extension
-      assemble.option('renameKey', function(fp) {
-        return generateKey(fp);
-      });
+//     // custom middleware for `resources` to add front-matter (`data`)
+//     // to the assemble cache. (`assemble.get('resources').foo`)
+//     assemble.onLoad(/resources-list/, collectionMiddleware('resources'));
 
-      var resourceFiles = config.resources.files[0];
-      assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
+//     assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
+//     assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
 
-      assemble.option('renameKey', currentRenameKey);
-    };
+//     //change the layout name reference to that created in the ppc layout loader
+//     var ppcRe = new RegExp(path.join(options.websiteRoot, ppcKey));
+//     assemble.onLoad(ppcRe, function(file, next) {
+//       file.data.isPpc = true;
+//       file.data.layout = ppcKey + '-' + file.data.layout;
+//       next();
+//     });
 
-    var loadPageYml = function loadPageYml() {
-      assemble.transform('page-translations', require('./transforms/load-translations'), ['**/*.{yml,yaml}', '!**/global_*.{yml,yaml}'], options.websiteRoot);
-    };
+//     //merge layout YFM on file context, attach external YML data and translate
+//     //order is important here because we want to merge layouts before translating
+//     //assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
+//     assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
 
-    var loadSubfolderYml = function loadSubfolderYml() {
-      Object.keys(options.locales).forEach(assemble.transform.bind(assemble, 'subfolder-translations', require('./transforms/load-translations'), ['**/*.{yml,yaml}', '!**/global_*.{yml,yaml}']));
-    };
+//     //expose the partners pages takes on the root index partner page
+//     //for use in dropdown menu
+//     assemble.preRender(/partners\/solutions\/index/, function(file, next) {
+//       var col = assemble.get('solutions');
+//       var locale = file.data.locale;
+//       var langKey = options.locales[locale];
+//       var translations = assemble.get('translations');
 
-    var loadAll = function loadAll(watchRunning) {
-      //load the files for the resources collection
-      if(watchRunning) {
-        loadGlobalData(options);
-        loadResources();
-      }
+//       var tags = Object.keys(col).reduce(function(map, key) {
+//         var o = col[key];
+//         if (_.isArray(o.tags)) {
+//           map.push.apply(map, o.tags);
+//         }
+//         return map;
+//       }, []);
+//       tags = _.uniq(tags).filter(function(tag) { return !!tag; });
 
-      loader([
-        loadResources,
-        loadLayouts,
-        loadPartials,
-        loadOmLayouts,
-        loadModals
-      ])();
+//       file.data.tag_dropdown = tags.reduce(function(map, tag) {
+//         var trans, o = {};
+//         if (locale && locale !== options.websiteRoot) {
+//           trans = translations[langKey][tag];
+//         }
+//         o.data_tag = tag.toLowerCase();
+//         o.tag = trans || tag;
+//         map.push(o);
 
-      //load external YML files and scope locally, while omitting global YML
-      loadPageYml();
-      loadSubfolderYml();
-    };
+//         return map;
+//       }, []);
 
-    // custom middleware for `resources` to add front-matter (`data`)
-    // to the assemble cache. (`assemble.get('resources').foo`)
-    assemble.onLoad(/resources-list/, collectionMiddleware('resources'));
+//       next();
+//     });
 
-    assemble.onLoad(/partners\/solutions/, collectionMiddleware('solutions'));
-    assemble.onLoad(/partners\/technology/, collectionMiddleware('integrations'));
+//     //localize link path after locale is appended in the translate data middleware
+//     var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
+//     assemble.preRender(pathRe, localizeLinkPath(assemble));
 
-    //change the layout name reference to that created in the ppc layout loader
-    var ppcRe = new RegExp(path.join(options.websiteRoot, ppcKey));
-    assemble.onLoad(ppcRe, function(file, next) {
-      file.data.isPpc = true;
-      file.data.layout = ppcKey + '-' + file.data.layout;
-      next();
-    });
+    assemble.task('prep-smartling', function() {
+      // var start = process.hrtime();
 
-    //merge layout YFM on file context, attach external YML data and translate
-    //order is important here because we want to merge layouts before translating
-    //assemble.preRender(/.*\.(hbs|html)$/, mergeLayoutContext(assemble));
-    assemble.preRender(/.*\.(hbs|html)$/, mergeTranslatedData(assemble));
+      // TODO: fix...
+      var localesPaths = options.locales.map(function(locale) {
+        return path.join(options.localesRoot, locale);
+      })
+      var allRoots = localesPaths.concat([
+        options.websiteRoot,
+        options.websiteGuts
+      ]);
+      var hbsPaths = allRoots.map(function(root) {
+        return path.join(root, '**/*.hbs');
+      }).concat([
+        '!' + options.client,
+        '!' + omSrc,
+        '!' + normalizeSrc(config.om.layouts.files)
+      ]);
 
-    //expose the partners pages takes on the root index partner page
-    //for use in dropdown menu
-    assemble.preRender(/partners\/solutions\/index/, function(file, next) {
-      var col = assemble.get('solutions');
-      var locale = file.data.locale;
-      var langKey = options.locales[locale];
-      var translations = assemble.get('translations');
-
-      var tags = Object.keys(col).reduce(function(map, key) {
-        var o = col[key];
-        if(_.isArray(o.tags)) {
-          map.push.apply(map, o.tags);
-        }
-        return map;
-      }, []);
-      tags = _.uniq(tags).filter(function(tag) { return !!tag; });
-
-      file.data.tag_dropdown = tags.reduce(function(map, tag) {
-        var trans, o = {};
-        if(locale && locale !== options.websiteRoot) {
-          trans = translations[langKey][tag];
-        }
-        o.data_tag = tag.toLowerCase();
-        o.tag = trans || tag;
-        map.push(o);
-
-        return map;
-      }, []);
-
-      next();
-    });
-
-    //localize link path after locale is appended in the translate data middleware
-    var pathRe = /^(([\\\/]?|[\s\S]+?)(([^\\\/]+?)(?:(?:(\.(?:\.{1,2}|([^.\\\/]*))?|)(?:[\\\/]*))$))|$)/;
-    assemble.preRender(pathRe, localizeLinkPath(assemble));
-
-    //set rename key to longer format, fp without extension
-    assemble.option('renameKey', function(fp) {
-      return path.join(path.dirname(fp), path.basename(fp, path.extname(fp)));
-    });
-
-    var localesPaths = Object.keys(options.locales).reduce(function(map, locale) {
-      map.push(path.join(options.subfoldersRoot, locale));
-      return map;
-    }, []);
-
-    var allRoots = localesPaths.concat([
-                        options.websiteRoot,
-                        options.websiteGuts
-                      ]);
-
-    var hbsPaths = allRoots.reduce(function(map, root) {
-                          var pattern = '**/*.hbs';
-                          map.push(path.join(root, pattern));
-                          return map;
-                      }, [])
-                      .concat([
-                        '!' + options.client,
-                        '!' + omSrc,
-                        '!' + omLayouts
-                      ]);
-
-    var logData = (function(){
-      var lastPath = [];
-
-      var checkI = function(path) {
-        return !~lastPath.indexOf(path);
-      };
-
-      return function(fp, type) {
-        var key = generateKey(fp);
-        var split = key.split('/');
-        split = split.filter(function(item) {
-          return !!item;
-        });
-        var one = split[0];
-        var two = split[1];
-        var o = {
-          'om-pages': 'magenta',
-          pages: 'blue',
-          partners: 'red',
-          subfolders: 'magenta'
-        };
-
-        if (options.locales[two]) {
-          if (checkI(two)) {
-            console.log(chalk[ o[type] ].bold('rendering ' + type) + ' => ' + chalk.green(two.toUpperCase()));
-            lastPath.push(two);
-          }
-        }
-        else if (two === 'om' || two === 'partners') {
-          if (checkI(two)) {
-            console.log(chalk[ o[type] ].bold('rendering ') + ' => ' + chalk.green(type));
-            lastPath.push(two);
-          }
-        }
-        else {
-          if (checkI(one)) {
-            console.log(chalk[ o[type] ].bold('rendering ') + ' => ' + chalk.green(type));
-            lastPath.push(one);
-          }
-        }
-      };
-    }());
-
-    assemble.task('prep-smartling', function () {
-      var start = process.hrtime();
-
-      return assemble.src(hbsPaths, { since: (assemble.get('lastRunTime')?new Date(assemble.get('lastRunTime')):null)})
-        .pipe(extractLayoutContext(assemble))
-        .pipe(addSeoTitle(assemble))
+      // load up all hbs files and process one by one
+      // return assemble.src(hbsPaths, { since: (assemble.get('lastRunTime') ? new Date(assemble.get('lastRunTime')) : null) })
+      return assemble.src(hbsPaths)
+        .pipe(extractLayoutContext(assemble)) // TODO: optimize
+        .pipe(addSeoTitle(assemble)) // TODO: refactor
         .pipe(sendToSmartling(assemble))
-        .on('error', function (err) {
-          console.log('plugin error', err);
-        })
-        .pipe(resourceListType(assemble))
-        .on('error', function (err) {
-          console.log('plugin error', err);
-        })
-        .on('end', function () {
-          var end = process.hrtime(start);
-          console.log('finished translating pages', end);
-        });
+        // .on('error', function(err) {
+        //   console.log('plugin error', err);
+        // })
+        // .pipe(resourceListType(assemble))
+        // .on('error', function(err) {
+        //   console.log('plugin error', err);
+        // })
+        // .on('end', function() {
+        //   var end = process.hrtime(start);
+        //   console.log('finished translating pages', end);
+        // });
     });
 
-    var buildOm = function() {
-      var start = process.hrtime();
-      var files = config[ppcKey].files[0];
+//     assemble.task('om-pages', buildOm);
+//     assemble.task('pages', ['prep-smartling'], buildPages);
+//     assemble.task('partners', ['prep-smartling'], buildPartners);
 
-      return assemble.src([omSrc])
-        .pipe(extractLayoutContext(assemble))
-        .pipe(mergeLayoutContext())
-        .pipe(addSeoTitle(assemble))
-        .pipe(ext())
-        .pipe(assemble.dest(path.join(files.dest, ppcKey)))
-        .on('data', function(file) {
-          logData(file.path, 'om-pages');
-        })
-        .on('end', function() {
-          var end = process.hrtime(start);
-          console.log('finished rendering pages om', end);
-        });
-    };
+//     assemble.task('subfolders', ['partners'],  function() {
+//       var start = process.hrtime();
+//       var files = config.pages.files[0];
 
-    var buildPages = function(reload) {
-      var start = process.hrtime();
+//       /* jshint ignore:start */
+//       assemble['subfolder']({
+//         src: [
+//           '**/*.hbs'
+//         ],
+//         fallback: [
+//           '**/*.hbs',
+//           '!resources/resources-list/**/*'
+//         ].concat(options.omitFromSubfolders)
+//       });
+//       /* jshint ignore:end */
+//       return push('subfolders')
+//       .pipe(ext())
+//       .pipe(assemble.dest(files.dest))
+//       .on('data', function(file) {
+//          logData(file.path, 'subfolders');
+//       })
+//       .on('error', function(err) {
+//         console.log('dest error', err);
+//       })
+//       .on('end', function() {
+//         var end = process.hrtime(start);
+//         console.log('finished rendering subfolders', end);
+//       });
+//     });
 
-      var files = config.pages.files[0];
-      var opts = {
-        since: (assemble.get('lastRunTime') ? new Date(assemble.get('lastRunTime')) : null)
-      };
+//    assemble.task('load', ['resetLastRunTime'], function() {
+    assemble.task('load', function() {
+      var processYml = require('./plugins/process-yml')(assemble);
 
-      //this excludes om pages && resources-list pages
-      return assemble.src(normalizeSrc(files.cwd, files.src).concat([
-          '!' + omSrc[0],
-          '!website/partners/**/*.hbs'
-        ]), opts)
-        .on('error', function(err) {
-          console.log('src error', err);
-        })
-        .pipe(ext())
-        .pipe(assemble.dest(files.dest))
-        .on('error', function(err) {
-          console.log('dest error', err);
-        })
-        .on('data', function(file) {
-           logData(file.path, 'pages');
-        })
-        .on('end', function() {
-          var end = process.hrtime(start);
-          console.log('finished rendering pages', end);
-          assemble.set('lastRunTime', new Date());
-        });
-    };
+      return assemble.src(['website/**/*.yml'])
+        .pipe(processYml);
 
-    var buildPartners = function() {
-      var start = process.hrtime();
 
-      var files = config.partners.files[0];
-      return assemble.src(normalizeSrc(files.cwd, files.src))
-        .pipe(ext())
-        .pipe(assemble.dest(path.join(files.dest, 'partners')))
-        .on('data', function(file) {
-           logData(file.path, 'partners');
-        })
-        .on('error', function(err) {
-          console.log('dest error', err);
-        })
-        .on('end', function() {
-          var end = process.hrtime(start);
-          console.log('finished rendering partners', end);
-        });
-    };
+      // // IMPORTANT:
+      // // The YML loading functions below require starting with a clean 'data' object.
+      // // Run this task before setting properties on 'data' via assemble.set(),
+      // // assemble.data(), setting values directly to 'assemble.cache.data', etc.
+      // if (!_.isEmpty(assemble.cache.data)) {
+      //   throw new Error(
+      //     'Must run "load" task with a clean "assemble.cache.data" object.\n' + 
+      //     'View comments in /grunt/assemble/index.js for more information.');
+      // }
 
-    assemble.task('om-pages', buildOm);
-    assemble.task('pages', ['prep-smartling'], buildPages);
-    assemble.task('partners', ['prep-smartling'], buildPartners);
+      // // Load external YML to 'assemble.cache.ymlData'
+      // load.yml();
 
-    assemble.task('subfolders', ['partners'],  function() {
-      var start = process.hrtime();
-      var files = config.pages.files[0];
+      // // load.layouts();
+      // // load.modals();
+      // // load.partials();
+      // // load.resources();
 
-      /* jshint ignore:start */
-      assemble['subfolder']({
-        src: [
-          '**/*.hbs'
-        ],
-        fallback: [
-          '**/*.hbs',
-          '!resources/resources-list/**/*'
-        ].concat(options.omitFromSubfolders)
-      });
-      /* jshint ignore:end */
-      return push('subfolders')
-      .pipe(ext())
-      .pipe(assemble.dest(files.dest))
-      .on('data', function(file) {
-         logData(file.path, 'subfolders');
-      })
-      .on('error', function(err) {
-        console.log('dest error', err);
-      })
-      .on('end', function() {
-        var end = process.hrtime(start);
-        console.log('finished rendering subfolders', end);
-      });
+      // // load.omLayouts();
     });
 
-    assemble.task('loadAll', ['resetLastRunTime'], function() {
-      if (buildInitialized) {
-        loadAll(true);
-      } else {
-        buildInitialized = true;
-        loadAll();
-      }
-    });
+// //    assemble.task('loadOm', loader(loadOmLayouts));
+//     assemble.task('loadOm', function() {});
 
-    assemble.task('loadOm', loader(loadOmLayouts));
-    assemble.task('rebuild:pages', buildPages);
+//     assemble.task('rebuild:pages', buildPages);
 
-    assemble.task('resetLastRunTime', function(cb) {
-      assemble.set('lastRunTime', null);
-      cb();
-    });
+    // assemble.task('resetLastRunTime', function(cb) {
+    //   assemble.set('lastRunTime', null);
+    //   cb();
+    // });
 
-    assemble.task('done', ['pages', 'partners', 'subfolders'], done);
+//     assemble.task('done', ['pages', 'partners', 'subfolders'], done);
 
-    assemble.task('layouts:pages', ['loadAll', 'prep-smartling'], buildPages);
-    assemble.task('layouts:partners', ['loadAll', 'prep-smartling'], buildPartners);
-    assemble.task('layouts:om', ['loadOm'], buildOm);
-    assemble.task('build:all', ['loadAll', 'om-pages', 'pages', 'partners', 'subfolders']);
+//     assemble.task('layouts:pages', ['loadAll', 'prep-smartling'], buildPages);
+//     assemble.task('layouts:partners', ['loadAll', 'prep-smartling'], buildPartners);
+//     assemble.task('layouts:om', ['loadOm'], buildOm);
 
-    assemble.task('watch', ['om-pages', 'partners', 'pages'], function() {
+//     assemble.task('build:all', ['loadAll', 'om-pages', 'pages', 'partners', 'subfolders']);
 
-      //only build om if anything om related changes
-      assemble.watch([
-        'website-guts/templates/om/**/*.hbs',
-        'website/om/**/*.hbs'
-      ], ['layouts:om']);
+//     assemble.task('watch', ['om-pages', 'partners', 'pages'], function() {
 
-      //rebuild all pages if layout changes that isn't partners layout
-      //page layout references partners and pages
-      assemble.watch([
-        'website-guts/templates/layouts/**/*.hbs',
-        '!website-guts/templates/layouts/{modal_wrapper,wrapper}.hbs',
-        '!website-guts/templates/layouts/partners.hbs',
-        '!website-guts/templates/layouts/page.hbs',
-        '!website-guts/templates/om/**/*.hbs'
-      ], ['layouts:pages']);
+//       //only build om if anything om related changes
+//       assemble.watch([
+//         'website-guts/templates/om/**/*.hbs',
+//         'website/om/**/*.hbs'
+//       ], ['layouts:om']);
 
-      assemble.watch([
-        'website/**/global_*.{yml,yaml,json}',
-        'website-guts/templates/layouts/{modal_wrapper,wrapper}.hbs',
-        'website-guts/templates/layouts/page.hbs',
-        'website-guts/templates/{partials,components}/**/*.hbs'
-      ], ['build:all']);
+//       //rebuild all pages if layout changes that isn't partners layout
+//       //page layout references partners and pages
+//       assemble.watch([
+//         'website-guts/templates/layouts/**/*.hbs',
+//         '!website-guts/templates/layouts/{modal_wrapper,wrapper}.hbs',
+//         '!website-guts/templates/layouts/partners.hbs',
+//         '!website-guts/templates/layouts/page.hbs',
+//         '!website-guts/templates/om/**/*.hbs'
+//       ], ['layouts:pages']);
 
-      //rebuild a single page
-      assemble.watch([
-        'website/**/*.hbs',
-        '!website/partners/**/*.hbs',
-        '!website/om/**/*.hbs'
-      ], ['layouts:pages']);
+//       assemble.watch([
+//         'website/**/global_*.{yml,yaml,json}',
+//         'website-guts/templates/layouts/{modal_wrapper,wrapper}.hbs',
+//         'website-guts/templates/layouts/page.hbs',
+//         'website-guts/templates/{partials,components}/**/*.hbs'
+//       ], ['build:all']);
 
-      //rebuild all pages and layouts if yml changes
-      assemble.watch([
-        'website/**/*.{yml,yaml,json}',
-        '!website/**/global_*.{yml,yaml,json}',
-        '!website/partners/**/*.{yml,yaml,json}'
-      ], ['layouts:pages']);
+//       //rebuild a single page
+//       assemble.watch([
+//         'website/**/*.hbs',
+//         '!website/partners/**/*.hbs',
+//         '!website/om/**/*.hbs'
+//       ], ['layouts:pages']);
 
-      //rebuild all partners pages if a partners page or partners layout changes
-      assemble.watch([
-        'website/partners/**/*.{hbs,yml,yaml,json}',
-        '!website/partners/**/global_*.{yml,yaml,json}',
-        'website-guts/templates/layouts/partners.hbs'
-      ], ['layouts:partners']);
+//       //rebuild all pages and layouts if yml changes
+//       assemble.watch([
+//         'website/**/*.{yml,yaml,json}',
+//         '!website/**/global_*.{yml,yaml,json}',
+//         '!website/partners/**/*.{yml,yaml,json}'
+//       ], ['layouts:pages']);
 
-    });
+//       //rebuild all partners pages if a partners page or partners layout changes
+//       assemble.watch([
+//         'website/partners/**/*.{hbs,yml,yaml,json}',
+//         '!website/partners/**/global_*.{yml,yaml,json}',
+//         'website-guts/templates/layouts/partners.hbs'
+//       ], ['layouts:partners']);
 
-    var tasks;
+//     });
 
-    if (env === 'dev') {
-      tasks = [
-        'build:all',
-        'watch',
-        'done'
-      ];
-    }
-    else {
-      tasks = [
-        'build:all',
-        'done'
-      ];
-    }
+    // assemble.task('all', ['load', 'prep-smartling'], done)
+    // assemble.run('all');
 
-    assemble.run(tasks);
+    assemble.run('load', done);
+    // if (options.environment === 'dev') { assemble.run('watch'); }
   });
 
   return {};

@@ -3,16 +3,16 @@
  *
  * @param {Function} `fn` function to be wrapped in try/catch
  * @return {Function} "curried" function to be called with the original functions arugments
- *
  */
 module.exports = function curryTryCatch(fn) {
   var name = fn.name;
 
-  return function(){
+  return function() {
     try {
       return fn.apply(fn, arguments);
-    } catch(error) {
-      throw new Error('Function Name: ' + name +  error);
+    }
+    catch (error) {
+      throw new Error('Function Name: "' + name  + '", ' + error);
     }
   };
 };

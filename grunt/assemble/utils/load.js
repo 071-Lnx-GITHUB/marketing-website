@@ -2,47 +2,10 @@ var _ = require('lodash');
 var generateKey = require('./generate-key');
 var normalizeSrc = require('./normalize-src');
 var path = require('path');
-var transformPageYaml = require('../transforms/page-yaml');
 
 module.exports = function(assemble) {
   var config = assemble.get('config');
-
-  // ------------------------------------------------------------
-  // YAML loaders
-  // ------------------------------------------------------------
-
-  // add data from external 'global_' YML files to the Assemble instance
-  var loadGlobalYml = function() {
-    var src = normalizeSrc(config.globalYml.files);
-    assemble.data(src, { namespace: generateKey });
-  };
-
-  // load external YML files and scope locally, while omitting global YML
-  var loadPageYml = function() {
-    assemble.transform(
-      'main', // name (not really used for anything)
-      transformPageYaml, // function to be called
-      '**/*.yml', // file patterns
-      config.options.websiteRoot, // cwd
-      config.options.globalLocale, // locale
-      config.options.pageDataNamespace // namespace
-    );
-  };
-
-  var loadLocalizedYml = function() {
-    config.options.locales.forEach(function(locale) {
-      var localePath = path.join(config.options.localesRoot, locale);
-
-      assemble.transform(
-        'localized',
-        transformPageYaml,
-        '**/*.yml',
-        localePath,
-        locale,
-        config.options.pageDataNamespace
-      );
-    });
-  };
+  var options = config.options;
 
   // ------------------------------------------------------------
   // Template loaders
@@ -86,7 +49,57 @@ module.exports = function(assemble) {
 //   };
 
   // ------------------------------------------------------------
-  // Private
+  // YML loader
+  // ------------------------------------------------------------
+
+  // load YML files from 'website' and 'locales' folders
+  var loadYml = function() {
+    var src = [
+      path.join(options.localesRoot, '**/*.yml'),
+      path.join(options.websiteRoot, '**/*.yml')
+    ];
+    assemble.data(src, { namespace: generateKey });
+
+    var globalYmlData = {};
+    var ymlData = {};
+
+    for (var key in assemble.cache.data) {
+      var data = assemble.cache.data[key];
+      var dirname = path.dirname(key);
+      var filename = path.basename(key);
+      var prefix = filename.substr(0, 7);
+
+      // if (dirname === localesRootDir && prefix === options.globalYmlFilenamePrefix) {
+      //   // global YML file
+      //   globalYmlData[filename] = data;
+      // }
+      // else if (dirname in ymlData) {
+      //   // merge multiple files from the same directory
+      //   _.assign(ymlData[dirname][options.pageDataNamespace], data);
+      // }
+      // else {
+      //   ymlData[dirname] = {};
+      //   ymlData[dirname][options.pageDataNamespace] = data;
+      // }
+    }
+
+    console.log(globalYmlData);
+    console.log(ymlData);
+
+    // assemble.cache.globalYmlData = assemble.cache.globalYmlData || {};
+    // assemble.cache.globalYmlData[localeCode] = assemble.cache.globalYmlData[localeCode] || {};
+
+    // assemble.cache.ymlData = assemble.cache.ymlData || {};
+    // assemble.cache.ymlData[localeCode] = assemble.cache.ymlData[localeCode] || {};
+
+    // _.assign(assemble.cache.globalYmlData[localeCode], globalYmlData);
+    // _.assign(assemble.cache.ymlData[localeCode], ymlData);
+
+    // assemble.cache.data = {};
+  };
+
+  // ------------------------------------------------------------
+  // Private helpers
   // ------------------------------------------------------------
 
   // some loaders need to use the default renameKey
@@ -104,7 +117,7 @@ module.exports = function(assemble) {
   // duplicate templates for each locale
   var typeLoader = function(templates) {
     for (var templateKey in templates) {
-      config.options.locales.forEach(function(locale) {
+      options.locales.forEach(function(locale) {
         var localeKey = locale + '-' + templateKey;
 
         templates[localeKey] = {
@@ -121,14 +134,11 @@ module.exports = function(assemble) {
   };
 
   return {
-    globalYml: loadGlobalYml,
-    localizedYml: loadLocalizedYml,
-    pageYml: loadPageYml,
-
     layouts: loadWithDefaultRenameKey(loadLayouts),
     modals: loadWithDefaultRenameKey(loadModals),
     partials: loadWithDefaultRenameKey(loadPartials),
-    resources: loadResources
+    resources: loadResources,
+    yml: loadYml
 
     // omLayouts: loadWithDefaultRenameKey(loadOmLayouts)
   };

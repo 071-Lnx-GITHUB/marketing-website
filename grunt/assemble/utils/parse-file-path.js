@@ -3,6 +3,7 @@ var path = require('path');
 
 var generateKey = require('./generate-key');
 
+// TODO: optimize
 module.exports = function(assemble) {
   var config = assemble.get('config');
   var locales = config.options.locales;
@@ -46,7 +47,7 @@ module.exports = function(assemble) {
         var split = filepath.replace(process.cwd(), '').replace(localesRoot, '').split('/');
         return split.indexOf(locale) !== -1;
       });
-      data.locale = Object.keys(locales)[localeIndex];
+      data.locale = locales[localeIndex];
       localePath = '/' + localesRoot + '/' + data.locale + '/';
       data.parentKey = data.dataKey.replace(localePath, '/' + websiteRoot + '/');
       data.isSubfolder = true;
