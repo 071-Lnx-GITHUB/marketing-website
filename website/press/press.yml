@@ -1,4 +1,4 @@
-page_intro: "Keep up to date with how Optimizely is enabling businesses to build better web experiences. You can also get the latest from us via <a href='http://www.twitter.com/optimizely' title='Optimizely on Twitter'>Twitter</a>, <a href='http://www.facebook.com/optimizely' title='Optimizely on Facebook'>Facebook</a>, and <a href='https://plus.google.com/113842166556345533815/posts' title='Optimizely on Google Plus'>Google+</a>. Please contact us for <a href='mailto:press@optimizely.com'>press inquiries</a> or <a href='http://www.optimizely.com/partners'>partnership inquiries</a>."
+TR_page_intro: "Keep up to date with how Optimizely is enabling businesses to build better web experiences. You can also get the latest from us via <a href='http://www.twitter.com/optimizely' title='Optimizely on Twitter'>Twitter</a>, <a href='http://www.facebook.com/optimizely' title='Optimizely on Facebook'>Facebook</a>, and <a href='https://plus.google.com/113842166556345533815/posts' title='Optimizely on Google Plus'>Google+</a>. Please contact us for <a href='mailto:press@optimizely.com'>press inquiries</a> or <a href='http://www.optimizely.com/partners'>partnership inquiries</a>."
 TR_left_column_header: "News"
 press_kit:
   TR_header: "Press Kit"
@@ -12,7 +12,7 @@ press_kit:
     TR_title: "Download our fact sheet"
     TR_text: "Download Fact Sheet"
 press_releases:
-    TR_header: "Press Releases"
+  TR_header: "Press Releases"
 press_inquiries:
   TR_header: "Press Inquiries"
   TR_body: "If you’d like to write a story about Optimizely, please email <a href='mailto:press@optimizely.com'>press@optimizely.com</a>"
