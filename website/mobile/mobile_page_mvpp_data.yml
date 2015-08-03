@@ -38,8 +38,7 @@ TR_panels:
   bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/03instant-rollout-static.gif"
   bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/instant-rollout-3.gif"
 customer_logos:
- MD_body: |
-  ## Already loved by these<br><strong>awesome apps</strong>
+ title: "Already loved by these<br><strong>awesome apps</strong>"
  icons:
   -
     url: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/1b.png"

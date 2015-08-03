@@ -7,30 +7,22 @@ lets_talk:
   TR_title: "LET'S TALK STATS"
   TR_subtitle: "Data has changed<br>Statistics should too"
   img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/statistics/analog-01.svg"
-  MD_text: |
-    <p class="SL_swap" id="statsengine-letstalktext">Traditional statistics were developed over 100 years ago, for an offline world. These methods are no longer up to the task of helping businesses make decisions with real-time data. If you look at results in real time, as most optimization platforms allow you to do, you’ll see winning results where no winner actually exists. In fact, your error rate can skyrocket to <a href="https://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/">over 30%</a> if you don't take precautions.</p>
-
-    Without taking precautions, like setting a sample size and committing to a minimum detectable effect in advance, you could make changes to your website or product that at best, have no impact, and at worst, could be hurting your bottom line.
+  TR_text: "<p>Traditional statistics were developed over 100 years ago, for an offline world. These methods are no longer up to the task of helping businesses make decisions with real-time data. If you look at results in real time, as most optimization platforms allow you to do, you’ll see winning results where no winner actually exists. In fact, your error rate can skyrocket to <a href='https://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine'>over 30%</a> if you don't take precautions.</p><p>Without taking precautions, like setting a sample size and committing to a minimum detectable effect in advance, you could make changes to your website or product that at best, have no impact, and at worst, could be hurting your bottom line.</p>"
   TR_cta_text: "Read the blog"
   cta_link: "https://blog.optimizely.com/2015/01/20/statistics-for-the-internet-age-the-story-behind-optimizelys-new-stats-engine/"
 better_way:
   TR_title: "THERE'S A BETTER WAY"
   TR_subtitle: "We believe statistics<br>should work the way you do"
   img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/statistics/digital-01.svg"
-  MD_text: |
-    Our new Stats Engine supports experimentation and decision-making on your terms--no precautions needed. We partnered with Stanford statisticians to develop a revolutionary new approach to statistics for experience optimization. The approach builds on everything we’ve learned from helping over 7,000 Optimizely customers optimize more than 7 billion experiences.
+  TR_text: "Our new Stats Engine supports experimentation and decision-making on your terms--no precautions needed. We partnered with Stanford statisticians to develop a revolutionary new approach to statistics for experience optimization. The approach builds on everything we’ve learned from helping over 7,000 Optimizely customers optimize more than 7 billion experiences."
   TR_cta_text: "Download the ebook"
   cta_link: "http://pages.optimizely.com/guide-statistics-online-experiments.html"
 confidence:
   TR_title: "DECIDE WITH CONFIDENCE"
   TR_subtitle: "Introducing always-valid results"
-  MD_text: |
-    <h3 class="white no-underline">Results are valid whenever you check</h3>
-    <p class="white">With traditional statistics, peeking at your results any time other than your set sample size increases the chance you’ll find a winner when there isn’t one. With Stats Engine, check whenever you want. With a method called sequential testing, you’ll see your statistical significance increase with more time and data—no more waiting.</p>
+  TR_text: "<h3 class='white no-underline'>Results are valid whenever you check</h3><p class='white'>With traditional statistics, peeking at your results any time other than your set sample size increases the chance you’ll find a winner when there isn’t one. With Stats Engine, check whenever you want. With a method called sequential testing, you’ll see your statistical significance increase with more time and data—no more waiting.</p>"
   img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/statistics/sequential-testing-graphic-us.png"
-  MD_text_2: |
-    <h3 class="white no-underline">Test as many variations and goals as you want</h3>
-    <p class="white">Adding many goals or variations to an experiment also increases your chance of finding a winning result that isn’t real. Optimizely’s Stats Engine corrects for multiple goals and variations with false discovery rate control. Now you can add as many as you want without sacrificing accuracy.</p>
+  TR_text_2: "<h3 class='white no-underline'>Test as many variations and goals as you want</h3><p class='white'>Adding many goals or variations to an experiment also increases your chance of finding a winning result that isn’t real. Optimizely’s Stats Engine corrects for multiple goals and variations with false discovery rate control. Now you can add as many as you want without sacrificing accuracy.</p>"
   TR_cta_text: "Learn the math"
   cta_link: "http://pages.optimizely.com/rs/optimizely/images/stats_engine_technical_paper.pdf"
 compare:
