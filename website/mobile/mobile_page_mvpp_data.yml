@@ -29,7 +29,7 @@ TR_panels:
   bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/visual-editor-1.gif"
 -
   TR_title: "Developer <br>Tools"
-  TR_text: "Optimize code-level variables and roll out entirely new features, no matter how custom your app."
+  TR_text: "Optimize code-level variables and roll out entirely new features, no matter how custom your app. <br /> <br /><a href='http://developers.optimizely.com/' target='_blank'>Optimizely Developer Docs</a>"
   bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/02developer-tools-static.gif"
   bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/developer-tools-2.gif"
 -

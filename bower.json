@@ -1,23 +1,28 @@
 {
-  "name": "optimizely marketing website",
-  "version": "0.0.0",
-  "homepage": "https://github.com/optimizely/marketing-website",
+  "name": "optimizely-marketing-website",
+  "version": "0.2.0",
+  "description": "Optimizely marketing website. The leading platform for testing and personalization across devices.",
+  "homepage": "https://www.optimizely.com",
   "authors": [
     "Kyle Rush <kylerrush@gmail.com>",
-    "Stewart Smith <stewart@optimizely.com>"
-  ],
-  "description": "optimizely marketing website",
-  "moduleType": [
-    "node"
+    "Stewart Smith <stewart@optimizely.com>",
+    "Bradley Heinz <bradley@optimizely.com>",
+    "Baraa Hamodi <baraa@optimizely.com>"
   ],
   "license": "MIT",
   "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/optimizely/marketing-website.git"
+  },
+  "moduleType": [
+    "node"
+  ],
   "ignore": [
     "**/.*",
     "node_modules",
     "bower_components",
-    "test",
-    "tests"
+    "test"
   ],
   "dependencies": {
     "normalize-css": "3.0.1",
@@ -27,5 +32,17 @@
     "history.js": "1.8.0",
     "fitvids": "1.1.0",
     "magnific-popup": "~1.0.0"
-  }
+  },
+  "keywords": [
+    "optimizely",
+    "marketing",
+    "website",
+    "responsive",
+    "ab-testing",
+    "personalization",
+    "platform",
+    "optimization",
+    "web",
+    "mobile"
+  ]
 }
