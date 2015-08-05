@@ -17,7 +17,7 @@ calculator_content:
   TR_bottom_title: "Sample Size per Variation"
 
 faq_content:
-  title: "FAQ"
+  TR_title: "FAQ"
   TR_sections:
   -
     TR_sub_title: "What is Optimizely's Stats Engine?"
@@ -38,11 +38,11 @@ faq_content:
     TR_sub_title: "How do I estimate a value for minimum detectable effect (MDE)?"
     TR_description: "<p>Decide how willing you are to trade off sensitivity of your test versus how long you might need to run your test for. The smaller the MDE, the more sensitive you are asking your test to be, and the larger sample size you will need.</p><p>Keep in mind that statistical significance in Optimizely’s Stats Engine shows you the chance that your results will ever be significant, while the experiment is running. If the effect that our Stats Engine observes is larger than the minimum detectable effect you are looking for, your test may declare a winner or loser up to twice as fast as if you had to wait for your pre-set sample size. Given more time, Stats Engine may also find a smaller MDE than the one you expect. <a href='https://help.optimizely.com/hc/en-us/articles/200039895'>Learn more</a></p>"
   -
-    sub_title: "Where is statistical power in your sample size calculator?"
+    TR_sub_title: "Where is statistical power in your sample size calculator?"
     TR_description: "<p>Statistical power is essentially a measure of whether your test has adequate data to reach a conclusive result. Optimizely’s new Stats Engine runs tests that always achieve a power of one, meaning that the test always has adequate data to show you results that are valid at that moment, and will eventually detect a difference if there is one. This means that you can make a decision as soon as your results reach significance without worrying about power.</p>"
 
 cta:
   TR_title: "Learn more about Optimizely"
   button:
     TR_text: "Visit the Knowledge Base"
-    path: "https://help.optimizely.com/hc/en-us"
+    path: "https://help.optimizely.com"
