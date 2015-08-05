@@ -7,7 +7,7 @@ layout_body_class:
 <div id="main">
   <div id="page-header">
     <div class="container">
-      <h1>{{{page_data.title}}}</h1>
+      <h1>{{page_data.title}} Testing</h1>
     </div><!--/.container-->
   </div><!--/#page-header-->
   <div id="page-header-gradient"></div>
@@ -17,7 +17,7 @@ layout_body_class:
         {{#each page_data.glossary}}
           <div class="term-container">
             <h4>{{this.TR_term}}</h4>
-            <p>{{this.TR_summary}} <a href="{{../linkPath}}{{this.link}}">  Read more ></a></p>
+            <p>{{this.TR_summary}} <a href="{{../linkPath}}{{this.link}}">  {{../page_data.cta}} ></a></p>
           </div>
         {{/each}}
       </div>

@@ -1,6 +1,7 @@
 TR_title: "Optimization Glossary"
 # Must be all capitalized and in alphabetical order
 alphabet: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+TR_cta: "Read more"
 glossary:
   -
     TR_term: "AB Testing"
