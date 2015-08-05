@@ -125,41 +125,23 @@ window.optly.mrkt.Optly_Q.prototype = {
 
 window.optly.mrkt.services.xhr = {
   makeRequest: function(request) {
-    var deferreds = [], deferredPromise;
+    var deferredPromise = $.ajax({
+      type: request.type,
+      url: request.url,
+      xhrFields: request.xhrFields ? request.xhrFields : {}
+    });
 
-    // check if multiple requests are present
-    if ( $.isArray(request) ) {
-      for (var i = 0; i < request.length; i += 1) {
-        if (typeof request[i] === 'object') {
-          deferredPromise = $.ajax({
-            type: request[i].type,
-            url: request[i].url,
-            xhrFields: request[i].xhrFields ? request[i].xhrFields : {}
-          });
-          // parameters passed must be objects with a path and properties keys
-          if (request[i].properties !== undefined) {
-            this.handleErrors( deferredPromise, request[i].url, request[i].properties );
-          }
-
-          deferreds.push( deferredPromise );
-
-        }
-      }
-      this.resolveDeferreds(deferreds);
-      return deferreds;
+    if (request.properties !== undefined) {
+      this.handleErrors( deferredPromise, request.url, request.properties );
     }
-    // If single request, then return the promise directly
-    else {
-      deferredPromise = $.ajax({
-        type: request.type,
-        url: request.url,
-        xhrFields: request.xhrFields ? request.xhrFields : {}
-      });
-      if (request.properties !== undefined) {
-        this.handleErrors( deferredPromise, request.url, request.properties );
-      }
-      return deferredPromise;
-    }
+
+    $.when(deferredPromise).then(function(data) {
+      var oldQueue = window.optly_q;
+      window.optly_q = window.optly.mrkt.Optly_Q(data);
+      window.optly_q.push(oldQueue);
+    });
+
+    return deferredPromise;
   },
 
   logSegmentError: function(category, action, label) {
@@ -318,57 +300,6 @@ window.optly.mrkt.services.xhr = {
     return promiseThenSrc === valueThenSrc;
   },
 
-  resolveDeferreds: function(deferreds) {
-    var responses = [], oldQue;
-    $.when.apply($, deferreds).then(function() {
-      // get all arguments returned from done
-      var tranformedArgs = Array.prototype.slice.call(arguments);
-      $.each(tranformedArgs, function(index, resp) {
-        var respData = resp[0];
-        if( !this.isPromise( respData ) && resp[1] === 'success' ) {
-          responses.push(respData);
-        }
-        if (index === tranformedArgs.length - 1) {
-          oldQue = window.optly_q;
-
-          window.optly_q = window.optly.mrkt.Optly_Q(responses[0], responses[1]);
-          window.optly_q.push(oldQue);
-        }
-      }.bind(this) );
-    }.bind(this), function() {
-
-      deferreds[0].then(function(acctData) {
-        // check if acctData properties are not null
-        if(!!acctData.account_id && !!acctData.email) {
-          //if there is no error in account info instantiate the Q with no exp data
-          oldQue = window.optly_q;
-
-          window.optly_q = window.optly.mrkt.Optly_Q(acctData);
-          window.optly_q.expDataError = true;
-          window.optly_q.push(oldQue);
-        } else {
-          //TODO dfox-powell find way to delete the signed in cookie, potentially load jQuery cookie first Fri Dec  5 16:03:20 2014
-          //if acctData is null instantiate the Q with no arguments and remove optimizely signed in cookie
-          window.optly_q = window.optly.mrkt.Optly_Q();
-        }
-      }.bind(this), function() {
-        //if acctData error instantiate the Q with no arguments
-        window.optly_q = window.optly.mrkt.Optly_Q();
-      });
-    }.bind(this) );
-
-    return true;
-  },
-
-  readCookie: function (name) {
-    name = name.replace(/([.*+?^=!:${}()|[\]\/\\])/g, '\\$1');
-
-    var regex = new RegExp('(?:^|;)\\s?' + name + '=(.*?)(?:;|$)','i'),
-        match = document.cookie.match(regex);
-
-    return match && window.unescape(match[1]);
-  },
-
   getLoginStatus: function(requestParams) {
     var tld = window.location.hostname.split('.').pop();
     var ccTLD = [
@@ -380,7 +311,7 @@ window.optly.mrkt.services.xhr = {
     var isCcTld = ccTLD.indexOf(tld) !== -1;
     var deferreds;
 
-    if ( !!this.readCookie('optimizely_signed_in') || /^www.optimizelystaging.com/.test(window.location.hostname) || isCcTld ) {
+    if ( $.cookie('optimizely_signed_in') || /^www.optimizelystaging.com/.test(window.location.hostname) || isCcTld ) {
       deferreds = this.makeRequest(requestParams);
     } else {
       window.optly_q = window.optly.mrkt.Optly_Q();
@@ -394,10 +325,7 @@ window.optly.mrkt.services.xhr = {
 (function() {
   'use strict';
 
-  var acctParams,
-    expParams;
-
-  acctParams = {
+  var acctParams = {
     type: 'GET',
     url: window.apiDomain + '/account/info',
     properties: {
@@ -409,21 +337,5 @@ window.optly.mrkt.services.xhr = {
     }
   };
 
-  expParams = {
-    type: 'GET',
-    url: window.apiDomain + '/experiment/load_recent?max_experiments=5',
-    properties: {
-      experiments: {
-        id: 'number',
-        description: 'string',
-        has_started: 'boolean',
-        can_edit: 'boolean'
-      }
-    },
-    xhrFields: {
-      withCredentials: true
-    }
-  };
-
-  window.optly.mrkt.services.xhr.getLoginStatus([acctParams, expParams]);
+  window.optly.mrkt.services.xhr.getLoginStatus(acctParams);
 }());

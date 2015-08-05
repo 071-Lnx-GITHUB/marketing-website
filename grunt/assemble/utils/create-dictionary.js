@@ -28,17 +28,17 @@ module.exports = function (assemble) {
   function processArray(arr, type, parserFn) {
     var reduced =  arr.reduce(function(map, item, index) {
       var val;
-      if(_.isPlainObject(item)) {
+      if (_.isPlainObject(item)) {
         val = parserFn(item);
-      } else if(_.isArray(item)) {
+      } else if (_.isArray(item)) {
         val = processArray(item, type, parserFn);
-      } else if(type === 'MD') {
+      } else if (type === 'MD') {
         val = marked(item);
       } else {
         val = item;
       }
 
-      if(val) {
+      if (val) {
         map.push(val);
       }
       return map;
@@ -61,13 +61,13 @@ module.exports = function (assemble) {
     var suffix = split[1];
     var pageContent, val;
     var isPageContent = fileObj.data && fileObj.data[key] && suffix === 'page_content';
-    if(isPageContent) {
-      if(kindOf(fileObj.contents) === 'buffer') {
+    if (isPageContent) {
+      if (kindOf(fileObj.contents) === 'buffer') {
         pageContent = fileObj.contents.toString(); //convert the buffer object
       } else {
         pageContent = fileObj.contents;
       }
-      val = ( prefix === 'MD' ) ? mdParser(pageContent) : pageContent;
+      val = (prefix === 'MD') ? mdParser(pageContent) : pageContent;
       delete fileObj.data[key];
 
       return val;
@@ -87,7 +87,7 @@ module.exports = function (assemble) {
   var createDictionary = function createDictionary(fileData, locale) {
     //return early if given an empty object or a non `maplike` structure
     //use `kindOf` because buffers are misenterpreted by loadash
-    if(kindOf(fileData) !== 'object') {
+    if (kindOf(fileData) !== 'object') {
       return {};
     }
     var linkPath = assemble.get('data.linkPath');
@@ -98,7 +98,7 @@ module.exports = function (assemble) {
       'HTML'
     ];
 
-    if(Object.keys(locales).indexOf(locale) !== -1) {
+    if (Object.keys(locales).indexOf(locale) !== -1) {
       linkPath = path.join(linkPath, locale);
     }
 
@@ -108,22 +108,22 @@ module.exports = function (assemble) {
       smartypants: true
     });
 
-    return Object.keys(data).reduce(function(o, key){
+    return Object.keys(data).reduce(function(o, key) {
       var split = splitKey(key);
       var prefix = split[0];
       var suffix = split[1];
       var val, recursed;
       var isPageContent = translatePageContent(key, split, fileData, marked);
 
-      if( translationKeys.indexOf(prefix) !== -1 && isPageContent ) {
+      if (translationKeys.indexOf(prefix) !== -1 && isPageContent) {
         //key will get mutated to have an HTML prefix inside the translatePageContent function
         val = isPageContent;
         key = 'HTML_' + suffix;
-      } else if( ( translationKeys.indexOf(prefix) !== -1 ) && ( data[key] !== 'object' || Array.isArray(data[key]) ) ) {
+      } else if ((translationKeys.indexOf(prefix) !== -1) && (data[key] !== 'object' || Array.isArray(data[key]))) {
         //if it's an array remember the key
-        if(Array.isArray(data[key])) {
+        if (Array.isArray(data[key])) {
           val = processArray(data[key], prefix, createDictionary);
-        } else if(prefix === 'MD') {
+        } else if (prefix === 'MD') {
             val = marked(data[key]);
             //mutate the original object for later page data extension
             //with parsed markdown
@@ -135,22 +135,18 @@ module.exports = function (assemble) {
         }
 
         //fucking null....are you kidding me!!!!
-      } else if( _.isPlainObject(data[key]) ) {
+      } else if (_.isPlainObject(data[key])) {
         recursed = createDictionary(data[key]);
         //this is important, keeps keys with empty values from being added
-        if(Object.keys(recursed).length > 0) {
+        if (Object.keys(recursed).length > 0) {
           o[key] = recursed;
         }
       }
-
-      if(val) {
+      if (val) {
         o[key] = val;
       }
-
       return o;
     }, {});
-
   };
-
   return createDictionary;
 };

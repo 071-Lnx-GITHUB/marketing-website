@@ -5,7 +5,6 @@ module.exports = function(assemble) {
   return function (file, next) {
     var locale = file.data.locale;
     file.data.linkPath = assemble.get('data.linkPath');
-
     if (locale && locale.length && locale !== websiteRoot) {
       file.data.linkPath += ('/' + locale);
     }

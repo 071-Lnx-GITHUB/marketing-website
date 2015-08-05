@@ -1,6 +1,5 @@
 var path = require('path');
 
-
 /**
  * Different rename keys for Assemble loaders
  *
@@ -22,12 +21,12 @@ module.exports = function(defaultKey) {
     noExtPath: function (fp) {
       var ext;
       var noExtPath;
-      if(/\.hbs/.test(fp)) {
+      if (/\.hbs/.test(fp)) {
         ext = '.hbs';
       } else if (/.\html/.test(fp)) {
         ext = '.html';
       }
-      if(ext) {
+      if (ext) {
         noExtPath = path.join(path.dirname(fp), path.basename(fp, ext));
       } else {
         noExtPath = fp;

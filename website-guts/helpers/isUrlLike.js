@@ -3,7 +3,7 @@ module.exports = function (urlTest, options)  {
   var url = urlTest && urlTest.replace('https:', '').replace('http:', '');
   var isValid = url && reURL.test(url);
 
-  if(isValid) {
+  if (isValid) {
     return options.fn(this);
   } else {
     return options.inverse(this);

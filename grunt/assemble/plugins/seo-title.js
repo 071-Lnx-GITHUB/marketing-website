@@ -12,7 +12,7 @@ module.exports = function(assemble) {
    */
   function cap(str) {
     var firstChar = str.charAt(0);
-    if(isNaN(firstChar)) {
+    if (isNaN(firstChar)) {
       return firstChar.toUpperCase() + str.slice(1);
     } else {
       return str;
@@ -27,7 +27,7 @@ module.exports = function(assemble) {
    */
   function parseDirname(str) {
     var split;
-    if(str.indexOf('-') !== -1) {
+    if (str.indexOf('-') !== -1) {
       split = str.split('-');
       return split.map(function(splitStr) {
         return cap(splitStr);
@@ -57,11 +57,10 @@ module.exports = function(assemble) {
     var defaultTitle = 'Optimizely: Make every experience count';
     var altTitle, dirname;
 
-    if(addSeoTitle) {
-
-      if(!_.intersection(keys, seoTitle).length) {
+    if (addSeoTitle) {
+      if (!_.intersection(keys, seoTitle).length) {
         altTitle = _.intersection(possibleTitles, keys)[0];
-        switch(altTitle) {
+        switch (altTitle) {
           case possibleTitles[1]:
             dirname = file.data.src.dirname;
             dirname = dirname.substr(dirname.lastIndexOf('/') + 1);
@@ -72,9 +71,7 @@ module.exports = function(assemble) {
             break;
         }
       }
-
     }
-
     this.push(file);
     cb();
   });

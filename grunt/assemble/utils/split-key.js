@@ -9,11 +9,11 @@
 module.exports = function splitKey(key) {
   var split;
 
-  if( /^(MD|TR|HTML)_/.test(key) ) {
+  if (/^(MD|TR|HTML)_/.test(key)) {
     split = key.split(/_(.+)?/);
 
     split = split.filter(function(item) {
-      if(!!item) {
+      if (!!item) {
         return item;
       }
     });

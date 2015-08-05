@@ -8,12 +8,10 @@ var CommonsChunkPlugin = webpack.optimize.CommonsChunkPlugin;
 module.exports = function(opts) {
   var jshintOpts = require('../jshint');
   var jshintEnvConfig = opts.env === 'dev' ? jshintOpts.clientDev.options : jshintOpts.clientProd.options;
-
   var jshintConfig = _.merge({}, {
     emitErrors: true,
     failOnHint: true,
   }, jshintEnvConfig, jshintOpts.options);
-
   var preloaders = [
     {
       test: /\.js$/,
@@ -97,7 +95,7 @@ module.exports = function(opts) {
     })
   ];
 
-  if(opts.env === 'dev') {
+  if (opts.env === 'dev') {
     plugins.push.apply(plugins, devPlugins);
   } else {
     plugins.push.apply(plugins, prodPlugins);
@@ -134,9 +132,8 @@ module.exports = function(opts) {
     plugins: plugins
   };
 
-  if(opts.env === 'dev') {
+  if (opts.env === 'dev') {
     webpackConfig.devtool = 'inline-source-map';
   }
-
   return webpackConfig;
 };

@@ -1,6 +1,6 @@
 ## Site Localization and Inheritance Structure
 
-### Previously we discussed some sort of potential ineritance structure
+### Previously we discussed some sort of potential inheritance structure
 
 [Directory Structure](http://cl.ly/image/300F0x3Q1X3D)
 - sorry I tried to link this as an image but markdown wasn't working for me :neckbeard:

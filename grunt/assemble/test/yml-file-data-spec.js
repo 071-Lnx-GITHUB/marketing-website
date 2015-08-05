@@ -62,8 +62,5 @@ describe('transforms', function() {
 
       expect(Object.keys(data).length).to.equal(0);
     });
-
-
   });
-
 });

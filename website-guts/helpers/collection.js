@@ -18,10 +18,10 @@ module.exports = function collection (name, options) {
   var collectionData = Object.keys(col).map(function (key) {
     var data = col[key];
     var rootKey = generateKey(data.src.path);
-    if(locale !== websiteRoot) {
+    if (locale !== websiteRoot) {
       var dataKey = rootKey.replace('/' + websiteRoot + '/', '/' + path.join(subfoldersRoot, locale) + '/');
       var translations = translated[dictKey] && translated[dictKey][dataKey];
-      if(dictKey && translations) {
+      if (dictKey && translations) {
         _.merge(data, translations);
       }
     }

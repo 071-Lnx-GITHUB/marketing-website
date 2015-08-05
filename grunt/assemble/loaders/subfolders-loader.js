@@ -65,9 +65,7 @@ module.exports = function (assemble) {
           base: subfoldersRoot
         });
       });
-
       _.extend(collection, map);
-
     });
 
     return collection;

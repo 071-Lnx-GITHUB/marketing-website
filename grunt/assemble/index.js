@@ -1,12 +1,10 @@
 'use strict';
-
 var ext = require('gulp-extname');
 var chalk = require('chalk');
 var path = require('path');
 var _ = require('lodash');
 
 module.exports = function (grunt) {
-
   grunt.registerTask('assemble', 'Assemble', function (target) {
     var done = this.async();
     var assemble = require('assemble');
@@ -42,7 +40,7 @@ module.exports = function (grunt) {
     var omLayouts = path.join(config.om.options.layoutdir, '**/*.hbs');
     var omFiles = config.om.files[0];
     var omSrc = normalizeSrc(omFiles.cwd, omFiles.src).filter(function(src) {
-      if(src.indexOf('!') === -1) {
+      if (src.indexOf('!') === -1) {
         return true;
       }
     })[0];
@@ -54,7 +52,7 @@ module.exports = function (grunt) {
       return function() {
         var currentRenameKey = assemble.option('renameKey');
         assemble.option('renameKey', renameKey);
-        if(Array.isArray(typeFn)) {
+        if (Array.isArray(typeFn)) {
           typeFn.forEach(function(fn) {
             fn();
           });
@@ -82,10 +80,9 @@ module.exports = function (grunt) {
         return Object.keys(layouts).reduce(function (o, key) {
           var layout = layouts[key];
           var concatKey = ppcKey + '-';
-          if(layout.data && layout.data.layout) {
+          if (layout.data && layout.data.layout) {
             layout.data.layout = concatKey + layout.data.layout;
           }
-
           o[concatKey + key] = layout;
           return o;
         }, {});
@@ -120,7 +117,6 @@ module.exports = function (grunt) {
 
       var resourceFiles = config.resources.files[0];
       assemble.resources(normalizeSrc(resourceFiles.cwd, resourceFiles.src));
-
       assemble.option('renameKey', currentRenameKey);
     };
 
@@ -130,7 +126,7 @@ module.exports = function (grunt) {
 
     var loadAll = function loadAll(watchRunning) {
       //load the files for the resources collection
-      if(watchRunning) {
+      if (watchRunning) {
         loadGlobalData(options);
         loadResources();
       }
@@ -150,7 +146,6 @@ module.exports = function (grunt) {
     // custom middleware for `resources` to add front-matter (`data`)
     // to the assemble cache. (`assemble.get('resources').foo`)
     assemble.onLoad(/resources-list/, collectionMiddleware('resources'));
-
     assemble.onLoad(/partners\/solutions(?!join)/, collectionMiddleware('solutions'));
     assemble.onLoad(/partners\/technology(?!join)/, collectionMiddleware('integrations'));
 
@@ -177,22 +172,22 @@ module.exports = function (grunt) {
 
       var tags = Object.keys(col).reduce(function(map, key) {
         var o = col[key];
-        if(_.isArray(o.tags)) {
+        if (_.isArray(o.tags)) {
           map.push.apply(map, o.tags);
         }
         return map;
       }, []);
-      tags = _.uniq(tags).filter(function(tag) { return !!tag; });
-
+      tags = _.uniq(tags).filter(function(tag) {
+        return !!tag;
+      });
       file.data.tag_dropdown = tags.reduce(function(map, tag) {
         var trans, o = {};
-        if(locale && locale !== options.websiteRoot) {
+        if (locale && locale !== options.websiteRoot) {
           trans = translations[langKey][tag];
         }
         o.data_tag = tag.toLowerCase();
         o.tag = trans || tag;
         map.push(o);
-
         return map;
       }, []);
 
@@ -233,7 +228,6 @@ module.exports = function (grunt) {
 
     assemble.task('add-page-data', function () {
       var start = process.hrtime();
-
       return assemble.src(hbsPaths, { since: (assemble.get('lastRunTime') ? new Date(assemble.get('lastRunTime')):null)})
         .pipe(extractLayoutContext(assemble))
         .pipe(addSeoTitle(assemble))
@@ -252,104 +246,96 @@ module.exports = function (grunt) {
     });
 
     var buildOm = function buildOm() {
-        var start = process.hrtime();
-        var files = config[ppcKey].files[0];
-
-        return assemble.src([omSrc])
-        .pipe(extractLayoutContext(assemble))
-        .pipe(mergeLayoutContext())
-        .pipe(addSeoTitle(assemble))
-        .pipe(ext())
-        .pipe(assemble.dest(path.join(files.dest, ppcKey)))
-        .on('data', function(file) {
-          logData(file.path, 'om-pages');
-        })
-        .on('end', function () {
-          var end = process.hrtime(start);
-          console.log('finished rendering pages om', end);
-        });
+      var start = process.hrtime();
+      var files = config[ppcKey].files[0];
+      return assemble.src([omSrc])
+      .pipe(extractLayoutContext(assemble))
+      .pipe(mergeLayoutContext())
+      .pipe(addSeoTitle(assemble))
+      .pipe(ext())
+      .pipe(assemble.dest(path.join(files.dest, ppcKey)))
+      .on('data', function(file) {
+        logData(file.path, 'om-pages');
+      })
+      .on('end', function () {
+        var end = process.hrtime(start);
+        console.log('finished rendering pages om', end);
+      });
     };
 
     var buildPages = function buildPages (reload) {
-        var start = process.hrtime();
+      var start = process.hrtime();
+      var files = config.pages.files[0];
+      var opts = {
+        since: (assemble.get('lastRunTime') ? new Date(assemble.get('lastRunTime')) : null)
+      };
 
-        var files = config.pages.files[0];
-        var opts = {
-          since: (assemble.get('lastRunTime') ? new Date(assemble.get('lastRunTime')) : null)
-        };
-
-        //this excludes om pages && resources-list pages
-        return assemble.src(normalizeSrc(files.cwd, files.src).concat([
-            '!' + omSrc[0],
-            '!website/partners/**/*.hbs'
-          ]), opts)
-          .on('error', function (err) {
-            console.log('src error', err);
-          })
-          .pipe(ext())
-          .pipe(assemble.dest(files.dest))
-          .on('error', function (err) {
-            console.log('dest error', err);
-          })
-          .on('data', function(file) {
-             logData(file.path, 'pages');
-          })
-          .on('end', function () {
-            var end = process.hrtime(start);
-            console.log('finished rendering pages', end);
-            assemble.set('lastRunTime', new Date());
-          });
+      //this excludes om pages && resources-list pages
+      return assemble.src(normalizeSrc(files.cwd, files.src).concat([
+          '!' + omSrc[0],
+          '!website/partners/**/*.hbs'
+        ]), opts)
+        .on('error', function (err) {
+          console.log('src error', err);
+        })
+        .pipe(ext())
+        .pipe(assemble.dest(files.dest))
+        .on('error', function (err) {
+          console.log('dest error', err);
+        })
+        .on('data', function(file) {
+           logData(file.path, 'pages');
+        })
+        .on('end', function () {
+          var end = process.hrtime(start);
+          console.log('finished rendering pages', end);
+          assemble.set('lastRunTime', new Date());
+        });
     };
 
     var buildPartners = function buildPartners() {
-        var start = process.hrtime();
+      var start = process.hrtime();
 
-        var files = config.partners.files[0];
-        return assemble.src(normalizeSrc(files.cwd, files.src))
-          .pipe(ext())
-          .pipe(assemble.dest(path.join(files.dest, 'partners')))
-          .on('data', function(file) {
-             logData(file.path, 'partners');
-          })
-          .on('error', function (err) {
-            console.log('dest error', err);
-          })
-          .on('end', function () {
-            var end = process.hrtime(start);
-            console.log('finished rendering partners', end);
-          });
+      var files = config.partners.files[0];
+      return assemble.src(normalizeSrc(files.cwd, files.src))
+        .pipe(ext())
+        .pipe(assemble.dest(path.join(files.dest, 'partners')))
+        .on('data', function(file) {
+           logData(file.path, 'partners');
+        })
+        .on('error', function (err) {
+          console.log('dest error', err);
+        })
+        .on('end', function () {
+          var end = process.hrtime(start);
+          console.log('finished rendering partners', end);
+        });
     };
 
     assemble.task('om-pages', buildOm);
     assemble.task('pages', ['add-page-data'], buildPages);
     assemble.task('partners', ['add-page-data'], buildPartners);
-
     assemble.task('loadAll', ['resetLastRunTime'], function() {
-      if(buildInitialized) {
+      if (buildInitialized) {
         loadAll(true);
       } else {
         buildInitialized = true;
         loadAll();
       }
     });
-
     assemble.task('loadOm', loader(loadOmLayouts));
     assemble.task('rebuild:pages', buildPages);
-
     assemble.task('resetLastRunTime', function (cb) {
       assemble.set('lastRunTime', null);
       cb();
     });
-
     assemble.task('done', ['om-pages', 'pages', 'partners'], done);
-
     assemble.task('layouts:pages', ['loadAll', 'add-page-data'], buildPages);
     assemble.task('layouts:partners', ['loadAll', 'add-page-data'], buildPartners);
     assemble.task('layouts:om', ['loadOm'], buildOm);
     assemble.task('build:all', ['loadAll', 'om-pages', 'pages', 'partners']);
 
     assemble.task('watch', ['om-pages'], function () {
-
       //only build om if anything om related changes
       assemble.watch([
         'website-guts/templates/om/**/*.hbs',
@@ -397,8 +383,7 @@ module.exports = function (grunt) {
     });
 
     var tasks;
-
-    if(env === 'dev') {
+    if (env === 'dev') {
       tasks = [
         'build:all',
         'watch',
@@ -410,9 +395,7 @@ module.exports = function (grunt) {
         'done'
       ];
     }
-
     assemble.run(tasks);
-
   });
   return {};
 };

@@ -1,20 +1,20 @@
 //for scroll tracking
-w.optimizelyScrollTrackerID = '/pricing';
+w.optimizelyScrollTrackerID = '/plans';
 
-$('#talk-to-us').on('click', function(e){
-  e.preventDefault();
+$('#contact-us-button').on('click', function(e){
   w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
+  e.preventDefault();
 });
 
-$('#enterprise-cta').on('click', function(e){
-  e.preventDefault();
+$('.js-enterprise-plan-cta').on('click', function(e){
   w.optly.mrkt.modal.open({ modalType: 'contact-sales' });
+  e.preventDefault();
 });
 
-$('#learn-cta, #plans-cta').on('click', w.optly.mrkt.utils.smoothScroll);
+$('#explore-features').on('click', w.optly.mrkt.utils.smoothScroll);
 
 //setup DOM for automated test
-var automatedTest = w.optly.mrkt.automatedTest();
+var automatedTest = window.optly.mrkt.automatedTest();
 
 if(automatedTest){
   w.optly.mrkt.user.acctData = {
@@ -42,16 +42,16 @@ var updatePlanInfo = function(){
       w.optly.mrkt.user.acctData.plan_id === 'enterprise-twoyear' ||
       startsWithC.test(w.optly.mrkt.user.acctData.plan_id)
     ) {
-      $('#starter-cta').remove();
+      $('.js-starter-plan-cta').remove();
     }
   }
 
-  $('#starter-cta').on('click', function(e){
+  $('.js-starter-plan-cta').on('click', function(e){
     $('#signup-form input[name="Initial_Form_Source__c"]').val('Pricing Signup form');
     $('#signup-form input[name="Inbound_Lead_Form_Type__c"]').val('Pricing Signup form');
-    if(typeof w.optly.mrkt.user.acctData === 'object'){
+    //user is signed in
+    if(typeof w.optly.mrkt.user.acctData === 'object' && w.optly.mrkt.user.acctData.account_id) {
 
-      //user is signed in
       if(w.optly.mrkt.user.acctData.plan_id){
 
         //user already has a plan
@@ -90,14 +90,23 @@ var updatePlanInfo = function(){
       } else {
         //user is signed in, but no plan
         //sign the user up for the starter plan
-        document.body.classList.add('processing-free-light');
+
+        //prevents user from creating multiple accounts while waiting for ajax call to return, greys out button:
+        $('.js-starter-plan-cta').off('click').addClass('disabled');
+        var redirectPath = w.apiDomain + '/welcome';
+        if (w.optly.mrkt.utils.getURLParameter('source') === 'mobile_editor') {
+          var continueTo = w.optly.mrkt.utils.getURLParameter('continue_to');
+          if (continueTo) {
+            redirectPath = w.apiDomain + continueTo;
+          }
+        }
         w.optly.mrkt.changePlanHelper.changePlan({
           plan: 'free_light',
           callback: function(){
               //show confirmation
               //w.optly.mrkt.modal.open({ modalType: 'pricing-plan-signup-thank-you' });
               if(!automatedTest){
-                w.location = 'https://www.optimizely.com/welcome';
+                w.location = redirectPath;
               }
           },
           load: w.optly.mrkt.changePlanHelper.load
@@ -106,15 +115,14 @@ var updatePlanInfo = function(){
     } else {
       //user is not signed in
       w.optly.mrkt.modal.open({ modalType: 'signup' });
-      $('#signup-form input[name="Initial_Form_Source__c"]').val('Pricing Signup form');
-      $('#signup-form input[name="Inbound_Lead_Form_Type__c"]').val('Pricing Signup form');
     }
 
     e.preventDefault();
   });
 };
+//updatePlanInfo();
 
-w.optly_q.push([updatePlanInfo]);
+w.optly_q.push([updatePlanInfo, 'acctData']);
 w.optly.mrkt.activeModals['signup-form'].remove();
 var signupHelper = w.optly.mrkt.form.createAccount({formId: 'signup-form', dialogId: 'signup-dialog'});
 w.optly.mrkt.activeModals = w.optly.mrkt.activeModals || {};
@@ -197,3 +205,9 @@ $('#downgrade-plan-form').submit(function(e) {
   });
   e.preventDefault();
 });
+
+//check for url parameter to make the contact sales modal open on page load.
+var modal = w.optly.mrkt.utils.getURLParameter('modal');
+if (modal === 'contact-sales') {
+  w.optly.mrkt.modal.open({ modalType: modal, track: false });
+}

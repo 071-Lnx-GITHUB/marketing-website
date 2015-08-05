@@ -1,5 +1,5 @@
 module.exports = function classgridfinish (index, last, rowCount, options)  {
-  if ( (index + 1) % rowCount === 0 ) {
+  if ((index + 1) % rowCount === 0) {
     return options.fn(this);
   }
   else if (last) {

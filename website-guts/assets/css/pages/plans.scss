@@ -1,15 +1,24 @@
-body.pricing {
-  #page-content {
-    background-color: white;
+body.plans {
+  #page-content { background-color: $white; }
+
+  .current-plan-message { display: none; }
+  &.plan-enterprise {
+    .starter-cta { display: none; }
+    .enterprise-cta { display: none; }
+    .current-plan-message.enterprise-message { display: block; }
   }
-  /*           */
-  /*PAGE HEADER*/
-  /*           */
+  &.plan-free_light {
+    .starter-cta { display: none; }
+    .current-plan-message.starter-message { display: block; }
+  }
+
+  // PAGE HEADER
   #page-header {
     h1 {
       font: 1.5em $body-font-family;
       color: $brand-navy-blue;
-      margin-top: 6px;
+      margin: 6px 0 20px;
+      float: none;
     }
     p {
       display: inline;
@@ -45,8 +54,7 @@ body.pricing {
     .talk-button {
       @extend .pricing-button;
       padding: 12px 50px;
-      margin-top: 15px;
-      margin-right: 15px;
+      float: none;
       background-image: linear-gradient(-180deg, #EEEFF3 0%, #E0E1E5 100%);
       border: 1px solid #D4D5D9;
       border-radius: 2px;
@@ -61,9 +69,7 @@ body.pricing {
     }
   }
 
-  /*             */
-  /*TITLE SECTION*/
-  /*             */
+  // TITLE SECTION
   .title-section {
     background: #F3F6F8;
     border: 1px solid #E6E6E6;
@@ -99,9 +105,7 @@ body.pricing {
     }
   }
 
-  /*                */
-  /*BENEFITS SECTION*/
-  /*                */
+  // BENEFITS SECTION
   .benefits-section {
     background: white;
     .title-copy {
@@ -143,29 +147,24 @@ body.pricing {
   }
 }
 
-body.pricing.plan-enterprise {
-  #feature-list-get-started-now {display: none;}
-  #feature-list-talk-to-us {display: none;}
-  #feature-list-enterprise-cta-cont .current-plan-message {display: block;}
-}
-
-body.pricing.plan-free_light {
-  #feature-list-get-started-now {display: none;}
-  #feature-list-starter-cta-cont .current-plan-message {display: block;}
-}
-
 @media screen and (min-width: $tablet-min-width) {
-  body.pricing {
+  body.plans {
     #page-header {
+      h1 { 
+        float: left; 
+        text-align: left;
+      }
+      .talk-button { 
+        float: right; 
+        margin: 0 50px 0 0;
+      }
       .header-cta-container {
         display: block;
         width: 400px;
       }
     }
     .title-section {
-      .title-copy {
-        font-size: 3em;
-      }
+      .title-copy { font-size: 3em; }
     }
     .benefits-section {
       .benefit-item {
@@ -173,10 +172,5 @@ body.pricing.plan-free_light {
         width: 33%;
       }
     }
-  }
-}
-
-@media screen and (min-width: $desktop-min-width) {
-  body.pricing {
   }
 }

@@ -52,44 +52,44 @@ describe('testing form on the free trial page', function() {
           return document.body.dataset.formSuccess + ' @@ ' + document.body.getAttribute('data-reporting-object');
         }, function(result) {
             var reportingObject = JSON.parse(result.split(' @@ ')[1]);
-            describe('successful submission', function(){
+            describe('successful submission', function() {
               expect(/^\/account\/free_trial_create/.test(result)).to.equal(true);
             });
-            describe('', function(){
-              it('inbound lead form type', function(){
+            describe('', function() {
+              it('inbound lead form type', function() {
                 expect(reportingObject.Inbound_Lead_Form_Type__c).to.equal('Free Trial Signup Form');
               });
-              it('gclid', function(){
+              it('gclid', function() {
                 expect(reportingObject.GCLID__c).to.equal('CPjX-a-Hn8QCFQckgQodcxcAfw');
               });
-              it('email', function(){
+              it('email', function() {
                 expect(reportingObject.email).to.equal('david+test2015117154242@optimizely.com');
               });
-              it('first name', function(){
+              it('first name', function() {
                 expect(reportingObject.firstName).to.equal('david');
               });
-              it('last name', function(){
+              it('last name', function() {
                 expect(reportingObject.lastName).to.equal('fox-powell test');
               });
-              it('lead source', function(){
+              it('lead source', function() {
                 expect(reportingObject.leadSource).to.equal('Website');
               });
-              it('otm campaign', function(){
+              it('otm campaign', function() {
                 expect(reportingObject.otm_Campaign__c).to.equal('G_WW_Search_Shiva');
               });
-              it('otm content', function(){
+              it('otm content', function() {
                 expect(reportingObject.otm_Content__c).to.equal('mabtt');
               });
-              it('otm medium', function(){
+              it('otm medium', function() {
                 expect(reportingObject.otm_Medium__c).to.equal('cpc');
               });
-              it('otm source', function(){
+              it('otm source', function() {
                 expect(reportingObject.otm_Source__c).to.equal('google');
               });
-              it('initial form source', function(){
+              it('initial form source', function() {
                 expect(reportingObject.Initial_Form_Source__c).to.equal('Free Trial PPC');
               });
-              it('phone', function(){
+              it('phone', function() {
                 expect(reportingObject.phone).to.equal('9172315327');
               });
             });
@@ -109,7 +109,7 @@ describe('testing form on the free trial page', function() {
         inputs = Array.prototype.slice.call(inputs).filter(function(input) {
           return input.type !== 'hidden';
         });
-        for(var i = 0; i < inputs.length; i++) {
+        for (var i = 0; i < inputs.length; i++) {
           inputs[i].value = '';
         }
         return inputs.length;

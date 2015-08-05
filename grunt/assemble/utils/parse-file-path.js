@@ -17,7 +17,7 @@ module.exports = function (assemble) {
    *
    */
   function isIndex(fp, testStr) {
-    if(fp[0] !== '/') {
+    if (fp[0] !== '/') {
       fp = '/' + fp;
     }
     return fp.indexOf('/' + testStr + '/') !== -1;
@@ -37,10 +37,10 @@ module.exports = function (assemble) {
     };
     var localeIndex, parentKey, localePath;
 
-    if( isIndex(fp, websiteRoot) ) {
+    if (isIndex(fp, websiteRoot)) {
       data.locale = websiteRoot;
       data.isRoot = true;
-    } else if( isIndex(fp, subfoldersRoot) ) {
+    } else if (isIndex(fp, subfoldersRoot)) {
       localeIndex = _.findIndex(Object.keys(locales), function(locale) {
         var split = fp.replace(process.cwd(), '').replace(subfoldersRoot, '').split('/');
         return split.indexOf(locale) !== -1;
@@ -52,8 +52,7 @@ module.exports = function (assemble) {
       data.isSubfolder = true;
     } else {
       data.locale = path.dirname(fp).split('/').slice(-1)[0];
-
-      switch(data.locale) {
+      switch (data.locale) {
         case 'modals':
           data.isModal = true;
           break;
@@ -65,7 +64,6 @@ module.exports = function (assemble) {
           break;
       }
     }
-
     return data;
   };
 };

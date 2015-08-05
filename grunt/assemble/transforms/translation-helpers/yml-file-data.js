@@ -2,7 +2,7 @@ var path = require('path');
 var _ = require('lodash');
 var Plasma = require('plasma');
 
-module.exports = function(assemble){
+module.exports = function(assemble) {
   var pagesNamespace = assemble.get('data.pageContentNamespace');
   var testPath = assemble.get('data.testPath');
 
@@ -24,12 +24,12 @@ module.exports = function(assemble){
     plasma.option('cwd', cwd);
     plasma.option('namespace', function(fp) {
       var replace = testPath || process.cwd();
-      var key = path.join( path.dirname(fp), 'index').replace(replace, '');
-      if(key[0] !== '/') {
+      var key = path.join(path.dirname(fp), 'index').replace(replace, '');
+      if (key[0] !== '/') {
         key = '/' + key;
       }
 
-      if(keysCache.length && keysCache.indexOf(key) !== -1) {
+      if (keysCache.length && keysCache.indexOf(key) !== -1) {
         //intentionally use an obscure separator because the dash was clobbering file paths
         //with dashes in them
         key = key + '~' + iterator;
@@ -45,39 +45,32 @@ module.exports = function(assemble){
     /**
      * If the directory is empty plasma will return the patterns array
      */
-    if(data !== patterns && !Array.isArray(data)) {
-
-      if(iterator > 0) {
+    if (data !== patterns && !Array.isArray(data)) {
+      if (iterator > 0) {
         data = Object.keys(data).reduce(function(o, key) {
           var matched;
-          if(lastKey && key.indexOf('~') !== -1) {
+          if (lastKey && key.indexOf('~') !== -1) {
             matched = key.split('~')[0];
-
-            if( matched === lastKey.split('~')[0] ) {
+            if (matched === lastKey.split('~')[0]) {
               _.extend(o[matched], data[key]);
               delete data[key];
             }
-
           } else {
             o[key] = data[key];
           }
-
           lastKey = matched ? matched : key;
           return o;
         }, {});
       }
-
       //create the namespace for page data
       data = Object.keys(data).reduce(function(o, key) {
         o[key] = {};
         o[key][pagesNamespace] = data[key];
         return o;
       }, {});
-
     } else {
       data = {};
     }
-
     return data;
   };
 };

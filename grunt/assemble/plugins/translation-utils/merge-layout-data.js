@@ -11,25 +11,19 @@ module.exports = function(assemble) {
    */
   return function mergeLayoutData(pageDataClone) {
     var typeData = pageDataClone[websiteRoot];
-
     _.forEach(typeData, function(fileData, fp) {
       var layoutKeys = Object.keys(fileData.layouts || {});
-
-      if(layoutKeys.length) {
+      if (layoutKeys.length) {
         var layoutData = layoutKeys.reduce(function(memo, key) {
           _.merge(memo, fileData.layouts[key]);
           return memo;
         }, {});
-
         //merge the layout data onto the pageDataClone file data
         _.merge(fileData, layoutData);
       }
-
       //store the layout file paths in an array
       fileData.layouts = layoutKeys;
     });
-
-
     return pageDataClone;
   };
 };

@@ -76,41 +76,41 @@ describe('testing the signup forms on the top of the mobile mvpp page', function
         }, function(result) {
 
             var reportingObject = JSON.parse(result.split(' @@ ')[1]);
-            describe('check form submission', function(){
-              it('valid body attribute', function(){
+            describe('check form submission', function() {
+              it('valid body attribute', function() {
                 expect(/^\/account\/create/.test(result)).to.equal(true);
               });
             });
-            describe('check reporting object', function(){
+            describe('check reporting object', function() {
 
-              it('gclid', function(){
+              it('gclid', function() {
                 expect(reportingObject.GCLID__c).to.equal('CPjX-a-Hn8QCFQckgQodcxcAfw');
               });
-              it('email', function(){
+              it('email', function() {
                 expect(reportingObject.email).to.equal('david_test@optimizely.com');
               });
-              it('first name', function(){
+              it('first name', function() {
                 expect(reportingObject.firstName).to.equal('David');
               });
-              it('last name', function(){
+              it('last name', function() {
                 expect(reportingObject.lastName).to.equal('FP ');
               });
-              it('lead source', function(){
+              it('lead source', function() {
                 expect(reportingObject.leadSource).to.equal('Website');
               });
-              it('otm campaign', function(){
+              it('otm campaign', function() {
                 expect(reportingObject.otm_Campaign__c).to.equal('G_WW_Search_Shiva');
               });
-              it('otm content', function(){
+              it('otm content', function() {
                 expect(reportingObject.otm_Content__c).to.equal('mabtt');
               });
-              it('otm medium', function(){
+              it('otm medium', function() {
                 expect(reportingObject.otm_Medium__c).to.equal('cpc');
               });
-              it('otm source', function(){
+              it('otm source', function() {
                 expect(reportingObject.otm_Source__c).to.equal('google');
               });
-              it('initial form source', function(){
+              it('initial form source', function() {
                 expect(reportingObject.Initial_Form_Source__c).to.equal('Create Account - Mobile');
               });
 

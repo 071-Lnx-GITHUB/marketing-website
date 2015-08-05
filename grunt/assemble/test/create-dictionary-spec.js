@@ -81,8 +81,8 @@ describe('create dictionary from all translation keys', function() {
       });
 
       it('should have a locale specific link path and a <a> title', function() {
-        expect(/dist\/de\//.test( $('a').attr('href') )).to.be.true;
-        expect($('a').attr('title') ).to.equal('A/B testing tool');
+        expect(/dist\/de\//.test($('a').attr('href'))).to.be.true;
+        expect($('a').attr('title')).to.equal('A/B testing tool');
       });
     });
 
@@ -98,8 +98,8 @@ describe('create dictionary from all translation keys', function() {
 
       it('should return an object with only HTML_page_content key', function() {
         expect(lang).to.have.all.keys('HTML_page_content');
-        expect( $('h1').text() ).to.equal('Markdown page content');
-        expect( $('h1').attr('id') ).to.equal('markdown-page-content');
+        expect($('h1').text()).to.equal('Markdown page content');
+        expect($('h1').attr('id')).to.equal('markdown-page-content');
       });
     });
 
@@ -115,10 +115,8 @@ describe('create dictionary from all translation keys', function() {
 
       it('should return an object with only HTML_page_content', function() {
         expect(lang).to.have.all.keys('HTML_page_content');
-        expect( $('h1').text() ).to.equal('HTML page content');
+        expect($('h1').text()).to.equal('HTML page content');
       });
     });
-
   });
-
 });

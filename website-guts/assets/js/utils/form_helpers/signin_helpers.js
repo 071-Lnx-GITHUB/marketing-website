@@ -42,27 +42,6 @@ var signinHelper = {
     }
     else if(resp) {
       window.optly.mrkt.modal.close({ modalType: 'signin', trace: false });
-
-      var expParams = {
-        type: 'GET',
-        url: '/experiment/load_recent?max_experiments=5',
-        properties: {
-          experiments: {
-            id: 'number',
-            description: 'string',
-            has_started: 'boolean',
-            can_edit: 'boolean'
-          }
-        }
-      };
-      //uses xhr service to track any request errors
-      var deferred = window.optly.mrkt.services.xhr.makeRequest(expParams);
-
-      deferred.then(function(expData) {
-        window.optly_q.acctData = resp;
-        window.optly_q.expData = expData;
-        window.optly_q.push([window.optly.mrkt.showUtilityNav, 'acctData']);
-      });
     }
 
     w.analytics.identify(resp.unique_user_id, {

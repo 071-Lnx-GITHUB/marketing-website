@@ -18,8 +18,7 @@ module.exports = function(assemble) {
         return filenameKey;
       }
     });
-
-    //add the additonal data options with the standard key
+    //add the additional data options with the standard key
     var addOptions = _.omit(options, 'data');
     assemble.data(addOptions);
   };

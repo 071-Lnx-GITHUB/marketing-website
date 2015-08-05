@@ -19,8 +19,14 @@ TR_faqs:
     TR_answer: "Check out our <a href='https://help.optimizely.com'>Knowledge Base</a> for questions about how Optimizely works on your website or mobile app. If you have questions about an enterprise plan, please get in touch by calling or filling out a form. We’ll get back to you!"
 
 contact:
-  TR_text: "Still have questions? Call us:"
+  TR_text: "Call our sales team:"
   us_phone_number: "1-800-252-9480"
   uk_phone_number: "+44 (0)203 6956190"
+  nl_phone_number: "+31 (0)20 808 1462"
+  de_phone_number: "+49 (0)221 828 297 24"
+  fr_phone_number: "+33 (0)97 040 6333"
+  es_phone_number: "+34 (0)911 982 358"
+  jp_phone_number: "+81 (0)3 3582 5394"
+
 
 TR_companies_header: "Already trusted by these amazing companies"

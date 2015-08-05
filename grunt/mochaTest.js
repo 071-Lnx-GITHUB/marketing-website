@@ -30,21 +30,18 @@ var uiTest = {
 
 module.exports = function(grunt, options) {
   var opts;
-
-  if(grunt.option('target')){
+  if (grunt.option('target')) {
     opts = grunt.option('target');
   }
-
   var src = Object.keys(uiTest).reduce(function(list, name) {
-    if(opts === name || opts === undefined) {
+    if (opts === name || opts === undefined) {
       list.push.apply(list, uiTest[name].src);
     }
-
     return list;
   }, []);
 
   var getAssembleSpecs = function() {
-    if(opts) {
+    if (opts) {
       return globby.sync(path.join(process.cwd(), 'grunt/assemble/test', opts + '*spec.js'));
     } else {
       return ['grunt/assemble/test/*-spec.js'];

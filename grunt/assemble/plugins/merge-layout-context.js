@@ -8,7 +8,6 @@ module.exports = function() {
       _.merge(file.data, val);
       delete file.data.layouts;
     });
-
     this.push(file);
     cb();
   });

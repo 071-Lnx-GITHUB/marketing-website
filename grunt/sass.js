@@ -1,7 +1,7 @@
 var path = require('path');
 var sass = require('grunt-sass/node_modules/node-sass');
 
-module.exports = function(grunt){
+module.exports = function(grunt) {
   return {
     options: {
       includePaths: [

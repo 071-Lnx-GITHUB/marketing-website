@@ -18,35 +18,34 @@ module.exports = function(assemble) {
       var ext;
       var dirname = split[split.length - 2];
       var basename = split[split.length - 1];
-      if(/\.hbs/.test(basename)) {
+      if (/\.hbs/.test(basename)) {
         ext = '.hbs';
       } else if (/.\html/.test(basename)) {
         ext = '.html';
       }
-      if(ext) {
+      if (ext) {
         basename = path.basename(basename, ext);
       }
       var key = path.join(dirname, basename);
-      if(col[key]) {
+      if (col[key]) {
         return next();
       }
       /**
        * add a data_region attribute that will not be translated to work in dropdown menu
        */
-      if(file.data.TR_locations) {
+      if (file.data.TR_locations) {
         file.data.TR_locations.forEach(function(locationObj) {
           var regionData = locationObj.location.TR_region;
-          if(_.isString(regionData)) {
+          if (_.isString(regionData)) {
             locationObj.location.data_region = regionData.toLowerCase();
           }
         });
       }
-      if(_.isArray(file.data.TR_tags)) {
+      if (_.isArray(file.data.TR_tags)) {
         file.data.data_tags = file.data.TR_tags.reduce(function(arr, tag) {
-          if(_.isString(tag)) {
+          if (_.isString(tag)) {
             arr.push(tag.toLowerCase());
           }
-
           return arr;
         }, []);
       }

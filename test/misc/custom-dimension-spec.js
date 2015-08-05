@@ -17,7 +17,7 @@ describe('check that custom dimension gets set correctly', function() {
         .type('#signin-dialog input[name="email"]', config.email)
         .type('#signin-dialog input[name="password"]', config.password)
         .screenshot(config.screenshot({ imgName: 'signin-form-filled' }))
-        .evaluate(function(){
+        .evaluate(function() {
           window.firstPlanType = document.body.getAttribute('data-plan');
         })
         .click('#signin-dialog button[type="submit"]')

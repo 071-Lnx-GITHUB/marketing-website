@@ -6,7 +6,7 @@ module.exports = {
     curly: true,
     esnext: true,
     eqeqeq: true,
-    indent: 4,
+    indent: 2,
     unused: 'vars',
     latedef: true,
     noempty: true,

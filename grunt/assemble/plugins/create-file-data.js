@@ -24,7 +24,7 @@ module.exports = function (assemble) {
      * cache the layout data and remove it from the file.data object before translation parsing
      * because layout data will be added to pageDataClone through the plugin
      */
-    if(file.data.layouts) {
+    if (file.data.layouts) {
       layoutData = file.data.layouts;
       delete file.data.layouts;
     }
@@ -41,11 +41,11 @@ module.exports = function (assemble) {
 
     trYml = createTranslationDict(pageDataClone[locale][dataKey], locale);
 
-    if(file.data.modals) {
+    if (file.data.modals) {
       pageDataClone[locale][dataKey].modals = file.data.modals;
     }
 
-    if(layoutData) {
+    if (layoutData) {
       pageDataClone[locale][dataKey].layouts = layoutData;
     }
 
@@ -57,7 +57,7 @@ module.exports = function (assemble) {
     var promise = q();
     var curryTryCatch = require('../utils/curry-try-catch');
 
-    promise.then(function(){
+    promise.then(function() {
       var mergeLayoutData = curryTryCatch(require('./translation-utils/merge-layout-data')(assemble));
 
       mergeLayoutData(pageDataClone);

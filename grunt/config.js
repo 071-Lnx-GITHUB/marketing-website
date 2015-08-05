@@ -1,18 +1,15 @@
-//get configs
 var config = function(grunt, options) {
-
   function getSecretCreds(environment) {
-    try{
+    try {
       var secret_creds = grunt.file.read('./configs/secret/'+environment+'Config.json', {encoding: 'utf-8'});
-      if(secret_creds){
+      if (secret_creds) {
         secret_creds = JSON.parse(secret_creds);
       }
       return secret_creds;
-    } catch(err){
+    } catch(err) {
       console.log('error reading secret credentials: ', err);
       return false;
     }
-
   }
 
   return {
@@ -33,13 +30,13 @@ var config = function(grunt, options) {
           compress_js: true,
           drop_console: true,
           exclude_from_assemble: '**/fixture.hbs',
-          concat_banner: '(function($, w, d){ \n\n' +
+          concat_banner: '(function($, w, d) { \n\n' +
             '  window.optly = window.optly || {}; \n\n' +
             '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
             '  try { \n\n',
-          concat_footer: '  } catch(error){ \n\n' +
+          concat_footer: '  } catch(error) { \n\n' +
             '    console.error(error, targetName);\n\n' +
-            '    if(typeof error === "object") { try { error = JSON.stringify(error, ["message", "arguments", "type", "name"]); } catch (innerErr) { error = innerErr.message || "cannot parse error message"; } }; \n\n' +
+            '    if (typeof error === "object") { try { error = JSON.stringify(error, ["message", "arguments", "type", "name"]); } catch (innerErr) { error = innerErr.message || "cannot parse error message"; } }; \n\n' +
             '    var path = window.location.pathname;\n\n' +
             '    var trimpath = path.lastIndexOf("/") === path.length - 1 && path.length > 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
             '    w.analytics.ready(function() { w.analytics.track(trimpath + ": " + targetName, {category: "JavaScript Error", label: error}, { integrations: {"All": false, "Google Analytics": true} }); });\n\n' +
@@ -62,13 +59,13 @@ var config = function(grunt, options) {
           imageUrl: '/<%= grunt.option("branch") || gitinfo.local.branch.current.name %>/assets/img',
           compress_js: true,
           drop_console: false,
-          concat_banner: '(function($, w, d){ \n\n' +
+          concat_banner: '(function($, w, d) { \n\n' +
             '  window.optly = window.optly || {}; \n\n' +
             '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
             '  try { \n\n',
-          concat_footer: '  } catch(error){ \n\n' +
+          concat_footer: '  } catch(error) { \n\n' +
             '    console.error(error, targetName);\n\n' +
-            '    if(typeof error === "object") { try { error = JSON.stringify(error, ["message", "arguments", "type", "name"]); } catch (innerErr) { error = innerErr.message || "cannot parse error message"; } }; \n\n' +
+            '    if (typeof error === "object") { try { error = JSON.stringify(error, ["message", "arguments", "type", "name"]); } catch (innerErr) { error = innerErr.message || "cannot parse error message"; } }; \n\n' +
             '    var path = window.location.pathname;\n\n' +
             '    var trimpath = path.lastIndexOf("/") === path.length - 1 && path.length > 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
             '    w.analytics.ready(function() { w.analytics.track(trimpath + ": " + targetName, {category: "JavaScript Error", label: error}, { integrations: {"All": false, "Google Analytics": true} }); });\n\n' +
@@ -91,11 +88,11 @@ var config = function(grunt, options) {
           imageUrl: '/assets/img',
           compress_js: true,
           drop_console: false,
-          concat_banner: '(function($, w, d){ \n\n' +
+          concat_banner: '(function($, w, d) { \n\n' +
             '  window.optly = window.optly || {}; \n\n' +
             '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
             '  try { \n\n',
-          concat_footer: '  } catch(error){ \n\n' +
+          concat_footer: '  } catch(error) { \n\n' +
             '  //report errors to GA \n\n' +
             '  window.console.log("js error: " + error);' +
             '  } \n' +
@@ -117,7 +114,7 @@ var config = function(grunt, options) {
           imageUrl: '/dist/assets/img',
           compress_js: false,
           drop_console: false,
-          concat_banner: '(function($, w, d){ \n\n' +
+          concat_banner: '(function($, w, d) { \n\n' +
                          '  window.optly = window.optly || {}; \n\n' +
                          '  window.optly.mrkt = window.optly.mrkt || {}; \n\n',
           concat_footer: '})(jQuery, window, document);'
@@ -137,13 +134,13 @@ var config = function(grunt, options) {
           imageUrl: '/dist/assets/img',
           compress_js: true,
           drop_console: false,
-          concat_banner: '(function($, w, d){ \n\n' +
+          concat_banner: '(function($, w, d) { \n\n' +
             '  window.optly = window.optly || {}; \n\n' +
             '  window.optly.mrkt = window.optly.mrkt || {}; \n\n' +
             '  try { \n\n',
-          concat_footer: '  } catch(error){ \n\n' +
+          concat_footer: '  } catch(error) { \n\n' +
             '    console.error(error, targetName);\n\n' +
-            '    if(typeof error === "object") { try { error = JSON.stringify(error, ["message", "arguments", "type", "name"]); } catch (innerErr) { error = innerErr.message || "cannot parse error message"; } }; \n\n' +
+            '    if (typeof error === "object") { try { error = JSON.stringify(error, ["message", "arguments", "type", "name"]); } catch (innerErr) { error = innerErr.message || "cannot parse error message"; } }; \n\n' +
             '    var path = window.location.pathname;\n\n' +
             '    var trimpath = path.lastIndexOf("/") === path.length - 1 && path.length > 1 ? path.substr(0, path.lastIndexOf("/")) : path;\n\n' +
             '    w.analytics.ready(function() { w.analytics.track(trimpath + ": " + targetName, {category: "JavaScript Error", label: error}, { integrations: {"All": false, "Google Analytics": true} }); });\n\n' +
@@ -152,7 +149,6 @@ var config = function(grunt, options) {
         }
       }
     },
-
     content: 'website',
     guts: 'website-guts',
     dist: 'dist',
@@ -160,7 +156,6 @@ var config = function(grunt, options) {
     helpers: 'website-guts/helpers',
     bowerDir: 'bower_components',
   };
-
 };
 
 module.exports = config;

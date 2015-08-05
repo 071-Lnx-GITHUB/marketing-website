@@ -2,29 +2,24 @@ var path = require('path');
 
 var secondLastSlash = function(path) {
   var split = path.split('/');
-
   return split.splice(split.length - 2).join('/');
 };
 
 /*
-  Generates concate bundle array to ensure proper ordering
+ * Generates concate bundle array to ensure proper ordering
  *
- * @param {Array}  -  array of paths to concat with string '<%= config.guts %>/assets/js/'
- * @returns
+ * @param {Array} - array of paths to concat with string '<%= config.guts %>/assets/js/'
+ * @returns {Array} - map bundle
  */
-
 var makeBundlePaths = function makeBundlePaths(pathsArr) {
   return pathsArr.reduce(function(map, jsPath) {
     var concatPath,
-      exclude = false;
-
-    if(jsPath[0] === '!') {
+        exclude = false;
+    if (jsPath[0] === '!') {
       exclude = true;
       jsPath = jsPath.substr(1);
     }
-
-    concatPath = path.join( (exclude ? '!' : '') + '<%= config.guts %>/assets/js/', jsPath);
-
+    concatPath = path.join((exclude ? '!' : '') + '<%= config.guts %>/assets/js/', jsPath);
     map.push(concatPath);
     return map;
   }, []);
@@ -42,15 +37,14 @@ var omBundlePaths = [
   'om/global.js'
 ];
 
-module.exports = function(grunt, options){
+module.exports = function(grunt, options) {
   var lastTarget;
   var processBundleName = function (src, filepath) {
     var updatedSrc;
-    if(lastTarget !== grunt.task.current.target) {
+    if (lastTarget !== grunt.task.current.target) {
       updatedSrc = 'var targetName = "' + grunt.task.current.target + '";\n\n' + src;
     }
     lastTarget = grunt.task.current.target;
-
     return updatedSrc || src;
   };
 

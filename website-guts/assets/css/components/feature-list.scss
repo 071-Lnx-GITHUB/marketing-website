@@ -3,9 +3,10 @@
 /*            */
 
 #feature-list {
-  .current-plan-message {display: none;}
   /*Title Section*/
   .title-table-header {
+    margin-top: 25px;
+    margin-bottom: -25px;
     * {
       text-align: center;
     }
@@ -18,7 +19,7 @@
       float: right;
     }
     h1 {
-      font: 1.9em $body-font-family;
+      font: 1.4em $body-font-family;
       color: $brand-blue;
       line-height: 36px;
       margin-bottom: 5px;
@@ -31,9 +32,7 @@
     }
   }
   /*Table Sections*/
-  .table ~ .table {
-    margin-top: 75px;
-  }
+  .table ~ .table { margin-top: 45px; }
   .table {
     .table-header {
       border-top: 2px solid #DFDFDF;
@@ -52,6 +51,7 @@
           width: 100%;
           &[data-tooltip] {
             text-indent: 0;
+            margin-left: 0;
             &:before {
               background: none;
               height: 0;
@@ -121,13 +121,13 @@
   }
   /*CTA Section*/
   .cta {
-    margin-bottom: 150px;
+    margin: 30px 0;
     * { text-align: center; }
     h1 {
-      font: 1.7em $body-font-family;
+      font: 1em $body-font-family;
       color: #696F72;
       line-height: 29px;
-      margin-bottom: 25px;
+      margin: 5px 0 25px;
     }
     .starter {
       width: 50%;
@@ -152,12 +152,13 @@
 @media only screen and (min-width: $tablet-min-width) {
   #feature-list {
     .title-table-header {
+      h1 { font-size: 1.9em; }
       .starter,
       .enterprise {
         width: 31.915%;
       }
       .starter {
-        margin-left: 31.915%;
+        margin-left: 33.915%;
       }
     }
     .table {
@@ -167,7 +168,7 @@
       }
       .row-title {
         float: left;
-        width:31.915%;
+        width: 31.915%;
       }
       .table-row {
         [data-tooltip-dialog]:after {
@@ -176,12 +177,13 @@
       }
     }
     .cta {
+      h1 { font-size: 1.6em; }
       .starter,
       .enterprise {
         width: 31.915%;
       }
       .starter {
-        margin-left: 31.915%;
+        margin-left: 33.915%;
       }
     }
   }
@@ -190,6 +192,7 @@
 
 @media only screen and (min-width: $desktop-min-width) {
   #feature-list {
+    margin-bottom: 75px;
     .title-table-header {
       .starter {
         margin-left: 34.043%;

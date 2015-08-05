@@ -15,7 +15,6 @@ describe('function for removing translation keys from file data objects', functi
   });
 
   describe('removeTranslationKeys()', function() {
-
     describe('removing TR keys', function() {
       var ogObj = {
         TR_a: 'a',
@@ -56,7 +55,6 @@ describe('function for removing translation keys from file data objects', functi
         expect(ogObj.nested_b.a).to.be.ok;
         expect(ogObj.nested_b.TR_a).to.be.undefined;
       });
-
     });
 
     //all MD keys are transformed to HTML keys in createTranslationDictionary
@@ -100,7 +98,6 @@ describe('function for removing translation keys from file data objects', functi
         expect(ogObj.nested_b.a).to.be.ok;
         expect(ogObj.nested_b.TR_a).to.be.undefined;
       });
-
     });
 
     describe('it takes an optional locale argument to prepend in filepaths (with /dist/ linkPath) for HTML keys', function() {
@@ -133,7 +130,6 @@ describe('function for removing translation keys from file data objects', functi
         var $ = cheerio.load(returnedObj.nested_a.a);
         expect($('a').attr('href')).to.equal('/dist/de/in');
       });
-
     });
 
     describe('removing TR_ and HTML_ keys in an array', function() {
@@ -163,7 +159,6 @@ describe('function for removing translation keys from file data objects', functi
         expect(returnedObj.b[0].b).to.be.undefined;
         expect(returnedObj.b[0].TR_b).to.be.ok;
       });
-
     });
 
     describe('removing TR_ and HTML_ keys for JS type values other than strings', function() {
@@ -189,7 +184,6 @@ describe('function for removing translation keys from file data objects', functi
         expect(returnedObj.nested_a.b).to.equal(null);
         expect(returnedObj.nested_a).to.have.all.keys('a', 'b');
       });
-
     });
 
     describe('an object with key with the same name as a TR|MD key', function() {
@@ -206,10 +200,6 @@ describe('function for removing translation keys from file data objects', functi
         expect(returnedObj.a).to.equal('not translated');
         expect(returnedObj.TR_a).to.be.undefined;
       });
-
     });
-
   });
-
 });
-

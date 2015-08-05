@@ -22,20 +22,19 @@ module.exports = function translationTransform (assemble, args) {
 
   patterns = Array.isArray(patterns) ? patterns : [patterns];
 
-  if( /page/.test(translationType) ) {
+  if (/page/.test(translationType)) {
     data = processYMLfile(patterns, locale);
-  } else if ( /subfolder/.test(translationType) ) {
+  } else if (/subfolder/.test(translationType)) {
     data = processYMLfile(patterns, path.join(subfoldersRoot, locale));
   } else {
-    //NOTE: this was ommitted and is being performed in the smartling plugin
+    //NOTE: this was omitted and is being performed in the smartling plugin
     //put partial, modal, layout specific parsing here is necessary
     translationType = translationType.split('-')[0];
   }
 
-  if(Object.keys(data).length) {
+  if (Object.keys(data).length) {
     pageData[locale] = extend({}, pageData[locale], data);
-
-    // this transorm fetches all of the YML data in the files same directory
+    // this transform fetches all of the YML data in the files same directory
     assemble.set('pageData', pageData);
   }
 };

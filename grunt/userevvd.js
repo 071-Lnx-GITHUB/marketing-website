@@ -1,9 +1,9 @@
 module.exports = {
   options: {
-    formatOriginalPath: function(path){
+    formatOriginalPath: function(path) {
       return '/' + path;
     },
-    formatNewPath: function(path){
+    formatNewPath: function(path) {
       return path.replace(/^dist/, '');
     }
   },

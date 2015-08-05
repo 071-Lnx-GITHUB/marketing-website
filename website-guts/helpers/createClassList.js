@@ -6,8 +6,8 @@
  * @note: adds trailing whitespace
  * @param {string} str
  */
-module.exports = function createClassList ( str ) {
-  if ( str ) {
+module.exports = function createClassList (str) {
+  if (str) {
     var items = str.toLowerCase().split(',');
     var classList = '';
     for (var i = 0; i < items.length; i++) {
