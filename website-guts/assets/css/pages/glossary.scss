@@ -1,5 +1,11 @@
 body.glossary {
-
+  h1 {
+    color: $brand-blue;
+  }
+  .toc-index {
+    color: $dark-gray-text;
+    font-size: 22px;
+  }
 } 
 
 @media only screen and (min-width: $tablet-min-width) {
@@ -11,7 +17,5 @@ body.glossary {
     .term-container {
       padding-bottom: 16px;
     }
-
-
   }
 }
