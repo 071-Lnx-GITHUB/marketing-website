@@ -42,7 +42,8 @@ module.exports = {
         expand: true
       },
       {src: ['<%= config.guts %>/assets/img/favicon.ico'], dest: '<%= config.dist %>/favicon.ico'},
-      {src: ['<%= config.guts %>/assets/img/apple-touch-icon.png'], dest: '<%= config.dist %>/apple-touch-icon.png'}
+      {src: ['<%= config.guts %>/assets/img/apple-touch-icon.png'], dest: '<%= config.dist %>/apple-touch-icon.png'},
+      {src: ['<%= config.guts %>/assets/img/apple-touch-icon-precomposed.png'], dest: '<%= config.dist %>/apple-touch-icon-precomposed.png'}
     ]
   },
   js: {
