@@ -1,3 +1,4 @@
+---
 title_section:
   TR_title: "Experience Optimization Platform"
   TR_sub_title: "Discover and deliver the best experience for each customer across desktop, mobile web, and mobile apps."
@@ -5,22 +6,22 @@ title_section:
 products_section:
   products:
     -
-      tab_title: "Testing"
-      blurb: "<p>Optimizely Testing is the most adopted A/B testing platform in the world, optimizing billions of experiences every month for customers across diverse industries including media, retail, travel, and technology.</p><p>Easy-to-use and robust <a href='/ab-testing/'>A/B</a>, <a href='/resources/multivariate-testing/'>multivariate</a>, and multi-page testing gives you everything you need to improve engagement and increase revenue across desktop, mobile web, and <a href='/mobile/'>mobile apps</a>.</p>"
+      TR_tab_title: "Testing"
+      TR_blurb: "<p>Optimizely Testing is the most adopted A/B testing platform in the world, optimizing billions of experiences every month for customers across diverse industries including media, retail, travel, and technology.</p><p>Easy-to-use and robust <a href='/ab-testing/'>A/B</a>, <a href='/resources/multivariate-testing/'>multivariate</a>, and multi-page testing gives you everything you need to improve engagement and increase revenue across desktop, mobile web, and <a href='/mobile/'>mobile apps</a>.</p>"
       product_image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/solutions/product_illustrations/testing_final.svg"
     -
-      tab_title: "Personalization"
-      blurb: "<p><a href='https://blog.optimizely.com/2015/06/17/introducing-optimizely-personalization'>Optimizely Personalization</a> reinvents an old idea, personalization, and makes it accessible for all. Deliver real-time personalized experiences on desktop and mobile with powerful capabilities including behavioral targeting and audience discovery. Visual tools let you rapidly deploy personalized content and quickly see a return on investment.</p>"
+      TR_tab_title: "Personalization"
+      TR_blurb: "<p><a href='https://blog.optimizely.com/2015/06/17/introducing-optimizely-personalization'>Optimizely Personalization</a> reinvents an old idea, personalization, and makes it accessible for all. Deliver real-time personalized experiences on desktop and mobile with powerful capabilities including behavioral targeting and audience discovery. Visual tools let you rapidly deploy personalized content and quickly see a return on investment.</p>"
       product_image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/solutions/product_illustrations/personalization_final.svg"
     -
-      tab_title: "Targeting"
-      blurb: "<p>Easily target the right audience for your tests and personalized experiences.  Build your own segments and audiences using our advanced targeting capabilities (geography, URL, browser, and more) and third-party <a href='/partners/technology/'>integrations</a>, or use your existing lists.</p><p>Optimizely makes it simple to combine the data that matters to your business to target the optimal audience.</p>"
+      TR_tab_title: "Targeting"
+      TR_blurb: "<p>Easily target the right audience for your tests and personalized experiences.  Build your own segments and audiences using our advanced targeting capabilities (geography, URL, browser, and more) and third-party <a href='/partners/technology/'>integrations</a>, or use your existing lists.</p><p>Optimizely makes it simple to combine the data that matters to your business to target the optimal audience.</p>"
       product_image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/solutions/product_illustrations/targeting_final.svg"
     -
-      tab_title: "Analytics"
-      blurb: "<p>Real-time results accessed through dashboards and reporting enables you take action on your data quickly and reliably. Make decisions with confidence using the <a href='/statistics/'>Optimizely Stats Engine</a> – its always-valid results automatically adjust for the real world of multiple goals.</p><p>Optimizely also offers <a href='/partners/technology/'>integrations</a> with leading analytics providers, giving you full flexibility to evaluate the results in a way that works for your business.</p>"
+      TR_tab_title: "Analytics"
+      TR_blurb: "<p>Real-time results accessed through dashboards and reporting enables you take action on your data quickly and reliably. Make decisions with confidence using the <a href='/statistics/'>Optimizely Stats Engine</a> – its always-valid results automatically adjust for the real world of multiple goals.</p><p>Optimizely also offers <a href='/partners/technology/'>integrations</a> with leading analytics providers, giving you full flexibility to evaluate the results in a way that works for your business.</p>"
       product_image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/solutions/product_illustrations/analytics__final.svg"
     -
-      tab_title: "Platform"
-      blurb: "<p>The Optimizely Experience Optimization Platform powers all of our solutions, enabling the best experiences for every customer across desktop, mobile web, and mobile apps. All built upon industry leading fast, scalable, and secure infrastructure. Key components include:</p><ul><li>Data Import/ Export</li><li>Dynamic Customer Profiles</li><li>Visual Editor</li><li><a href='http://developers.optimizely.com/'>Developer Tools</a></li>"
+      TR_tab_title: "Platform"
+      TR_blurb: "<p>The Optimizely Experience Optimization Platform powers all of our solutions, enabling the best experiences for every customer across desktop, mobile web, and mobile apps. All built upon industry leading fast, scalable, and secure infrastructure. Key components include:</p><ul><li>Data Import/ Export</li><li>Dynamic Customer Profiles</li><li>Visual Editor</li><li><a href='http://developers.optimizely.com/'>Developer Tools</a></li>"
       product_image: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/solutions/product_illustrations/platform_final.svg"

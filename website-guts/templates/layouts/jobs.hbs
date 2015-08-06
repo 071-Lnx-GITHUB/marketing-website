@@ -4,18 +4,17 @@ layout_body_class:
 - jobs-layout
 layout_script: false
 ---
-
 <div id="main">
-    <div id="lead-image">
-      {{#if page_data.page_intro}}
-        <div id="jobs-intro" class="a-center box">
-            <h2>{{page_data.page_intro.header}}</h2>
-            <p>{{page_data.page_intro.body}}</p>
-            <a id="view-all-jobs" class="button" href="#jobs-list">{{page_data.page_intro.button_text}}</a>
-        </div>
-      {{/if}}
+  <div id="lead-image">
+    {{#if page_data.page_intro}}
+    <div id="jobs-intro" class="a-center box">
+      <h2>{{page_data.page_intro.header}}</h2>
+      <p>{{page_data.page_intro.body}}</p>
+      <a id="view-all-jobs" class="button" href="#jobs-list">{{page_data.page_intro.button_text}}</a>
     </div>
-    <div id="page-content">
-        {% body %}
-    </div><!--/#content-->
+    {{/if}}
+  </div>
+  <div id="page-content">
+    {% body %}
+  </div><!--/#content-->
 </div><!--/#main-->

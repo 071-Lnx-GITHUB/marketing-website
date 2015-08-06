@@ -20,24 +20,23 @@ layout_body_class:
             <input type="hidden" name="Inbound_Lead_Form_Type__c" value="External Events Capture">
             <div class="">
               <div class="label half left">
-                <label for="first_name">First name</label>
-                <input id="first_name" required name="first_name" type="text" placeholder="First name">
+                <label for="first_name">{{tr 'First name'}}</label>
+                <input id="first_name" required name="first_name" type="text" placeholder="{{tr 'First name'}}">
               </div>
               <div class="label half right">
-                <label for="last_name">Last name</label>
-                <input id="last_name" required name="last_name" type="text" placeholder="Last name">
+                <label for="last_name">{{tr 'Last name'}}</label>
+                <input id="last_name" required name="last_name" type="text" placeholder="{{tr 'Last name'}}">
               </div>
             </div>
             <div class="label">
-              <label for="company">Company name</label>
-              <input id="company" required class="full-width" name="company" type="text" placeholder="Company name">
+              <label for="company">{{tr 'Company name'}}</label>
+              <input id="company" required class="full-width" name="company" type="text" placeholder="{{tr 'Company name'}}">
             </div>
             <div class="label">
-              <label for="email">Work email</label>
-              <input id="email" class="full-width" required name="email" type="text" placeholder="Work email">
+              <label for="email">{{tr 'Work email'}}</label>
+              <input id="email" class="full-width" required name="email" type="text" placeholder="{{tr 'Work email'}}">
             </div>
-            <p class="radio-question">Based on your experience at the booth, on a scale of 1-10 how likely are you to recommend
-            Optimizely to a friend or colleague?</p>
+            <p class="radio-question">{{tr 'Based on your experience at the booth, on a scale of 1-10 how likely are you to recommend Optimizely to a friend or colleague?'}}</p>
             <div class="radio-container">
               <div class="radio-option-container">
                 <input type="radio" name="ops" value="1" id="ops1">
@@ -81,7 +80,7 @@ layout_body_class:
               </div>
             </div><!--/.radio-container-->
             <div class="a-center">
-              <button type="submit" id="submit" class="button oform-processing-hide">Submit info</button>
+              <button type="submit" id="submit" class="button oform-processing-hide">{{tr 'Submit info'}}</button>
             </div>
           </form>
         </div>

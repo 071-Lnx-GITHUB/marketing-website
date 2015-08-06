@@ -1,43 +1,42 @@
 ---
 layout: about
 no_container: true
-TR_seo_title: Events
-TR_visible_title: Events
+TR_seo_title: "Events"
+TR_visible_title: "Events"
 script_dependencies:
 - "https://apis.google.com/js/client.js"
 body_class:
 - events-page
 page_script: events.js
-HTML_page_content: true
 ---
 <div class="sheet">
   <div>
     <article>
       <div id="events-cont">
-        <h3 class="hide-past"><span class="upcoming">Upcoming</span><span class="past">Past</span> Events</h3>
+        <h3 class="hide-past"><span class="upcoming">{{tr 'Upcoming Events'}}</span><span class="past">{{tr 'Past Events'}}</span></h3>
         <div id="future-events-cont"></div>
-        <h3 class="events-heading-small heading-underline hide-upcoming"><span class="upcoming">Upcoming</span><span class="past">Past</span> Events</h3>
+        <h3 class="events-heading-small heading-underline hide-upcoming"><span class="upcoming">{{tr 'Upcoming Events'}}</span><span class="past">{{tr 'Past Events'}}</span></h3>
       </div><!--/#events-cont-->
       <div id="previous-events-cont">
-        <p class="show-future-events hide-events-link">Learn more about Optimizely's upcoming events. <a href="#" id="get-future-events">Load Upcoming Events</a></p>
-        <p class="show-past-events">Learn more about Optimizely's past events. <a href="#" id="get-past-events">Load Past Events</a></p>
+        <p class="show-future-events hide-events-link">{{{tr 'Learn more about Optimizely\'s upcoming events. <a href="#" id="get-future-events">Load Upcoming Events</a>'}}}</p>
+        <p class="show-past-events">{{{tr 'Learn more about Optimizely\'s past events. <a href="#" id="get-past-events">Load Past Events</a>'}}}</p>
         <div id="past-events-cont"></div>
       </div><!--/#previous-events-cont-->
     </article>
     <aside>
       <div>
-        <h3>Event Inquiries</h3>
-        <p>For event inquiries and speaking requests: <a href="mailto:events@optimizely.com">events@optimizely.com</a></p>
-        <p>Visit our <a href="{{linkPath}}/contact" title="Contact Optimizely">Contact page</a> for more contact details.</p>
+        <h3>{{tr 'Event Inquiries'}}</h3>
+        <p>{{{tr 'For event inquiries and speaking requests: <a href="mailto:events@optimizely.com">events@optimizely.com</a>'}}}</p>
+        <p>{{{tr 'Visit our <a href="{0}/contact" title="Contact Optimizely">Contact page</a> for more contact details.' linkPath}}}</p>
       </div>
       <div>
-        <h3>Subscribe</h3>
-        <p>Subscribe to our events calendar:</p>
+        <h3>{{tr 'Subscribe'}}</h3>
+        <p>{{tr 'Subscribe to our events calendar:'}}</p>
         <ul>
-          <li><a href="https://www.google.com/calendar/render?cid=optimizely.com_hh3e0hadjvjs9gh34mdlevverk@group.calendar.google.com" title="Add to Google Calendar">Google Calendar</a></li>
-          <li><a href="http://www.google.com/calendar/ical/optimizely.com_hh3e0hadjvjs9gh34mdlevverk%40group.calendar.google.com/public/basic.ics" title="iCal calendar feed">iCal</a></li>
-          <li><a href="http://www.google.com/calendar/ical/optimizely.com_hh3e0hadjvjs9gh34mdlevverk%40group.calendar.google.com/public/basic.ics" title="Outlook calendar feed">Outlook</a></li>
-          <li><a href="http://www.google.com/calendar/feeds/optimizely.com_hh3e0hadjvjs9gh34mdlevverk%40group.calendar.google.com/public/basic">RSS</a></li>
+          <li><a href="https://www.google.com/calendar/render?cid=optimizely.com_hh3e0hadjvjs9gh34mdlevverk@group.calendar.google.com" title="{{tr 'Add to Google Calendar'}}">{{tr 'Google Calendar'}}</a></li>
+          <li><a href="http://www.google.com/calendar/ical/optimizely.com_hh3e0hadjvjs9gh34mdlevverk%40group.calendar.google.com/public/basic.ics" title="{{tr 'iCal calendar feed'}}">iCal</a></li>
+          <li><a href="http://www.google.com/calendar/ical/optimizely.com_hh3e0hadjvjs9gh34mdlevverk%40group.calendar.google.com/public/basic.ics" title="{{tr 'Outlook calendar feed'}}">Outlook</a></li>
+          <li><a href="http://www.google.com/calendar/feeds/optimizely.com_hh3e0hadjvjs9gh34mdlevverk%40group.calendar.google.com/public/basic" title="{{tr 'RSS feed'}}">RSS</a></li>
         </ul>
       </div>
     </aside>

@@ -7,23 +7,12 @@ data_modal_id: error
 data_modal_name: error
 hidden_button_action: close
 hidden_button_text: Close
-modal_title: Something went wrong.
-error_message:
-  TR_title: "If this error persists, please let us know at our"
-  link: "https://help.optimizely.com/?ticket=true"
-  TR_text: "support page"
-  TR_last_p: "Our engineering team has been notified."
+TR_modal_title: "Something went wrong"
+error_message_link: "https://help.optimizely.com/?ticket=true"
 ---
-          <div class="content-body">
-            <p id="optimizely_error_type"></p>
-            {{#with error_message}}
-            <p>
-              {{title}}
-              <span id="SL-link-email-support" class="SL_swap">
-                <a target="_blank" href="{{link}}">{{text}}</a>
-              </span>
-            </p>
-            <p>{{last_p}}</p>
-            {{/with}}
-            <p id="optimizely_error_info"></p>
-          </div>
+<div class="content-body">
+  <p id="optimizely_error_type"></p>
+  <p>{{{tr 'If this error persists, please let us know at our <a target="_blank" href="{0}">support page</a>.' error_message.link}}}</p>
+  <p>{{tr 'Our engineering team has been notified.'}}</p>
+  <p id="optimizely_error_info"></p>
+</div>

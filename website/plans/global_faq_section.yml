@@ -1,4 +1,4 @@
-TR_faqs:
+faqs:
   -
     TR_question: "How are monthly unique visitors counted?"
     TR_answer: "Monthly unique visitors are counted by adding the number of unique visitors in an experiment on the web to the number of monthly active users in an experiment on a mobile app. You can distribute the unique visitor allocation however you like."
@@ -7,7 +7,7 @@ TR_faqs:
     TR_answer: "Once the Optimizely Snippet or SDK is installed, you can get started optimizing without technical expertise using a visual editor for both websites and mobile apps. Optimizely is also very developer-friendly, with features that enable custom experiments and advanced targeting for a range of use cases."
   -
     TR_question: "What will I need to install on my website or in my mobile app?"
-    TR_answer: "Implementation for the web takes one line of JavaScript on every page you want to optimize. On mobile, a similar one-time SDK implementation is all that’s required to start running experiments."
+    TR_answer: "Implementation for the web takes one line of JavaScript on every page you want to optimize. On mobile, a similar one-time SDK implementation is all that's required to start running experiments."
   -
     TR_question: "I signed up for Optimizely's Bronze, Silver, or Gold plan. What do these new plans mean for me?"
     TR_answer: "As a current customer, you are grandfathered into the original plan you selected. You can continue to use this plan, or select a new plan if you feel Starter or Enterprise better meets your needs. You can find more answers in this <a href='https://help.optimizely.com/hc/en-us/articles/200040055'>FAQ</a>."
@@ -16,7 +16,7 @@ TR_faqs:
     TR_answer: "Yes. Visit <a href='/nonprofits'>Optimizely for non-profits</a> for more information."
   -
     TR_question: "I have more questions. Where can I find answers?"
-    TR_answer: "Check out our <a href='https://help.optimizely.com'>Knowledge Base</a> for questions about how Optimizely works on your website or mobile app. If you have questions about an enterprise plan, please get in touch by calling or filling out a form. We’ll get back to you!"
+    TR_answer: "Check out our <a href='https://help.optimizely.com'>Knowledge Base</a> for questions about how Optimizely works on your website or mobile app. If you have questions about an enterprise plan, please get in touch by calling or filling out a form. We'll get back to you!"
 
 contact:
   TR_text: "Call our sales team:"
@@ -27,6 +27,5 @@ contact:
   fr_phone_number: "+33 (0)97 040 6333"
   es_phone_number: "+34 (0)911 982 358"
   jp_phone_number: "+81 (0)3 3582 5394"
-
 
 TR_companies_header: "Already trusted by these amazing companies"

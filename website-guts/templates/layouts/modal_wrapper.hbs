@@ -1,26 +1,26 @@
 <div id="{{this.wrapper_id}}" class="modal-dialog-container{{#if this.wrapper_class}} {{this.wrapper_class}}{{/if}} optly-hide" data-optly-modal="{{ this.data_modal_id }}" data-modal-name="{{ this.data_modal_name }}">
   <div {{#if this.dialog_id}}id="{{this.dialog_id}}"{{/if}}class="dialog narrow">
-      <form novalidate autocomplete="off"{{#if this.form_id}} id="{{this.form_id}}"{{/if}}{{#if this.form_action}} action="{{#if this.api_domain}}{{apiDomain}}{{/if}}{{this.form_action}}"{{/if}}{{#if this.form_method}} method="{{this.form_method}}"{{/if}}>
-            <div class="modal-header">
-              {{#if this.modal_title}}<p class="normal-header header-h1">{{this.modal_title}}</p>{{/if}}
-              {{#if this.modal_sub_header}}<p>{{this.modal_sub_header}}</p>{{/if}}
-            </div><!--/.modal-header-->
-            <div class="modal-body">
-                {% body %}
-            </div><!--/.modal-body-->
-            <div class="modal-footer{{#unless this.primary_button_text}} no-primary-button{{/unless}}">
-                {{#if this.primary_button_text}}
-                <button type="submit" class="primary-button submit-btn translate">{{this.primary_button_text}} &raquo;</button>
-                {{/if}}
-                {{#if this.hidden_button_text}}
-                <button type="button" data-modal-btn="{{this.hidden_button_action}}" class="{{#if this.hide}}hide-button {{/if}}right-button secondary-button close-btn jqmClose translate">{{this.hidden_button_text}}</button>
-                {{/if}}
-                {{#if this.negative_button_text}}
-                <button type="button" data-modal-btn="{{#unless this.negative_button_action}}close{{/unless}}{{this.negative_button_action}}" class="secondary-button close-btn jqmClose translate">{{this.negative_button_text}}</button>
-                {{/if}}
-            </div><!--/.modal-footer-->
-            {{#if this.initial_form_source}}<input type="hidden" name="Initial_Form_Source__c" value="{{this.initial_form_source}}">{{/if}}
-            {{#if this.inbound_form_lead_type}}<input type="hidden" name="Inbound_Lead_Form_Type__c" value="{{this.inbound_form_lead_type}}">{{/if}}
-        </form>
-    </div><!--/.dialog.narrow-->
+    <form novalidate autocomplete="off"{{#if this.form_id}} id="{{this.form_id}}"{{/if}}{{#if this.form_action}} action="{{#if this.api_domain}}{{apiDomain}}{{/if}}{{this.form_action}}"{{/if}}{{#if this.form_method}} method="{{this.form_method}}"{{/if}}>
+      <div class="modal-header">
+        {{#if this.modal_title}}<p class="normal-header header-h1">{{this.modal_title}}</p>{{/if}}
+        {{#if this.modal_sub_header}}<p>{{this.modal_sub_header}}</p>{{/if}}
+      </div><!--/.modal-header-->
+      <div class="modal-body">
+        {% body %}
+      </div><!--/.modal-body-->
+      <div class="modal-footer{{#unless this.primary_button_text}} no-primary-button{{/unless}}">
+        {{#if this.primary_button_text}}
+          <button type="submit" class="primary-button submit-btn translate">{{this.primary_button_text}} &raquo;</button>
+        {{/if}}
+        {{#if this.hidden_button_text}}
+          <button type="button" data-modal-btn="{{this.hidden_button_action}}" class="{{#if this.hide}}hide-button {{/if}}right-button secondary-button close-btn jqmClose translate">{{this.hidden_button_text}}</button>
+        {{/if}}
+        {{#if this.negative_button_text}}
+          <button type="button" data-modal-btn="{{#unless this.negative_button_action}}close{{/unless}}{{this.negative_button_action}}" class="secondary-button close-btn jqmClose translate">{{this.negative_button_text}}</button>
+        {{/if}}
+      </div><!--/.modal-footer-->
+      {{#if this.initial_form_source}}<input type="hidden" name="Initial_Form_Source__c" value="{{this.initial_form_source}}">{{/if}}
+      {{#if this.inbound_form_lead_type}}<input type="hidden" name="Inbound_Lead_Form_Type__c" value="{{this.inbound_form_lead_type}}">{{/if}}
+    </form>
+  </div><!--/.dialog.narrow-->
 </div> <!-- end .modal-dialog-container -->

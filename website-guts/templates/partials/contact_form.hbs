@@ -1,51 +1,48 @@
----
-HTML_page_content: true
----
 <div id="contact-form-cont" class="box clearfix">
-  <h4 class="a-center">{{#if this.form_heading}}{{this.form_heading}}{{else}}Questions? Contact us.{{/if}}</h4>
+  <h4 class="a-center">{{#if this.form_heading}}{{this.form_heading}}{{else}}{{tr 'Questions? Contact us.'}}{{/if}}</h4>
     <form id="contact-form" class="standard" autocomplete="off" novalidate action="{{apiDomain}}/contact/form" method="post">
       <ul class="list-unstyled">
         <li class="clearfix">
-          <label for="name" class="required">Name</label>
-          <span class="field-error name-related error-hide error-right">Name is required</span>
+          <label for="name" class="required">{{tr 'Name'}}</label>
+          <span class="field-error name-related error-hide error-right">{{tr 'Name is required'}}</span>
           <input class="required" id="name" name="name" required type="text">
         </li>
         <li class="clearfix">
-          <label for="email" class="required">E-mail</label>
-          <span class="field-error email-related error-hide error-right">Email is required</span>
+          <label for="email" class="required">{{tr 'Email'}}</label>
+          <span class="field-error email-related error-hide error-right">{{tr 'Email is required'}}</span>
           <input class="required email" id="email" name="email" required type="email">
         </li>
         <li>
-          <label for="company">Company</label>
+          <label for="company">{{tr 'Company'}}</label>
           <input id="company" name="company" type="text">
         </li>
         <li>
-          <label for="website">Website</label>
+          <label for="website">{{tr 'Website'}}</label>
           <input id="website" name="website" type="text">
         </li>
         <li class="form-neighbors first">
           <label>
-            Monthly Visitors<div title="This is the sum across all your clients" data-tooltip></div>
+            {{tr 'Monthly Visitors'}}<div title="{{tr 'This is the sum across all your clients'}}" data-tooltip></div>
           </label>
           <select id="traffic" name="traffic" tabindex="1">
-            <option value="">Select an option...</option>
-            <option value="0 - 20k Monthly Visitors">0 to 20k</option>
-            <option value="20k - 200k Monthly Visitors">20k to 200k</option>
-            <option value="200k - 2MM Monthly Visitors">200k to 2MM</option>
-            <option value="2m - 10MM Monthly Visitors">2MM to 10MM</option>
-            <option value="10MM - 50MM Monthly Visitors">10MM to 50MM</option>
-            <option value="50MM + Monthly Visitors">50MM+</option>
+            <option value="">{{tr 'Select an option...'}}</option>
+            <option value="0 - 20k Monthly Visitors">{{tr '0 to 20k'}}</option>
+            <option value="20k - 200k Monthly Visitors">{{tr '20k to 200k'}}</option>
+            <option value="200k - 2MM Monthly Visitors">{{tr '200k to 2MM'}}</option>
+            <option value="2m - 10MM Monthly Visitors">{{tr '2MM to 10MM'}}</option>
+            <option value="10MM - 50MM Monthly Visitors">{{tr '10MM to 50MM'}}</option>
+            <option value="50MM + Monthly Visitors">{{tr '50MM+'}}</option>
           </select>
         </li>
         <li class="form-neighbors last">
-          <label for="phone">Phone</label>
+          <label for="phone">{{tr 'Phone'}}</label>
           <input id="phone" name="phone" type="text">
         </li>
         <li class="a-right clearfix submit-cont success-hide">
-          <button class="button small" type="submit">Submit</button>
+          <button class="button small" type="submit">{{tr 'Submit'}}</button>
         </li>
         <li id="confirmation" class="success-show">
-          <p>Thanks for contacting us! We'll be in touch shortly!</p>
+          <p>{{tr 'Thanks for contacting us! We\'ll be in touch shortly!'}}</p>
         </li>
       </ul>
       <input type="hidden" name="Inbound_Lead_Form_Type__c" value="{{this.inbound_form_lead_type}}">

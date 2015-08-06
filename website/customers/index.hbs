@@ -1,13 +1,12 @@
 ---
 layout: page
-TR_seo_title: Customers
+TR_seo_title: "Customers"
 TR_visible_title: "Over 7,000 Happy Customers"
-TR_sub_head: Find out who's testing with Optimizely right now
+TR_sub_head: "Find out who's testing with Optimizely right now"
 page_script: customers.js
 body_class:
 - customers-page
 ---
-
 <div class="customer-grid">
     <div class="row">
         <div class="columns customer-grid-item first-desktop">
@@ -93,7 +92,7 @@ body_class:
     <li {{#isnt @index 0}}class="optly-hide"{{/isnt}}data-slides={{@index}}>
       <q>{{header}}</q>
       <div class="logo-border">
-        <img src="{{../assetsDir}}{{logo}}" alt="Customer Quote Logos">
+        <img src="{{../assetsDir}}{{logo}}" alt="{{tr 'Customer Quote Logos'}}">
       </div>
     </li>
     {{/each}}

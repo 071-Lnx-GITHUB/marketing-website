@@ -1,13 +1,13 @@
 {{#each departments}}
 <h4 class="department-title">{{name}}</h4>
 <ul>
-    {{#each jobs}}
-    <li>
-        <a href="{{absolute_url}}" target="_blank">
-            <span class="job-title">{{title}}</span>
-            <span class="job-location">{{location.name}}</span>
-        </a>
-    </li>
-    {{/each}}
+  {{#each jobs}}
+  <li>
+    <a href="{{absolute_url}}" target="_blank">
+      <span class="job-title">{{title}}</span>
+      <span class="job-location">{{location.name}}</span>
+    </a>
+  </li>
+  {{/each}}
 </ul>
 {{/each}}

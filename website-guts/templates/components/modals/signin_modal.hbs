@@ -1,42 +1,42 @@
 ---
 layout: modal_wrapper
-TR_modal_title: Sign in to Optimizely
+TR_modal_title: "Sign in to Optimizely"
 data_modal_id: signin
 data_modal_name: sign-in
 form_id: signin-form
 wrapper_id: signin-dialog
 form_method: POST
 form_action: /account/signin
-TR_primary_button_text: Sign in
-TR_negative_button_text: Cancel
+TR_primary_button_text: "Sign in"
+TR_negative_button_text: "Cancel"
 api_domain: true
 ---
-              <label>
-                  <span>{{tr 'Email address'}}</span>
-                  <span class="email-related error-hide error-right">{{tr 'Email is required'}}</span>
-                  <input type="email" name="email" autofocus>
-              </label>
-              <label>
-                  <span>{{tr 'Password'}}</span>
-                  <span class="password-related error-hide error-right">{{tr 'Password is required'}}</span>
-                  <input type="password" name="password" required>
-              </label>
+<label>
+  <span>{{tr 'Email address'}}</span>
+  <span class="email-related error-hide error-right">{{tr 'Email is required'}}</span>
+  <input type="email" name="email" autofocus>
+</label>
+<label>
+  <span>{{tr 'Password'}}</span>
+  <span class="password-related error-hide error-right">{{tr 'Password is required'}}</span>
+  <input type="password" name="password" required>
+</label>
 
-              <div class="terms">
-                  <label class="spaced right">
-                      <a href="https://app.optimizely.com/signin/sso">
-                         {{tr 'Use single sign-on'}}
-                      </a>
-                  </label>
+<div class="terms">
+  <label class="spaced right">
+    <a href="https://app.optimizely.com/signin/sso">
+      {{tr 'Use single sign-on'}}
+    </a>
+  </label>
 
-                  <label class="spaced">
-                      <input type="checkbox" name="persist" checked="checked">
-                      <p>{{tr 'Keep me signed in'}}</p>
-                  </label>
-              </div>
-              <div class="options">
-                  <p><a href="{{linkPath}}/privacy" target="_blank">{{tr 'Privacy Policy'}}</a></p>
-                  <p><a class="show-forgot-password" data-modal-click="reset-password">{{tr 'Forgot your password?'}}</a></p>
-                  <p>{{tr 'No account?'}} <a class="show-create-account" data-modal-click="signup">{{tr 'Register here'}}</a></p>
-                  <p class="error-message error-hide">{{tr 'Incorrect email or password'}}</p>
-              </div>
+  <label class="spaced">
+    <input type="checkbox" name="persist" checked="checked">
+    <p>{{tr 'Keep me signed in'}}</p>
+  </label>
+</div>
+<div class="options">
+  <p><a href="{{linkPath}}/privacy" target="_blank">{{tr 'Privacy Policy'}}</a></p>
+  <p><a class="show-forgot-password" data-modal-click="reset-password">{{tr 'Forgot your password?'}}</a></p>
+  <p>{{tr 'No account?'}} <a class="show-create-account" data-modal-click="signup">{{tr 'Register here'}}</a></p>
+  <p class="error-message error-hide">{{tr 'Incorrect email or password'}}</p>
+</div>

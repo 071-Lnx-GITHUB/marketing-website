@@ -1,10 +1,9 @@
 ---
 layout: about
-TR_seo_title: About
-TR_visible_title: About
+TR_seo_title: "About"
+TR_visible_title: "About"
 body_class:
 - about-page
-HTML_page_content: true
 ---
 <div id="about-content">
 	<div class="row">
@@ -12,28 +11,28 @@ HTML_page_content: true
 			<img class="framed" src="{{assetsDir}}/img/about.png">
 		</div><!--/.columns-->
 	</div><!--/.row-->
-	<h3 id="about-company-headline">Optimizely is the #1 website optimization platform in the world.</h3>
+	<h3 id="about-company-headline">{{tr 'Optimizely is the #1 website optimization platform in the world.'}}</h3>
 	<div class="row" id="about-optimizely-cont">
 		<div class="columns eight">
-			<p>Optimizely was founded by two former Google product managers, Dan Siroker and Pete Koomen. Dan served as the Director of Analytics during the Obama 2008 presidential campaign. While there, his team relied on the use of A/B and <a href="{{linkPath}}/resources/multivariate-test-vs-ab-test">multivariate testing</a> to maximize e-mail sign-ups, volunteers, and donations to raise more than $100 million in additional revenue for the campaign.</p>
-			<p>But optimization was hard — you needed technical skills and know-how to run even the simplest of tests. After the campaign, Siroker teamed up with Koomen to create a world-class optimization platform that was easy to use in an effort to provide a platform for businesses to be able to conceive and run experiments that helped them make better data-driven decisions.</p>
-			<p>Since completing YCombinator in the winter of 2010, Optimizely has seen strong and growing demand.</p>
+			<p>{{{tr 'Optimizely was founded by two former Google product managers, Dan Siroker and Pete Koomen. Dan served as the Director of Analytics during the Obama 2008 presidential campaign. While there, his team relied on the use of A/B and <a href="{0}/resources/multivariate-test-vs-ab-test">multivariate testing</a> to maximize email sign-ups, volunteers, and donations to raise more than $100 million in additional revenue for the campaign.' linkPath}}}</p>
+			<p>{{tr 'But optimization was hard — you needed technical skills and know-how to run even the simplest of tests. After the campaign, Siroker teamed up with Koomen to create a world-class optimization platform that was easy to use in an effort to provide a platform for businesses to be able to conceive and run experiments that helped them make better data-driven decisions.'}}</p>
+			<p>{{tr 'Since completing YCombinator in the winter of 2010, Optimizely has seen strong and growing demand.'}}</p>
 		</div><!--/.columns-->
 		<div class="columns four" id="the-highlights">
-			<h5 class="blue">The Highlights</h5>
+			<h5 class="blue">{{tr 'The Highlights'}}</h5>
       <ul>
-        <li>In less than two years, our first product has passed established players to become the leading A/B and <a href="{{linkPath}}/resources/multivariate-test-vs-ab-test">multivariate testing</a> platform in the world.</li>
-        <li>More than 7,000 enterprises have adopted Optimizely including Sony, Disney, and Salesforce.</li>
-        <li>From March 2012 to March 2013, the company increased its revenue by more than 400% percent year-over-year. It first reached cash flow positive in 2011.</li>
+        <li>{{{tr 'In less than two years, our first product has passed established players to become the leading A/B and <a href="{0}/resources/multivariate-test-vs-ab-test">multivariate testing</a> platform in the world.' linkPath}}}</li>
+        <li>{{tr 'More than 7,000 enterprises have adopted Optimizely including Sony, Disney, and Salesforce.'}}</li>
+        <li>{{tr 'From March 2012 to March 2013, the company increased its revenue by more than 400% percent year-over-year. It first reached cash flow positive in 2011.'}}</li>
       </ul>
 		</div><!--/.columns-->
 	</div><!--/.row-->
 	<div class="row">
 		<div class="columns six offset-three">
 			<div class="callout a-center">
-				<h3>We're Hiring!</h3>
-				<p>Our happy customer base is growing and so are we. We are actively looking for spectacular people to join our team.</p>
-				<a href="{{linkPath}}/careers" class="primary-button large">View Job Openings</a>
+				<h3>{{tr 'We\'re Hiring!'}}</h3>
+				<p>{{tr 'Our happy customer base is growing and so are we. We are actively looking for spectacular people to join our team.'}}</p>
+				<a href="{{linkPath}}/careers" class="primary-button large">{{tr 'View Job Openings'}}</a>
 			</div>
 		</div><!--/.columns-->
 	</div><!--/.row-->

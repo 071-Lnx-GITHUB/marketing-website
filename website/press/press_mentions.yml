@@ -1,4 +1,4 @@
-TR_mention_items:
+mention_items:
 -
   logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/forbes.svg"
   link_to_story: "http://www.forbes.com/sites/parmyolson/2015/01/21/jawbone-guinea-pig-economy/"
@@ -23,7 +23,7 @@ TR_mention_items:
   logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/BI.jpeg"
   link_to_story: "http://www.businessinsider.com/what-apm-graduates-are-doing-now-2014-10?op=1"
   story_date: "2014-10-28"
-  TR_story_title: "What Some of Google’s Most Elite, Entrepreneurial Employees Are Doing Now"
+  TR_story_title: "What Some of Google's Most Elite, Entrepreneurial Employees Are Doing Now"
 -
   logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/inc.png"
   link_to_story: "http://www.inc.com/matt-ehrlichman/9-essential-tools-for-building-your-startup.html"
@@ -38,7 +38,7 @@ TR_mention_items:
   logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/digiday.jpg"
   link_to_story: "http://digiday.com/publishers/publishers-using-ab-testing/"
   story_date: "2014-10-21"
-  TR_story_title: "How A/B testing became publishers’ go-to traffic builder"
+  TR_story_title: "How A/B testing became publishers' go-to traffic builder"
 -
   logo_url: "https://optimizely-marketer-assets.s3.amazonaws.com/press/images/inc.png"
   link_to_story: "http://www.inc.com/murray-newlands/7-content-marketing-tools-for-growth-hackers.html"
@@ -175,7 +175,7 @@ TR_mention_items:
   story_date: "2014-05-05"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/venturebeat.png"
 -
-  TR_story_title: "TC Cribs Tours Optimizely’s Spacious HQ, Where Table Tennis Is A Serious Sport"
+  TR_story_title: "TC Cribs Tours Optimizely's Spacious HQ, Where Table Tennis Is A Serious Sport"
   link_to_story: "http://techcrunch.com/2014/04/29/tc-cribs-tours-optimizelys-spacious-hq-where-table-tennis-is-a-serious-sport/"
   story_date: "2014-04-29"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
@@ -185,7 +185,7 @@ TR_mention_items:
   story_date: "2014-04-17"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/destination-crm.gif"
 -
-  TR_story_title: "Optimizely’s new developer tool takes the guesswork out of building iOS apps"
+  TR_story_title: "Optimizely's new developer tool takes the guesswork out of building iOS apps"
   link_to_story: "http://venturebeat.com/2014/04/17/optimizelys-new-developer-tool-takes-the-guesswork-out-of-building-ios-apps/"
   story_date: "2014-04-17"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/venturebeat.png"
@@ -310,12 +310,12 @@ TR_mention_items:
   story_date: "2013-11-15"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techworld.png"
 -
-  TR_story_title: "Founder Stories: Optimizely’s Pete Koomen"
+  TR_story_title: "Founder Stories: Optimizely's Pete Koomen"
   link_to_story: "http://techcrunch.com/video/founder-stories-optimizelys-pete-koomen/517916192/"
   story_date: "2013-11-13"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
 -
-  TR_story_title: "How they increased conversions by 46% on the Guardian’s Soulmates dating site / Kerstin Exner talks with theMarketingblog"
+  TR_story_title: "How they increased conversions by 46% on the Guardian's Soulmates dating site / Kerstin Exner talks with theMarketingblog"
   link_to_story: "http://www.themarketingblog.co.uk/2013/11/how-they-increased-conversions-by-137-on-the-guardians-soulmates-dating-site-kerstin-exner-talks-with-themarketingblog/"
   story_date: "2013-11-13"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/marketingblog.png"
@@ -330,7 +330,7 @@ TR_mention_items:
   story_date: "2013-11-06"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/direct-marketing-news.png"
 -
-  TR_story_title: "Optimizely CEO Dan Siroker’s Trick For How To Test Investors, Board Members"
+  TR_story_title: "Optimizely CEO Dan Siroker's Trick For How To Test Investors, Board Members"
   link_to_story: "http://techcrunch.com/2013/10/19/optimizelys-dan-sirokers-trick-for-how-to-test-investors-board-members/"
   story_date: "2013-10-19"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
@@ -440,12 +440,12 @@ TR_mention_items:
   story_date: "2012-10-09"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/techcrunch.svg"
 -
-  TR_story_title: "The A/B Test: Inside the Technology That’s Changing the Rules of Business"
+  TR_story_title: "The A/B Test: Inside the Technology That's Changing the Rules of Business"
   link_to_story: "http://www.wired.com/business/2012/04/ff_abtesting"
   story_date: "2012-04-25"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/wired.svg"
 -
-  TR_story_title: "Obama Inc.: What businesses want to learn from the president’s campaign"
+  TR_story_title: "Obama Inc.: What businesses want to learn from the president's campaign"
   link_to_story: "http://www.washingtonpost.com/blogs/wonkblog/wp/2013/03/17/obama-inc-what-businesses-want-to-learn-from-the-presidents-campaign/"
   story_date: "2013-03-17"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/washington-post.svg"
@@ -485,7 +485,7 @@ TR_mention_items:
   story_date: "2012-09-20"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/business-week.svg"
 -
-  TR_story_title: "Optimizely’s Assault on the One-Size-Fits-All Web"
+  TR_story_title: "Optimizely's Assault on the One-Size-Fits-All Web"
   link_to_story: "http://www.xconomy.com/san-francisco/2012/05/31/optimizelys-assault-on-the-one-size-fits-all-web/"
   story_date: "2012-05-31"
   logo_url: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/press-logos/xconomy.jpg"

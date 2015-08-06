@@ -1,25 +1,26 @@
+---
 intro:
   TR_headline: "Become a Technology Partner"
   TR_subhead: "Grow your business on the Optimizely Platform"
   TR_button_text: "Apply Now"
-  TR_blurb: "Optimizely is the #1 experience optimization platform in the world, enabling thousands of companies to deliver delightful, optimized experiences to their visitors every day. Optimizely’s Technology Partner Program enables your company to easily integrate with Optimizely, so your customers can turn data into action quickly  and seamlessly."
+  TR_blurb: "Optimizely is the #1 experience optimization platform in the world, enabling thousands of companies to deliver delightful, optimized experiences to their visitors every day. Optimizely's Technology Partner Program enables your company to easily integrate with Optimizely, so your customers can turn data into action quickly  and seamlessly."
 why:
   TR_header: "Why Partner with Optimizely?"
   TR_reasons:
     -
       TR_title: "Market-Leading Optimization Platform"
-      TR_blurb: "Deliver your integration to Optimizely’s growing base of 7,000+ customers."
+      TR_blurb: "Deliver your integration to Optimizely's growing base of 7,000+ customers."
       image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/partners-become/icon-trophy.svg"
     -
       TR_title: "Turn Data into Action"
       TR_blurb: "Give your customers a fast and easy way to take action on their data so they can accelerate their workflow."
       image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/partners-become/icon-magnifying.svg"
     -
-      TR_title: "<a target=\"_blank\" href=\"http://developers.optimizely.com/\">Develop Customized Integrations</a>"
-      TR_blurb: "Optimizely’s <a href=\"http://developers.optimizely.com\">open, flexible APIs</a> allow you to create integrations customized to your needs."
+      TR_title: '<a target="_blank" href="http://developers.optimizely.com/">Develop Customized Integrations</a>"
+      TR_blurb: "Optimizely's <a href='http://developers.optimizely.com'>open, flexible APIs</a> allow you to create integrations customized to your needs."
       image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/partners-become/icon-browsers.svg"
     -
-      TR_title: "Seamless Integration Experience "
+      TR_title: "Seamless Integration Experience"
       TR_blurb: "Connect with Optimizely easily via a simple, one-click implementation."
       image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/partners-become/icon-mouseclick.svg"
 benefits:
@@ -28,7 +29,7 @@ benefits:
     -
       image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/partners-become/illustration1.svg"
       TR_title: "Comprehensive Developer Support & Enablement"
-      TR_blurb: "Build an amazing integration with expert support from Optimizely’s technical team, a fully featured sandbox and access to Optimizely’s partner community."
+      TR_blurb: "Build an amazing integration with expert support from Optimizely's technical team, a fully featured sandbox and access to Optimizely's partner community."
       class: "support"
     -
       image: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/partners-become/illustration3.svg"
@@ -48,7 +49,3 @@ benefits:
 #   TR_title: "Hear from our Partners"
 #   TR_blurb: "Watch this testimonial from Lytics on how partnering with Optimizely has transformed their business."
 #   video_url: "//play.vidyard.com/Bf0qpT872TFpgGnJUqm0kA.html?v=3.1"
-join:
-  TR_title: "Join the Optimizely Technology Partner Program"
-  TR_blurb:  "To learn more about the requirements and benefits of our partner program <a href='http://pages.optimizely.com/rs/361-GER-922/images/Optimizely Technology Partners.pdf'>click here</a>. To see a list of technology partners we work with today, <a href='/partners/technology/'>check out our partner directory</a>."
-  button_text: "Apply Now"

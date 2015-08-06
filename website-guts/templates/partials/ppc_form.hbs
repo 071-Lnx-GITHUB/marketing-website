@@ -1,6 +1,3 @@
----
-HTML_page_content: true
----
 <form id="seo-form" method="POST" class="seo-form inline-labels" action="{{apiDomain}}/account/free_trial_create" autocomplete="off" novalidate="novalidate">
   <p class="error-message oform-error-show"></p>
   <input id="utm_medium" type="hidden" name="utm_medium" value="">
@@ -16,7 +13,7 @@ HTML_page_content: true
     </li>
     <li id="phone-email-cont">
     <div class="label half left email-related">
-      <label for="email">{{tr 'Email - no spam'}}</label>
+      <label for="email">{{{tr 'Email &mdash; no spam'}}}</label>
       <input id="email" required name="email" type="email">
     </div>
 
@@ -26,7 +23,7 @@ HTML_page_content: true
     </div>
     </li>
     <li class="terms">
-    <small>By clicking the <q>Test it Out</q> button below I agree to the <br><a href="{{linkPath}}/terms" target="_blank">Terms of Service</a> and <a href="{{linkPath}}/privacy" target="_blank">Privacy Policy</a>.</small>
+      <small>{{{tr 'By clicking the <q>Test it Out</q> button below I agree to the <br><a href="{0}/terms" target="_blank">Terms of Service</a> and <a href="{0}/privacy" target="_blank">Privacy Policy</a>.'}}}</small>
     </li>
     <li class="a-center">
     <button type="submit" id="submit" class="button oform-processing-hide">{{tr 'Test it Out'}}</button>

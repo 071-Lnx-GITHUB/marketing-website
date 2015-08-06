@@ -1,4 +1,4 @@
-TR_grid_content:
+grid_content:
 -
   url: "https://s3.amazonaws.com/optimizely-marketing/segmentation.png"
   TR_heading: "A Visual Split Testing Tool"

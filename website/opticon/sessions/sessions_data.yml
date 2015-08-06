@@ -1,3 +1,4 @@
+---
 title: "Recorded Sessions"
 coming_soon: "Check back soon for more videos"
 keynote_sessions:
@@ -9,7 +10,7 @@ keynote_sessions:
     wistia_url: "//fast.wistia.net/embed/iframe/xcorh9bx2t?popover=true" 
     wistia_thumbnail: "https://embed-ssl.wistia.com/deliveries/be55b81db186b83574c23db7c893e12b5651cc80.jpg?image_play_button=true&image_play_button_color=7b796ae0&image_crop_resized=300x169"
   -
-    title: "The Future of Technology, Optimization, and the “We Economy”"
+    title: "The Future of Technology, Optimization, and the \"We Economy\""
     speakers: "Mary Hamilton"
     slides_url: "http://www.slideshare.net/optimizely/opticon-2015-technology-trends-and-the-we-economy"
     wistia_url: "//fast.wistia.net/embed/iframe/s0yu60meos?popover=true"
@@ -32,7 +33,7 @@ breakout_sessions:
       wistia_url: "//fast.wistia.net/embed/iframe/do82ozrqdt?popover=true" 
       wistia_thumbnail: "https://embed-ssl.wistia.com/deliveries/1c2991c5ee19f08ce07ec5dde5764dd93c57e452.jpg?image_play_button=true&image_play_button_color=7b796ae0&image_crop_resized=300x169"
     -  
-      title: "Testing with Stats Engine: Why it’s Harder to Find Winners with Optimizely"
+      title: "Testing with Stats Engine: Why it's Harder to Find Winners with Optimizely"
       speakers: "Leo Pekelis, Pete Koomen"
       slides_url: "http://www.slideshare.net/optimizely/opticon-2015-testing-with-stats-engine"
       wistia_url: "//fast.wistia.net/embed/iframe/ocpui26ibo?popover=true" 
@@ -97,7 +98,7 @@ breakout_sessions:
       wistia_url: "//fast.wistia.net/embed/iframe/fr7v01v204?popover=true" 
       wistia_thumbnail: "https://embed-ssl.wistia.com/deliveries/39ad7c2b71cad4eb43d0b819dc6b1db8b3abfee1.jpg?image_play_button=true&image_play_button_color=7b796ae0&image_crop_resized=300x169"
     -
-      title: "UX That Doesn’t Make You Think: Removing Friction and Cognitive Overhead"
+      title: "UX That Doesn't Make You Think: Removing Friction and Cognitive Overhead"
       speakers: "Merritt Aho, Ryan Lillis"
       slides_url: "http://www.slideshare.net/optimizely/opticon-2015-role-of-design-and-ux-in-optimization"
       wistia_url: "//fast.wistia.net/embed/iframe/joh39qb0m8?popover=true" 

@@ -1,34 +1,33 @@
 ---
 layout: page
-TR_seo_title: Security
-TR_visible_title: Security
+TR_seo_title: "Security"
+TR_visible_title: "Security"
 body_class:
 - security-page
-HTML_page_content: true
 ---
 <div class="row security-content">
 	<div class="columns ten offset-one">
-		<h4>Built with security in mind</h4>
-		<p>Our business relies on trust: trust that you can safely run Optimizely's technology on your website. We take this trust very seriously.  To that end, we have many processes in place to ensure that the code snippet running on your website does no harm.</p>
+		<h4>{{tr 'Built with security in mind'}}</h4>
+		<p>{{tr 'Our business relies on trust: trust that you can safely run Optimizely\'s technology on your website. We take this trust very seriously. To that end, we have many processes in place to ensure that the code snippet running on your website does no harm.'}}</p>
 		<ul>
-			<li>your code snippet is unique to your account</li>
-			<li>your code snippet only updates whenever you save an experiment</li>
-			<li>we use Selenium and JavaScript unit tests to catch regressions</li>
-			<li>your code snippet is fetched over https if your page is https, and over http otherwise</li>
+			<li>{{tr 'your code snippet is unique to your account'}}</li>
+			<li>{{tr 'your code snippet only updates whenever you save an experiment'}}</li>
+			<li>{{tr 'we use Selenium and JavaScript unit tests to catch regressions'}}</li>
+			<li>{{tr 'your code snippet is fetched over https if your page is https, and over http otherwise'}}</li>
 		</ul>
-		<h4>Optimized for page load speed</h4>
-		<p>On the internet, page load time is critical. Since the Optimizely code snippet needs to load before your page, we have a duty to minimize the load time of our snippet.</p>
+		<h4>{{tr 'Optimized for page load speed'}}</h4>
+		<p>{{tr 'On the internet, page load time is critical. Since the Optimizely code snippet needs to load before your page, we have a duty to minimize the load time of our snippet.'}}</p>
 		<ul>
-			<li>the code snippet is compressed with the Google Closure Compiler</li>
-			<li>the typical code snippet is ~35kb and loads in ~120 ms</li>
-			<li>we host the code snippet on Akamai's content delivery network (CDN)</li>
-			<li>tracking requests are made asynchronously and don't affect page load time</li>
-			<li>uploaded images are loaded with the rest of your site's images and won't block page load</li>
-			<li>uptime monitoring is available for Gold and Platinum customers</li>
+			<li>{{tr 'the code snippet is compressed with the Google Closure Compiler'}}</li>
+			<li>{{tr 'the typical code snippet is ~35kb and loads in ~120 ms'}}</li>
+			<li>{{tr 'we host the code snippet on Akamai\'s content delivery network (CDN)'}}</li>
+			<li>{{tr 'tracking requests are made asynchronously and don\'t affect page load time'}}</li>
+			<li>{{tr 'uploaded images are loaded with the rest of your site\'s images and won\'t block page load'}}</li>
+			<li>{{tr 'uptime monitoring is available for Gold and Platinum customers'}}</li>
 		</ul>
-		<h4>Trusted by thousands every day</h4>
-		<p>Every day, thousands of companies use Optimizely on their website, generating massive amounts of analytics data. We are a team of qualified professionals working for our customers, and we hope you will become our customer too.</p>
-		<h4>Vulnerability Rewards Program (Bug Bounty)</h4>
-		<p>Found a security vulnerability? We reward security researchers for their hard work finding vulnerabilities in our products. More information <a href="https://www.crowdcurity.com/optimizely">here</a>.</p>
+		<h4>{{tr 'Trusted by thousands every day'}}</h4>
+		<p>{{tr 'Every day, thousands of companies use Optimizely on their website, generating massive amounts of analytics data. We are a team of qualified professionals working for our customers, and we hope you will become our customer too.'}}</p>
+		<h4>{{tr 'Vulnerability Rewards Program (Bug Bounty)'}}</h4>
+		<p>{{{tr 'Found a security vulnerability? We reward security researchers for their hard work finding vulnerabilities in our products. More information <a href="https://www.crowdcurity.com/optimizely">here</a>.'}}}</p>
 	</div>
 </div>

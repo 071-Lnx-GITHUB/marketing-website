@@ -13,11 +13,11 @@ layout_script: original.js
       <div id="social-proof-cont">
         <div class="social-numbers visitors-tested-cont">
           <p class="social-number" id="visitors-tested-number">1,306,200,329</p>
-          <p class="description">Visitors tested</p>
+          <p class="description">{{tr 'Visitors tested'}}</p>
         </div>
         <div class="social-numbers experiments-run-cont">
           <p class="social-number" id="experiments-run-number">100,329</p>
-          <p class="description">Experiments run</p>
+          <p class="description">{{tr 'Experiments run'}}</p>
         </div>
       </div><!--/#social-proof-cont-->
       {{/if}}
@@ -33,30 +33,30 @@ layout_script: original.js
           <input id="hidden" type="hidden" name="hidden" value="">
           <ul>
             <li class="url-input-related">
-              <label for="url">Type in a URL to try it out</label>
+              <label for="url">{{tr 'Type in a URL to try it out'}}</label>
               <input id="url" required name="url-input" type="url">
             </li>
             <li class="name-related">
-            <label for="name">Your Name</label>
+            <label for="name">{{tr 'Your Name'}}</label>
               <input id="name" required data-validation="name" name="name" type="text">
             </li>
             <li id="phone-email-cont" class="clearfix">
               <div class="label half left email-related">
-                <label for="email">Email - no spam</label>
+                <label for="email">{{{tr 'Email &mdash; no spam'}}}</label>
                 <input id="email" required name="email" type="email">
               </div>
 
               <div class="label half right phone_number-related">
-                <label for="phone">Phone Number</label>
+                <label for="phone">{{tr 'Phone Number'}}</label>
                 <input id="phone" name="phone_number" type="tel">
               </div>
             </li>
             <li class="terms">
-              <small>By clicking the <q>Test it Out</q> button below I agree to the <br><a href="{{linkPath}}/terms" target="_blank">Terms of Service</a> and <a href="{{linkPath}}/privacy" target="_blank">Privacy Policy</a>.</small>
+              <small>{{{tr 'By clicking the <q>Test it Out</q> button below I agree to the <br><a href="{0}/terms" target="_blank">Terms of Service</a> and <a href="{0}/privacy" target="_blank">Privacy Policy</a>.'}}}</small>
             </li>
             <li class="a-center">
-              <button type="submit" id="submit" class="button oform-processing-hide">Test it Out</button>
-              <p class="oform-processing-show processing-message">Processing...</p>
+              <button type="submit" id="submit" class="button oform-processing-hide">{{tr 'Test it Out'}}</button>
+              <p class="oform-processing-show processing-message">{{tr 'Processing...'}}</p>
             </li>
           </ul>
           <input type="hidden" name="Inbound_Lead_Form_Type__c" value="Free Trial Signup Form">
@@ -94,7 +94,7 @@ layout_script: original.js
 <div class="seo-customers container">
   <div class="row">
     <div class="columns four">
-      <h4>Happy Customers <br>testing with Optimizely</h4>
+      <h4>{{{tr 'Happy Customers <br>testing with Optimizely'}}}</h4>
     </div>
     <div class="columns eight SL_swap" id="seo-customer-images">
       <img src="{{assetsDir}}/img/resources/free-trial-logos-bw.png" alt="Happy customer logos" />

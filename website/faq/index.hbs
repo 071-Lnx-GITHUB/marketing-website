@@ -1,106 +1,101 @@
 ---
 layout: faq
-TR_visible_title: FAQ
+TR_visible_title: "FAQ"
 body_class:
 - faq-page
 page_script:
 - faq.js
-HTML_page_content: true
 ---
-
 <div class="row">
     <div class="columns eleven offset-one">
         <div class="button-controls">
-            <a class="secondary-button small expand-all">Expand All</a>
-            <a class="secondary-button small collapse-all">Collapse All</a>
+            <a class="secondary-button small expand-all">{{tr 'Expand All'}}</a>
+            <a class="secondary-button small collapse-all">{{tr 'Collapse All'}}</a>
         </div>
 
         <div class="accordion">
-
             <div class="item">
-                <a class="question">Where can I go to learn more about Optimizely for iOS?</a>
+                <a class="question">{{tr 'Where can I go to learn more about Optimizely for iOS?'}}</a>
                 <div class="answer">
-                    <p><a href="https://help.optimizely.com/hc/en-us/articles/201893400">Click here</a> to access a detailed FAQ and links to documentation for the Optimizely for iOS Beta.</p>
+                    <p>{{{tr '<a href="https://help.optimizely.com/hc/en-us/articles/201893400">Click here</a> to access a detailed FAQ and links to documentation for the Optimizely for iOS Beta.'}}}</p>
                 </div>
             </div>
 
             <div class="item">
-                <a class="question">What amount of technical expertise is required to use Optimizely?</a>
+                <a class="question">{{tr 'What amount of technical expertise is required to use Optimizely?'}}</a>
                 <div class="answer">
-                    <p>Minimal technical expertise is necessary to use Optimizely.  We have built a what-you-see-is-what-you-get editor for making A/B tests.  Simply load your website in the editor, click on an element, and make your changes.  You can even<a href="https://www.optimizely.com/edit#url=www.google.com"> try the editor for yourself</a>.</p>
-                    <p>For power users, we also provide the ability to write custom variation code with JavaScript. For more information, see <a href="https://help.optimizely.com/hc/en-us/articles/200039835"> this knowledge base article</a>.</p>
+                    <p>{{{tr 'Minimal technical expertise is necessary to use Optimizely. We have built a what-you-see-is-what-you-get editor for making A/B tests. Simply load your website in the editor, click on an element, and make your changes. You can even<a href="https://www.optimizely.com/edit#url=www.google.com"> try the editor for yourself</a>.'}}}</p>
+                    <p>{{{tr 'For power users, we also provide the ability to write custom variation code with JavaScript. For more information, see <a href="https://help.optimizely.com/hc/en-us/articles/200039835"> this knowledge base article</a>.'}}}</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <a class="question">{{tr 'What do I need to install on my website?'}}</a>
+                <div class="answer">
+                    <p>{{tr 'Once you add one line of JavaScript to your website, you can create experiments through our online editor without modifying your website code again. By separating experiments from production code, Optimizely dramatically speeds up the time to implement testing, since you don\'t have to redeploy code every time you want to run a test. It also helps keep you organized by not cluttering up production code with experiments.'}}</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <a class="question">{{tr 'Can I integrate Optimizely with a third party analytics service such as Omniture SiteCatalyst or Google Analytics?'}}</a>
+                <div class="answer">
+                    <p>{{{tr 'Yes, Optimizely can be integrated with third party analytics services such as Google Analytics and Adobe Omniture SiteCatalyst. Additionally, with the API, Optimizely can be integrated with just about any analytics service or homegrown data store. For more information see <a href="https://help.optimizely.com/hc/en-us/articles/200039775#choice">"How can I integrate Optimizely with the analytics service of my choice?"</a>'}}}</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <a class="question">{{tr 'What impact will Optimizely have on my page load time?'}}</a>
+                <div class="answer">
+                    <p>{{tr 'Optimizely was built with speed and reliability as a primary concern. It takes approximately 100 ms to load, and should not noticeably impact your page load times. Here are some of the ways Optimizely is built for speed:'}}</p>
+                    <ul>
+                        <li>{{tr 'Your Optimizely script is completely static, and is delivered through a content delivery network. The first load should take approximately 100 ms.'}}</li>
+                        <li>{{tr 'Because your Optimizely script is static, it is cached for your visitors after the first request. This means that your visitors will not load the script more than the first time, until you make changes to your experiment.'}}</li>
+                        <li>{{tr 'Your Optimizely script is small, typically weighing between 25kb and 35kb, depending on the number of experiments you are running.'}}</li>
+                    </ul>
+                    <p>{{{tr 'For more information, see <a href="https://help.optimizely.com/hc/en-us/articles/200904580-Frequently-Asked-Questions#pageload">"How will Optimizely affect my page load times?"</a>'}}}</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <a class="question">{{tr 'How many experiments can I run at one time?'}}</a>
+                <div class="answer">
+                    <p>{{tr 'There is no limit on the number of experiments you can run concurrently.'}}</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <a class="question">{{tr 'Does Optimizely support multivariate testing or is it just for A/B testing?'}}</a>
+                <div class="answer">
+                    <p>{{{tr 'Optimizely supports multivariate testing at the Gold and Platinum plans. Additionally, there is no limit on the number of A/B tests you can run concurrently. For more information on how to run a <a href="{0}/resources/multivariate-test-vs-ab-test">multivariate test</a>, see <a href="https://help.optimizely.com/hc/en-us/articles/200040135">"How can I create a multivariate test?"</a>' linkPath}}}</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <a class="question">{{tr 'How does Optimizely\'s tracking work?'}}</a>
+                <div class="answer">
+                    <p>{{{tr 'Optimizely uses both first and third party cookies to uniquely identify visitors. When a new visitor comes to a page with an experiment, they get bucketed into one of the active variations. Each time a visitor takes an action that you are tracking, a tracking beacon is sent to Optimizely. We then log the event data. This data is statistically interpreted and presented to you on the results page. Individual users can opt out of Optimizely for your domain at the <a href="{0}/opt_out">opt out</a> page.' linkPath}}}</p>
                 </div>
             </div>
 
 
             <div class="item">
-                <a class="question">What do I need to install on my website?</a>
+                <a class="question">{{tr 'How are "monthly visitors" counted?'}}</a>
                 <div class="answer">
-                    <p>Once you add one line of JavaScript to your website, you can create experiments through our online editor without modifying your website code again.  By separating experiments from production code, Optimizely dramatically speeds up the time to implement testing, since you don't have to redeploy code every time you want to run a test. It also helps keep you organized by not cluttering up production code with experiments.
-                    </p>
+                    <p>{{tr '"Monthly visitors" are counted as the number of unique visitors that use Optimizely in a month, by being bucketed into at least one experiment on your website. This uses cookies to uniquely identify visitors. For Platinum plans, monthly visitors are defined by the Authorization Form.'}}</p>
                 </div>
             </div>
 
             <div class="item">
-                <a class="question">Can I integrate Optimizely with a third party analytics service such as Omniture SiteCatalyst or Google Analytics?</a>
+                <a class="question">{{tr 'I have millions of page views per month. Can Optimizely handle my load?'}}</a>
                 <div class="answer">
-                    <p>Yes, Optimizely can be integrated with third party analytics services such as Google Analytics and Adobe Omniture SiteCatalyst.  Additionally, with the API, Optimizely can be integrated with just about any analytics service or homegrown data store.  For more information see <a href="https://help.optimizely.com/hc/en-us/articles/200039775#choice">"How can I integrate Optimizely with the analytics service of my choice?"</a></p>
-                </div>
-            </div>
-
-            <div class="item">
-                <a class="question">What impact will Optimizely have on my page load time?</a>
-                <div class="answer">
-                    <p>Optimizely was built with speed and reliability as a primary concern. It takes approximately 100 ms to load, and should not noticeably impact your page load times.  Here are some of the ways Optimizely is built for speed:</p>
-                    <p>- Your Optimizely script is completely static, and is delivered through a content delivery network. The first load should take approximately 100 ms.</p>
-                    <p>- Because your Optimizely script is static, it is cached for your visitors after the first request. This means that your visitors will not load the script more than the first time, until you make changes to your experiment.</p>
-                    <p>- Your Optimizely script is small, typically weighing between 25kb and 35kb, depending on the number of experiments you are running.</p>
-                    <p>For more information, see <a href="https://help.optimizely.com/hc/en-us/articles/200904580-Frequently-Asked-Questions#pageload">"How will Optimizely affect my page load times?"</a></p>
-                </div>
-            </div>
-
-            <div class="item">
-                <a class="question">How many experiments can I run at one time?</a>
-                <div class="answer">
-                    <p>There is no limit on the number of experiments you can run concurrently.</p>
-                </div>
-            </div>
-
-            <div class="item">
-                <a class="question">Does Optimizely support multivariate testing or is it just for A/B testing?</a>
-                <div class="answer">
-                    <p>Optimizely supports multivariate testing at the Gold and Platinum plans. Additionally, there is no limit on the number of A/B tests you can run concurrently. For more information on how to run a <a href="{{linkPath}}/resources/multivariate-test-vs-ab-test">multivariate test</a>, see <a href="https://help.optimizely.com/hc/en-us/articles/200040135">"How can I create a multivariate test?"</a></p>
-                </div>
-            </div>
-
-            <div class="item">
-                <a class="question">How does Optimizely's tracking work?</a>
-                <div class="answer">
-                    <p>Optimizely uses both first and third party cookies to uniquely identify visitors. When a new visitor comes to a page with an experiment, they get bucketed into
-                    one of the active variations.  Each time a visitor takes an action that you are tracking, a tracking beacon is sent to Optimizely.  We then log the event data.  This data is statistically interpreted and presented to you on the results page. Individual users can opt out of Optimizely for your domain at the <a href="{{linkPath}}/opt_out">opt out</a> page.
-                    </p>
-                </div>
-            </div>
-
-
-            <div class="item">
-                <a class="question">How are "monthly visitors" counted?</a>
-                <div class="answer">
-                    <p>"Monthly visitors" are counted as the number of unique visitors that use Optimizely in a month, by being bucketed into at least one experiment on your website. This uses cookies to uniquely identify visitors. For Platinum plans, monthly visitors are defined by the Authorization Form.</p>
-                </div>
-            </div>
-
-            <div class="item">
-                <a class="question">I have millions of page views per month. Can Optimizely handle my load?</a>
-                <div class="answer">
-                    <p>A number of our customers have millions of page views per month, and we are able to handle their load.  Since the Optimizely script is hosted on Akamai, a global content delivery network (CDN), we can scale very well for delivery of the snippet.  The tracking calls are made asynchronously to our tracking servers on Amazon EC2, where we also have the ability to scale capacity seamlessly with usage.</p>
+                    <p>{{tr 'A number of our customers have millions of page views per month, and we are able to handle their load. Since the Optimizely script is hosted on Akamai, a global content delivery network (CDN), we can scale very well for delivery of the snippet. The tracking calls are made asynchronously to our tracking servers on Amazon EC2, where we also have the ability to scale capacity seamlessly with usage.'}}</p>
                 </div>
             </div>
         </div>
 
         <div class="shadow-cta">
-          <h4>Learn more about Optimizely</h4>
-          <a href="https://help.optimizely.com" target="_blank" class="primary-button">Visit the Knowledge Base</a>
+          <h4>{{tr 'Learn more about Optimizely'}}</h4>
+          <a href="https://help.optimizely.com" target="_blank" class="primary-button">{{tr 'Visit the Knowledge Base'}}</a>
         </div>
     </div>
 </div>

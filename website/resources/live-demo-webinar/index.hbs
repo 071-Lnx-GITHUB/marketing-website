@@ -1,6 +1,6 @@
 ---
 layout: custom
-TR_visible_title: Live Optimizely Testing Demo
+TR_visible_title: "Live Optimizely Testing Demo"
 body_class:
 - live-demo-page
 compact_header: true
@@ -8,9 +8,7 @@ page_script: webinar.js
 modals:
 - webinar_signup
 - webinar_confirmation
-HTML_page_content: true
 ---
-
 <div id="page-header">
         <div class="container">
             <h1>{{this.visible_title}}</h1>
@@ -25,11 +23,11 @@ HTML_page_content: true
         </div>
 
         <div class="columns six">
-            <h3 class="blue">What you'll take away from the demo:</h3>
+            <h3 class="blue">{{tr 'What you\'ll take away from the demo:'}}</h3>
             <ol class="ordered-rounded-numbers">
-                <li>Why you should optimize your audience’s experiences</li>
-                <li>How to create a test and segment your audience using Optimizely</li>
-                <li>How to read Optimizely results and make iterative changes</li>
+                <li>{{tr 'Why you should optimize your audience\'s experiences'}}</li>
+                <li>{{tr 'How to create a test and segment your audience using Optimizely'}}</li>
+                <li>{{tr 'How to read Optimizely results and make iterative changes'}}</li>
             </ol>
         </div>
     </div>
@@ -39,11 +37,11 @@ HTML_page_content: true
     <div class="container">
         <div class="row">
             <div class="columns five offset-one signup-blurb">
-                <h4 class="a-center">Sign Up Now for Free</h4>
-                <h5 class="a-center">Confirm your spot at a 45-minute walkthrough of Optimizely Testing.</h5>
+                <h4 class="a-center">{{tr 'Sign Up Now for Free'}}</h4>
+                <h5 class="a-center">{{tr 'Confirm your spot at a 45-minute walkthrough of Optimizely Testing.'}}</h5>
             </div>
             <div class="columns six">
-                <h4 class="a-center">Every Thursday at 11 <span class="small-caps">AM</span> PST / 2 <span class="small-caps">PM</span> EST</h4>
+                <h4 class="a-center">{{{tr 'Every Thursday at 11 <span class="small-caps">AM</span> PST / 2 <span class="small-caps">PM</span> EST'}}}</h4>
                 <div class="row" id="events">
                 </div>
             </div>

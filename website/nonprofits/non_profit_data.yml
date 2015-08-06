@@ -1,3 +1,4 @@
+---
 panel_1:
   bg_img: "https://d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/nonprofits/hero.png"
   TR_header: "Optimizely <i>for</i> <strong>Nonprofits</strong>"
@@ -27,7 +28,3 @@ panel_5:
   TR_text: "Fill out this form to have one of our team members contact you regarding our program for nonprofits. In addition to discounts, we also offer public demos, webinars, case studies, and other resources to get you excited about the immediate impacts of testing your website."
   TR_sub_text: "We look forward to hearing from you!"
   TR_button_text: "Get In Touch"
-
-
-
-

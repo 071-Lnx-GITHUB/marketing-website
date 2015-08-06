@@ -9,12 +9,10 @@ enterprise_header:
   TR_title: "Enterprise Plan"
   TR_desc: "Customized For Your Business."
 
-TR_tables:
+tables:
   -
     TR_title: "Create & Launch Experiments"
-    TR_desc: "Start making decisions with actionable data. Optimizely
-      lets you see your ideas come to life quickly.
-      Halt neverending debates with your team and boss."
+    TR_desc: "Start making decisions with actionable data. Optimizely lets you see your ideas come to life quickly. Halt neverending debates with your team and boss."
     TR_features:
       -
         TR_title: "A/B testing"
@@ -165,8 +163,7 @@ TR_tables:
         TR_tooltip: "Target optimized experiences to a list of users you have uploaded to Optimizely"
   -
     TR_title: "Integrate Data Across Your Platforms"
-    TR_desc: "Seamlessly integrate Optimizely with the best-in-class
-      products you already use and take action on your data, no matter where it lives."
+    TR_desc: "Seamlessly integrate Optimizely with the best-in-class products you already use and take action on your data, no matter where it lives."
     TR_features:
       -
         TR_title: "Basic Analytics & Heatmapping Integrations"
@@ -256,14 +253,10 @@ TR_tables:
         string: true
         TR_starter_text: "50,000 MUVs/MAUs"
         TR_enterprise_text: "Custom"
-        TR_tooltip: "Monthly unique visitors are counted by adding the number
-          of unique visitors in an experiment on the web to the number of
-          monthly active users in an experiment on a mobile app. You can
-          distribute the unique visitor allocation however you like."
+        TR_tooltip: "Monthly unique visitors are counted by adding the number of unique visitors in an experiment on the web to the number of monthly active users in an experiment on a mobile app. You can distribute the unique visitor allocation however you like."
   -
     TR_title: "Support"
-    TR_desc: "Take your optimization program to the next level with enterprise
-      onboarding and get access to technical and testing strategy experts."
+    TR_desc: "Take your optimization program to the next level with enterprise onboarding and get access to technical and testing strategy experts."
     TR_features:
       -
         TR_title: "Community (Optiverse)"

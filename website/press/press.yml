@@ -15,7 +15,7 @@ press_releases:
   TR_header: "Press Releases"
 press_inquiries:
   TR_header: "Press Inquiries"
-  TR_body: "If you’d like to write a story about Optimizely, please email <a href='mailto:press@optimizely.com'>press@optimizely.com</a>"
+  TR_body: "If you'd like to write a story about Optimizely, please email <a href='mailto:press@optimizely.com'>press@optimizely.com</a>"
 company_information:
   TR_header: "Company Information"
 investors:

@@ -1,11 +1,11 @@
 ---
 page_intro:
-  TR_header: "Let’s personalize the web."
+  TR_header: "Let's personalize the web."
   TR_body: "Join us as we enable everyone to make data-driven decisions and improve the way they show information to the world."
   TR_button_text: "View All Jobs"
 
 benefits:
-  TR_header: "Why you’ll love it here"
+  TR_header: "Why you'll love it here"
   TR_list:
   -
     TR_header: "Compensation & Rewards"
@@ -35,7 +35,6 @@ benefits:
     TR_header: "Gym Membership"
     TR_body: "Free Crunch Fitness membership or a health and wellness subsidy"
     id: "heart"
-
   -
     TR_header: "We have fun"
     TR_body: "Frequent team outings, game nights, pool, video games, and a ping pong robot"

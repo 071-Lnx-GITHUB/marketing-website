@@ -9,18 +9,18 @@ wrapper_id: create-exp-dialog
 form_method: GET
 form_action: /edit
 api_domain: true
-TR_primary_button_text: Create experiment
-TR_negative_button_text: Cancel
+TR_primary_button_text: "Create experiment"
+TR_negative_button_text: "Cancel"
 ---
-              <label>
-                  <span>{{tr 'Experiment name (optional)'}}</span>
-                  <input type="text" name="name" />
-              </label>
-              <label>
-                  <span>{{tr 'Experiment URL'}}</span>
-                  <span class="url-related error-hide error-right">{{tr 'This field is required'}}</span>
-                  <input type="text" name="url" maxlength="500" required />
-              </label>
-              <div class="options">
-                  <p class="error-message error-hide">{{tr 'Please correct form errors'}}</p>
-              </div>
+<label>
+  <span>{{tr 'Experiment name (optional)'}}</span>
+  <input type="text" name="name" />
+</label>
+<label>
+  <span>{{tr 'Experiment URL'}}</span>
+  <span class="url-related error-hide error-right">{{tr 'This field is required'}}</span>
+  <input type="text" name="url" maxlength="500" required />
+</label>
+<div class="options">
+  <p class="error-message error-hide">{{tr 'Please Correct Form Errors'}}</p>
+</div>

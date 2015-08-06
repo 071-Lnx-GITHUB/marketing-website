@@ -1,43 +1,46 @@
 ---
 layout: page
-TR_visible_title: Opt Out of Optimizely Tracking
-TR_seo_title: Opt Out
+TR_visible_title: "Opt Out of Optimizely Tracking"
+TR_seo_title: "Opt Out"
 body_class:
 - opt-out-page
 page_script: opt-out.js
-HTML_page_content: true
 ---
-
 <div class="columns ten offset-one">
-    <h4 class="padding-top">What is Optimizely?</h4>
+  <h4 class="padding-top">{{tr 'What is Optimizely?'}}</h4>
 
-    <p>Optimizely, Inc. offers a range of website analytics services for A/B and <a href="{{linkPath}}/resources/multivariate-test-vs-ab-test">multivariate testing</a> purposes.  Optimizely partners implement Optimizely as a way to better understand how their website is used.</p>
+  <p>{{{tr 'Optimizely, Inc. offers a range of website analytics services for A/B and <a href="{0}/resources/multivariate-test-vs-ab-test">multivariate testing</a> purposes. Optimizely partners implement Optimizely as a way to better understand how their website is used.' linkPath}}}</p>
 
-    <h4 class="padding-top">Use of Cookies</h4>
+  <h4 class="padding-top">{{tr 'Use of Cookies'}}</h4>
 
-    <p>Our service uses cookies - a small text file containing a string of alphanumeric characters - to identify a visitor's browser and track website usage while on a partner site. The cookies come from partner website domains and from our log subdomain.  You can reset your web browser's cookies to clear these cookies. For more information, see our full <span id="SL-link-privacy" class="SL_swap"><a href="{{linkPath}}/privacy">privacy policy</a></span>.  You should also consult the privacy policy of any particular partner website to see what other analytics they use, and what details they track.</p>
+  <p>{{{tr 'Our service uses cookies &mdash; a small text file containing a string of alphanumeric characters &mdash; to identify a visitor\'s browser and track website usage while on a partner site. The cookies come from partner website domains and from our log subdomain. You can reset your web browser\'s cookies to clear these cookies. For more information, see our full <span id="SL-link-privacy" class="SL_swap"><a href="{0}/privacy">privacy policy</a></span>. You should also consult the privacy policy of any particular partner website to see what other analytics they use, and what details they track.' linkPath}}}</p>
 
-    <h4 class="padding-top">Opt Out</h4>
+  <h4 class="padding-top">{{tr 'Opt Out'}}</h4>
 
-    <p>If a website is using Optimizely and you wish to opt out, you can use a special command to tell their Optimizely code to stop tracking you.</p>
+  <p>{{tr 'If a website is using Optimizely and you wish to opt out, you can use a special command to tell their Optimizely code to stop tracking you.'}}</p>
 
-    <p>This will set a cookie on your browser, from the client domain, that prevents you from being placed in any future Optimizely experiments on that domain. This will also prevent that website from making any Optimizely tracking calls for your visit. Importantly, if you reset your cookies, you will clear the opt out cookie as well.  Thus, you may want to reset your cookies before setting the opt out cookie.</p>
+  <p>{{tr 'This will set a cookie on your browser, from the client domain, that prevents you from being placed in any future Optimizely experiments on that domain. This will also prevent that website from making any Optimizely tracking calls for your visit. Importantly, if you reset your cookies, you will clear the opt out cookie as well. Thus, you may want to reset your cookies before setting the opt out cookie.'}}</p>
 
-    <div class="row generator-container">
-        <div class="columns one-half">
-            <h4 class="padding-top">Generating the Opt Out URL</h4>
-            <p>The opt out command is a query parameter appended to a website's URL. Specifically, use the query parameter optimizely_opt_out=true. To auto-generate the opt out URL, copy the URL of a webpage using Optimizely into the following input field.  Then click on the generated link.</p>
-            <p>If it worked, you will receive a notice stating that you have opted out of Optimizely experiments on that website.  If you have trouble getting it to work, you can contact us at <a href="https://help.optimizely.com/">help.optimizely.com</a>.</p>
-        </div>
-        <div class="columns one-half">
-            <div id="opt-out-generator">
-                <h5><strong>Auto-generate an opt out URL</strong></h5>
-                <p>1. Enter the URL of the webpage:</p>
-                <input type="text" value="http://www.example.com/" id="opt-out-input" l10n-skip>
-                <p>2. Click the following link:</p>
-                <strong><a id="opt-out-anchor" l10n-skip href="http://www.example.com/?optimizely_opt_out=true" target="_blank">http://www.example.com/?optimizely_opt_out=true</a></strong>
-            </div>
-        </div>
+  <div class="row generator-container">
+    <div class="columns one-half">
+      <h4 class="padding-top">{{tr 'Generating the Opt Out URL'}}</h4>
+
+      <p>{{tr 'The opt out command is a query parameter appended to a website\'s URL. Specifically, use the query parameter optimizely_opt_out=true. To auto-generate the opt out URL, copy the URL of a webpage using Optimizely into the following input field. Then click on the generated link.'}}</p>
+
+      <p>{{{tr 'If it worked, you will receive a notice stating that you have opted out of Optimizely experiments on that website. If you have trouble getting it to work, you can contact us at <a href="https://help.optimizely.com/">help.optimizely.com</a>.'}}}</p>
     </div>
+    <div class="columns one-half">
+      <div id="opt-out-generator">
+        <h5><strong>{{tr 'Auto-generate an opt out URL'}}</strong></h5>
 
+        <p>{{tr '1. Enter the URL of the webpage:'}}</p>
+
+        <input type="text" value="http://www.example.com/" id="opt-out-input" l10n-skip>
+
+        <p>{{tr '2. Click the following link:'}}</p>
+
+        <strong><a id="opt-out-anchor" l10n-skip href="http://www.example.com/?optimizely_opt_out=true" target="_blank">http://www.example.com/?optimizely_opt_out=true</a></strong>
+      </div>
+    </div>
+  </div>
 </div>

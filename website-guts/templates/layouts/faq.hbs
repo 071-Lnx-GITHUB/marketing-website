@@ -2,7 +2,7 @@
 layout: wrapper
 layout_script: false
 layout_body_class: false
-TR_faq_navigation:
+faq_navigation:
 -
  TR_text: "Getting Started"
  url: "/gettingstarted"
@@ -24,22 +24,22 @@ TR_faq_navigation:
  swap_id: "faq-subnav-blog"
 ---
 <div id="main">
-    <div id="page-header">
-        <div class="container">
-            <div class="clearfix page-subheader-cont">
-                <h1>{{this.visible_title}}</h1>
-                <ul class="sub-header-nav">
-                    {{#each faq_navigation}}
-                    <li{{#if swap_id}} class="SL_swap" id="{{swap_id}}"{{/if}}><a href="{{#isUrl url}}{{../../linkPath}}{{/isUrl}}{{url}}">{{text}}</a></li>
-                    {{/each}}
-                </ul>
-            </div><!---->
-        </div><!--/.container-->
-    </div><!--/#page-header-->
-    <div id="page-header-gradient"></div>
-    <div id="page-content">
-        {{#unless this.no_container}}<div class="container">{{/unless}}
-            {% body %}
-        {{#unless this.no_container}}</div><!--/.container-->{{/unless}}
-    </div><!--/#content-->
+  <div id="page-header">
+    <div class="container">
+      <div class="clearfix page-subheader-cont">
+        <h1>{{this.visible_title}}</h1>
+        <ul class="sub-header-nav">
+          {{#each faq_navigation}}
+          <li{{#if swap_id}} class="SL_swap" id="{{swap_id}}"{{/if}}><a href="{{#isUrl url}}{{../../linkPath}}{{/isUrl}}{{url}}">{{text}}</a></li>
+          {{/each}}
+        </ul>
+      </div><!---->
+    </div><!--/.container-->
+  </div><!--/#page-header-->
+  <div id="page-header-gradient"></div>
+  <div id="page-content">
+    {{#unless this.no_container}}<div class="container">{{/unless}}
+    {% body %}
+    {{#unless this.no_container}}</div><!--/.container-->{{/unless}}
+  </div><!--/#content-->
 </div><!--/#main-->

@@ -16,7 +16,6 @@ top_grid:
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/02.svg"
     TR_title: "Iterate Faster"
     TR_grid_content: "Make visual changes to your app in real time. No App Store review required. Compatible with both iOS and Android."
-
   -
     icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/benefits-icon/03.svg"
     TR_title: "Reliable and Trusted"
@@ -38,7 +37,7 @@ TR_panels:
   bg_img_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/static/03instant-rollout-static.gif"
   bg_img_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/editor-gifs/dynamic/instant-rollout-3.gif"
 customer_logos:
- title: "Already loved by these<br><strong>awesome apps</strong>"
+ TR_title: "Already loved by these<br><strong>awesome apps</strong>"
  icons:
   -
     url: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile/1b.png"
@@ -71,7 +70,7 @@ testing_ideas:
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/onboard-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/onboard.gif"
     TR_title: "Onboarding Flow"
-    TR_text: "More than 80% of apps are deleted after their first use. That’s why it’s so important to test how you onboard users and show the value of your app."
+    TR_text: "More than 80% of apps are deleted after their first use. That's why it's so important to test how you onboard users and show the value of your app."
     article_link: "//help.optimizely.com/hc/en-us/articles/203430454"
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/permission-static.gif"
@@ -83,7 +82,7 @@ testing_ideas:
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/feature-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/feature.gif"
     TR_title: "Feature Discovery"
-    TR_text: "Should users search? Should they use your menu? You have the opportunity to optimize your users’ flow through your app."
+    TR_text: "Should users search? Should they use your menu? You have the opportunity to optimize your users' flow through your app."
     article_link: "//help.optimizely.com/hc/en-us/articles/206778887"
   -
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/input-static.gif"
@@ -101,7 +100,7 @@ testing_ideas:
     icon_static: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/static/rollout-static.gif"
     icon_dynamic: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/use-case/dynamic/rollout-2.gif"
     TR_title: "Phased Rollouts"
-    TR_text: "Mobile split testing and multivariate testing give you an easy way to test new features and quickly remove the ones that don’t work."
+    TR_text: "Mobile split testing and multivariate testing give you an easy way to test new features and quickly remove the ones that don't work."
     article_link: "//help.optimizely.com/hc/en-us/articles/206101447"
 form_panel:
   bg_img: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/mobile-mvpp/bottom-img-comp.jpg"

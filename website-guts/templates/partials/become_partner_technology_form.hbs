@@ -1,146 +1,145 @@
-              <ul class="become-partner-fields technology clearfix">
-                <li>
-                  <label id="name-label">
-                      <span class="name-related error-hide error-right first_name-related">{{tr 'Required'}}</span>
-                      <span>{{tr 'First Name'}}:</span>
-                      <input type="text" name="first_name" autofocus required>
-                      <span class="lname-label" >{{tr 'Last Name'}}:</span>
-                      <input type="text" name="last_name" required>
-                  </label>
-                </li>
-                <li>
-                  <label id="role-label">
-                      <span>{{tr 'Role'}}:</span>
-                      {{!-- <span class="title-related error-hide error-right">{{tr 'Required'}}</span> --}}
-                      <input type="text" name="role" required>
-                  </label>
-                </li>
-                <li class="form-row">
-                  <label id="email-address-label">
-                      <span>{{tr 'Email address'}}:</span>
-                      {{!-- <span class="email_address-related error-hide error-right">{{tr 'Required'}}</span> --}}
-                      <input type="email" name="email" required>
-                  </label>
-                </li>
-                <li class="form-row">
-                  <label id="company-name-label">
-                      <span>{{tr 'Company name'}}:</span>
-                      {{!-- <span class="company_name-related error-hide error-right">{{tr 'Required'}}</span> --}}
-                      <input type="text" name="company" required>
-                  </label>
-                </li>
-                <li class="form-row">
-                  <label id="website-label">
-                      <span>{{tr 'Company website'}}:</span>
-                      {{!-- <span class="website-related error-hide error-right">{{tr 'Required'}}</span> --}}
-                      <input type="text" name="website" required>
-                  </label>
-                </li>
-                <li class="form-row">
-                  <label id="reason-label">
-                      <span>{{tr 'Why are you interested in partnering with Optimizely?'}}</span>
-                      {{!-- <span class="website-related error-hide error-right">{{tr 'Required'}}</span> --}}
-                      <input type="text" name="Tech_Partner_goal_for_partnership__c" required>
-                  </label>
-                </li>
-                <li class="form-row">
-                  <label id="customers-label">
-                      <span>{{tr 'How many customers do you have?'}}</span>
-                      {{!-- <span class="website-related error-hide error-right">{{tr 'Required'}}</span> --}}
-                  </label>
-                  <select id="Tech_Partner_Number_of_Customers__c" name="Tech_Partner_Number_of_Customers__c" tabindex="1">
-                    <option value="">{{tr 'Select an option...'}}</option>
-                    <option value="Fewer than 100">{{tr 'Fewer than 100'}}</option>
-                    <option value="100-999">{{tr '100-999'}}</option>
-                    <option value="1,000-4,999">{{tr '1,000-4,999'}}</option>
-                    <option value="5,000-9,999">{{tr '5,000-9,999'}}</option>
-                    <option value="More than 10,000">{{tr 'More than 10,000'}}</option>
-                  </select>
-                </li>
-                <li class="form-row">
-                  <label id="target-label">
-                      <span>{{tr 'What is your target industry?'}}</span>
-                      {{!-- <span class="website-related error-hide error-right">{{tr 'Required'}}</span> --}}
-                  </label>
-                  <div class="checkboxes">
-                    <div>
-                      <span><input type="checkbox" name="Retail_ecommerce_target__c"> Retail / E-commerce</span>
-                    </div>
-                    <div>
-                      <span><input type="checkbox" name="Travel_target__c"> Travel</span>
-                    </div>
-                    <div>
-                      <span><input type="checkbox" name="Media_target__c"> Media</span>
-                    </div>
-                    <div>
-                      <span><input type="checkbox" name="B2B_Technology_target__c"> B2B / Technology</span>
-                    </div>
-                    <div>
-                      <span><input type="checkbox" name="Other_target__c"> Other</span>
-                    </div>
-                  </div><!--/.checkboxes-->
-                </li>
-                <li class="form-row">
-                  <label id="buyer-label">
-                      <span>{{tr 'What is the role of your primary buyer?'}}</span>
-                      {{!-- <span class="website-related error-hide error-right">{{tr 'Required'}}</span> --}}
-                  </label>
-                  <select id="Tech_Partner_Primary_Buyer__c" name="Tech_Partner_Primary_Buyer__c" tabindex="1">
-                    <option value="Analytics">{{tr 'Analytics'}}</option>
-                    <option value="Engineering">{{tr 'Engineering'}}</option>
-                    <option value="Product">{{tr 'Product'}}</option>
-                    <option value="Marketing">{{tr 'Marketing'}}</option>
-                    <option value="IT">{{tr 'IT'}}</option>
-                    <option value="Operations">{{tr 'Operations'}}</option>
-                    <option value="Sales">{{tr 'Sales'}}</option>
-                    <option value="Other">{{tr 'Other'}}</option>
-                  </select>
+<ul class="become-partner-fields technology clearfix">
+  <li>
+    <label id="name-label">
+      <span class="name-related error-hide error-right first_name-related">{{tr 'Required'}}</span>
+      <span>{{tr 'First Name'}}:</span>
+      <input type="text" name="first_name" autofocus required>
+      <span class="lname-label" >{{tr 'Last Name'}}:</span>
+      <input type="text" name="last_name" required>
+    </label>
+  </li>
+  <li>
+    <label id="role-label">
+      <span>{{tr 'Role'}}:</span>
+      {{!-- <span class="title-related error-hide error-right">{{tr 'Required'}}</span> --}}
+      <input type="text" name="role" required>
+    </label>
+  </li>
+  <li class="form-row">
+    <label id="email-address-label">
+      <span>{{tr 'Email address'}}:</span>
+      {{!-- <span class="email_address-related error-hide error-right">{{tr 'Required'}}</span> --}}
+      <input type="email" name="email" required>
+    </label>
+  </li>
+  <li class="form-row">
+    <label id="company-name-label">
+      <span>{{tr 'Company name'}}:</span>
+      {{!-- <span class="company_name-related error-hide error-right">{{tr 'Required'}}</span> --}}
+      <input type="text" name="company" required>
+    </label>
+  </li>
+  <li class="form-row">
+    <label id="website-label">
+      <span>{{tr 'Company website'}}:</span>
+      {{!-- <span class="website-related error-hide error-right">{{tr 'Required'}}</span> --}}
+      <input type="text" name="website" required>
+    </label>
+  </li>
+  <li class="form-row">
+    <label id="reason-label">
+      <span>{{tr 'Why are you interested in partnering with Optimizely?'}}</span>
+      {{!-- <span class="website-related error-hide error-right">{{tr 'Required'}}</span> --}}
+      <input type="text" name="Tech_Partner_goal_for_partnership__c" required>
+    </label>
+  </li>
+  <li class="form-row">
+    <label id="customers-label">
+      <span>{{tr 'How many customers do you have?'}}</span>
+      {{!-- <span class="website-related error-hide error-right">{{tr 'Required'}}</span> --}}
+    </label>
+    <select id="Tech_Partner_Number_of_Customers__c" name="Tech_Partner_Number_of_Customers__c" tabindex="1">
+      <option value="">{{tr 'Select an option...'}}</option>
+      <option value="Fewer than 100">{{tr 'Fewer than 100'}}</option>
+      <option value="100-999">{{tr '100-999'}}</option>
+      <option value="1,000-4,999">{{tr '1,000-4,999'}}</option>
+      <option value="5,000-9,999">{{tr '5,000-9,999'}}</option>
+      <option value="More than 10,000">{{tr 'More than 10,000'}}</option>
+    </select>
+  </li>
+  <li class="form-row">
+    <label id="target-label">
+      <span>{{tr 'What is your target industry?'}}</span>
+      {{!-- <span class="website-related error-hide error-right">{{tr 'Required'}}</span> --}}
+    </label>
+    <div class="checkboxes">
+      <div>
+        <span><input type="checkbox" name="Retail_ecommerce_target__c"> {{tr 'Retail / E-commerce'}}</span>
+      </div>
+      <div>
+        <span><input type="checkbox" name="Travel_target__c"> {{tr 'Travel'}}</span>
+      </div>
+      <div>
+        <span><input type="checkbox" name="Media_target__c"> {{tr 'Media'}}</span>
+      </div>
+      <div>
+        <span><input type="checkbox" name="B2B_Technology_target__c"> {{tr 'B2B / Technology'}}</span>
+      </div>
+      <div>
+        <span><input type="checkbox" name="Other_target__c"> {{tr 'Other'}}</span>
+      </div>
+    </div><!--/.checkboxes-->
+  </li>
+  <li class="form-row">
+    <label id="buyer-label">
+      <span>{{tr 'What is the role of your primary buyer?'}}</span>
+      {{!-- <span class="website-related error-hide error-right">{{tr 'Required'}}</span> --}}
+    </label>
+    <select id="Tech_Partner_Primary_Buyer__c" name="Tech_Partner_Primary_Buyer__c" tabindex="1">
+      <option value="Analytics">{{tr 'Analytics'}}</option>
+      <option value="Engineering">{{tr 'Engineering'}}</option>
+      <option value="Product">{{tr 'Product'}}</option>
+      <option value="Marketing">{{tr 'Marketing'}}</option>
+      <option value="IT">{{tr 'IT'}}</option>
+      <option value="Operations">{{tr 'Operations'}}</option>
+      <option value="Sales">{{tr 'Sales'}}</option>
+      <option value="Other">{{tr 'Other'}}</option>
+    </select>
+  </li>
+  <li class="form-row">
+    <label id="percentage-label">
+      <span>{{tr 'What percentage of customers do you share with Optimizely?'}}</span>
+      {{!-- <span class="website-related error-hide error-right">{{tr 'Required'}}</span> --}}
+    </label>
+    <select id="Tech_Partner_Percent_Shared_Customers__c" name="Tech_Partner_Percent_Shared_Customers__c" tabindex="1">
+      <option value="Less than 10%">{{tr 'Less than 10%'}}</option>
+      <option value="10-24%">{{tr '10-24%'}}</option>
+      <option value="25-49%">{{tr '25-49%'}}</option>
+      <option value="50-74%">{{tr '50-74%'}}</option>
+      <option value="More than 75%">{{tr 'More than 75%'}}</option>
+    </select>
+  </li>
+  <li class="form-row">
+    <label id="target-label">
+      <span>{{tr 'Do you have the resources to build an integration into Optimizely?'}}</span>
+      {{!-- <span class="website-related error-hide error-right">{{tr 'Required'}}</span> --}}
+    </label>
+    <div class="radio_buttons">
+      <div>
+        <span>
+          <input name="Tech_Partner_Want_to_Build_Integration" type="radio" value="yes" />
+          {{tr 'Yes'}}
+        </span>
+        <span>
+          <input name="Tech_Partner_Want_to_Build_Integration" type="radio" value="no" />
+          {{tr 'No'}}
+        </span>
+      </div>
+    </div>
+  </li>
+  <li>
+    <div class="terms">
+      <a href="{{linkPath}}/privacy" target="_blank">{{tr 'Privacy Policy'}}</a>
+    </div>
+  </li>
 
-                </li>
-                <li class="form-row">
-                  <label id="percentage-label">
-                      <span>{{tr 'What percentage of customers do you share with Optimizely?'}}</span>
-                      {{!-- <span class="website-related error-hide error-right">{{tr 'Required'}}</span> --}}
-                  </label>
-                  <select id="Tech_Partner_Percent_Shared_Customers__c" name="Tech_Partner_Percent_Shared_Customers__c" tabindex="1">
-                    <option value="Less than 10%">{{tr 'Less than 10%'}}</option>
-                    <option value="10-24%">{{tr '10-24%'}}</option>
-                    <option value="25-49%">{{tr '25-49%'}}</option>
-                    <option value="50-74%">{{tr '50-74%'}}</option>
-                    <option value="More than 75%">{{tr 'More than 75%'}}</option>
-                  </select>
-                </li>
-                <li class="form-row">
-                  <label id="target-label">
-                      <span>{{tr 'Do you have the resources to build an integration into Optimizely?'}}</span>
-                      {{!-- <span class="website-related error-hide error-right">{{tr 'Required'}}</span> --}}
-                  </label>
-                  <div class="radio_buttons">
-                    <div>
-                      <span>
-                        <input name="Tech_Partner_Want_to_Build_Integration" type="radio" value="yes" />Yes
+  <input type="hidden" name="Initial_Form_Source__c"       value="Technology Partner Request" >
+  <input type="hidden" name="Inbound_Lead_Form_Type__c"    value="Technology Partner Request">
+  <input type="hidden" name="leadSource"                   value="Website">
+  <input type="hidden" name="Lead_Source_Category__c"      value="Contact Request">
+  <input type="hidden" name="Lead_Source_Subcategory__c"   value="Technology Partner Request">
 
-                      </span>
-                      <span>
-                        <input name="Tech_Partner_Want_to_Build_Integration" type="radio" value="no" />No
-                      </span>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="terms">
-                    <a href="{{linkPath}}/privacy" target="_blank">Privacy Policy</a>
-                  </div>
-                </li>
-
-                <input type="hidden" name="Initial_Form_Source__c"       value="Technology Partner Request" >
-                <input type="hidden" name="Inbound_Lead_Form_Type__c"    value="Technology Partner Request">
-                <input type="hidden" name="leadSource"                   value="Website">
-                <input type="hidden" name="Lead_Source_Category__c"      value="Contact Request">
-                <input type="hidden" name="Lead_Source_Subcategory__c"   value="Technology Partner Request">
-
-
-              </ul>
-              <div class="options">
-                <p class="error-message error-hide">{{tr 'Please Correct Form Errors'}}</p>
-              </div>
+</ul>
+<div class="options">
+  <p class="error-message error-hide">{{tr 'Please Correct Form Errors'}}</p>
+</div>

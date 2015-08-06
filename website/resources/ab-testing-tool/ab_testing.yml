@@ -1,20 +1,20 @@
-TR_grid_content:
+grid_content:
 -
   url: "https://s3.amazonaws.com/optimizely-marketing/calendar.png"
   TR_heading: "A/B Testing Simplified"
-  TR_text: "Optimizely makes A/B testing second nature.  Forget about rounding up technical resources or extended meetings about what test to run.  Design experiments visually, define goals with a single click, and click go - Optimizely takes care of everything else, from hosting your designs all the way to the results page."
+  TR_text: "Optimizely makes A/B testing second nature. Forget about rounding up technical resources or extended meetings about what test to run.  Design experiments visually, define goals with a single click, and click go - Optimizely takes care of everything else, from hosting your designs all the way to the results page."
 -
   url: "https://s3.amazonaws.com/optimizely-marketing/chart.png"
   TR_heading: "Data You Can Put To Work Right Away"
-  TR_text: "Whether you're running a simple A/B test, or a multi-goal, multi-page monster, Optimizely automatically analyzes the data and transforms it into a crystal clear report.  Have something to show for your testing effort - a solid roadmap of exactly how your redesigns will improve conversion rates.  Even revenue tracking is supported right out of the box, so top earning variations can shine."
+  TR_text: "Whether you're running a simple A/B test, or a multi-goal, multi-page monster, Optimizely automatically analyzes the data and transforms it into a crystal clear report. Have something to show for your testing effort - a solid roadmap of exactly how your redesigns will improve conversion rates. Even revenue tracking is supported right out of the box, so top earning variations can shine."
 -
   url: "https://s3.amazonaws.com/optimizely-marketing/goals.png"
   TR_heading: "Powerful Goal Tracking Makes Anything A Metric"
-  TR_text: "Optimizely's dynamic test pages transform any element or user interaction into a source of data.  Whether you are interested in overall engagement, bounce rate, page views, sign-ups, or click goals, or you're deep in the optimization cycle, working on multi-page funnel conversions or form variations, Optimizely is the AB testing tool that gives you the insight you're after."
+  TR_text: "Optimizely's dynamic test pages transform any element or user interaction into a source of data. Whether you are interested in overall engagement, bounce rate, page views, sign-ups, or click goals, or you're deep in the optimization cycle, working on multi-page funnel conversions or form variations, Optimizely is the AB testing tool that gives you the insight you're after."
 -
   url: "https://s3.amazonaws.com/optimizely-marketing/gears.png"
   TR_heading: "Integrates Well By Design"
-  TR_text: "There are so many great optimization tools out there.  That's why we made Optimizely work with all of them.  One click integrates Optimizely with popular tools including CrazyEgg, ClickTale, KissMetrics, SiteCatalyst, and Mixpanel.  A full-featured API ensures that data flows seamlessly from Optimizely into whatever you need it to."
+  TR_text: "There are so many great optimization tools out there. That's why we made Optimizely work with all of them. One click integrates Optimizely with popular tools including CrazyEgg, ClickTale, KissMetrics, SiteCatalyst, and Mixpanel. A full-featured API ensures that data flows seamlessly from Optimizely into whatever you need it to."
 -
   url: "https://s3.amazonaws.com/optimizely-marketing/segmentation.png"
   TR_heading: "Precise Visitor Segmentation"
@@ -22,4 +22,4 @@ TR_grid_content:
 -
   url: "https://s3.amazonaws.com/optimizely-marketing/lightbulb.png"
   TR_heading: "Engineer An Optimization Culture"
-  TR_text: "The more you test, the better.  Streamlined administrative tools let you keep everything running smoothly and maintain control.  Set up a battery of tests and schedule them to run when you want to.  Group experiments by domain, and create multiple user accounts and roles for each project.  The sky's the limit when you use Optimizely as your choice of AB testing tools."
+  TR_text: "The more you test, the better. Streamlined administrative tools let you keep everything running smoothly and maintain control. Set up a battery of tests and schedule them to run when you want to. Group experiments by domain, and create multiple user accounts and roles for each project. The sky's the limit when you use Optimizely as your choice of AB testing tools."

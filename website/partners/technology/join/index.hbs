@@ -1,5 +1,6 @@
 ---
 layout: partners_become
+TR_seo_title: "Become a Technology Partner"
 compact_header: false
 body_class:
 - partners-become
@@ -8,15 +9,7 @@ modals:
 - become_partner_technology_thank_you
 page_script: partners_become.js
 footer_style: grey
-TR_seo_title: ""
-og_title: ""
-og_description: ""
 ---
-<style>
-
-</style>
-
-
 <section id="landing-hero" class="panel hero">
   {{#with page_data.intro}}
     <h1>{{{headline}}}</h1>
@@ -25,16 +18,13 @@ og_description: ""
   {{/with}}
 </section>
 
-
 <section id="technology-why" class="panel">
-
   {{#with page_data.intro}}
     <p class="blurb">{{{blurb}}}</p>
   {{/with}}
 
   {{#with page_data.why}}
     <div class="why-items container">
-
       <h2 class="panel-header">{{{header}}}</h2>
 
       <div class="tracks-container flex-container">
@@ -50,9 +40,7 @@ og_description: ""
   {{/with}}
 </section>
 
-
 <section id="technology-benefits" class="panel">
-
   {{#with page_data.benefits}}
   <div class="benefits container">
 
@@ -72,11 +60,8 @@ og_description: ""
 
       </div>
     {{/each}}
-
-
   </div>
   {{/with}}
-
 </section>
 
 {{!-- Bradley: commenting out until our video is ready
@@ -103,15 +88,14 @@ og_description: ""
 </section>
 {{/if}} --}}
 
-
 <section class="become-a-partner panel">
   {{#with page_data.join}}
     <div class="container ">
-      <h2 class="panel-header">{{{title}}}</h2>
+      <h2 class="panel-header">{{tr 'Join the Optimizely Technology Partner Program'}}</h2>
 
-    <a href="#" class="primary-cta join-link technology-form">{{{button_text}}}</a>
+    <a href="#" class="primary-cta join-link technology-form">{{tr 'Apply Now'}}</a>
 
-    <p class="blurb">{{{blurb}}}</p>
+    <p class="blurb">{{{tr 'To learn more about the requirements and benefits of our partner program <a href="http://pages.optimizely.com/rs/361-GER-922/images/Optimizely Technology Partners.pdf">click here</a>. To see a list of technology partners we work with today, <a href="{0}/partners/technology/">check out our partner directory</a>.' linkPath}}}</p>
     </div>
   {{/with}}
 </section>

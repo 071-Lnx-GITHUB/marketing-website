@@ -1,5 +1,6 @@
+---
 title: "Sponsors"
-subtitle: "Your Opticon experience wouldn’t be possible without the following sponsors"
+subtitle: "Your Opticon experience wouldn't be possible without the following sponsors"
 sponsor_cta: "If you are interested in becoming a sponsor, please review our <a href='http://pages.optimizely.com/rs/optimizely/images/Opticon_2015_Sponsorship_Prospectus.pdf'>Sponsorship Prospectus</a>."
 
 sponsor_levels:
@@ -10,9 +11,9 @@ sponsor_levels:
         display_url: "clearhead.me"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clearhead.png"
         site_link: "http://clearhead.me/"
-        description: "Based in Austin TX, Clearhead is the leading full service digital optimization agency and Optimizely’s top Solution Partner in North America.  In just under three years, we’ve modeled a new kind of 'upside down' agency - one built by former eCommerce, product, and digital execs from major brands and retailers.
-          Clearhead’s goal is simple: deliver significant ROI via A/B testing, personalization, and web analytics strategy and execution.
-            Our client-side experience helped fine tuned a process we’ve now offered over two-dozen Internet Retail 500 and B2C lead-gen clients. We begin by defining hypotheses designed to move the needle, put them through the paces, and finish by reporting elegant, executive-friendly data stories that not only achieve buy-in, they transform long-term company culture.
+        description: "Based in Austin TX, Clearhead is the leading full service digital optimization agency and Optimizely's top Solution Partner in North America. In just under three years, we've modeled a new kind of 'upside down' agency - one built by former eCommerce, product, and digital execs from major brands and retailers.
+          Clearhead's goal is simple: deliver significant ROI via A/B testing, personalization, and web analytics strategy and execution.
+            Our client-side experience helped fine tuned a process we've now offered over two-dozen Internet Retail 500 and B2C lead-gen clients. We begin by defining hypotheses designed to move the needle, put them through the paces, and finish by reporting elegant, executive-friendly data stories that not only achieve buy-in, they transform long-term company culture.
             Are you trying to jump start your program? Contemplating a major site re-design and want data to drive process? Join the Clearhead experiment.  <a href='http://clearhead.me/' target='_blank'>clearhead.me</a>"
         class: "platinum"
   -
@@ -22,13 +23,13 @@ sponsor_levels:
         display_url: "www.americaneagle.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/ae_logo.png"
         site_link: "http://www.americaneagle.com/"
-        description: "Americaneagle.com is an industry leader in website design, development, hosting, and online marketing. Americaneagle.com’s digital strategy team consists of Subject Matter Experts (SME’s) from all facets of the digital experience. We’re your trusted advisor in making the right decisions when it comes to your website. Americaneagle.com’s focus is to enhance your online presence through strategic consulting based on user behavior and A/B testing. The strategy team focuses on creating a fully integrated experience - the Customer Journey. The main mission of our strategists is to help you develop deeper relationships with your customers."
+        description: "Americaneagle.com is an industry leader in website design, development, hosting, and online marketing. Americaneagle.com's digital strategy team consists of Subject Matter Experts (SME's) from all facets of the digital experience. We're your trusted advisor in making the right decisions when it comes to your website. Americaneagle.com's focus is to enhance your online presence through strategic consulting based on user behavior and A/B testing. The strategy team focuses on creating a fully integrated experience - the Customer Journey. The main mission of our strategists is to help you develop deeper relationships with your customers."
         class: "gold"
       -
         display_url: "www.marketo.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/marketo_logo.png"
         site_link: "http://www.marketo.com/"
-        description: "Marketo provides the leading marketing software and solutions designed to help marketers master the art and science of digital marketing. Through a unique combination of innovation and expertise, Marketo is focused solely on helping marketers keep pace in an ever-changing digital world. Spanning today's digital, social, mobile and offline channels, Marketo’s Engagement Marketing Platform powers a set of breakthrough applications to help marketers tackle all aspects of digital marketing from the planning and orchestration of marketing activities to the delivery of personalized interactions that can be optimized in real-time."
+        description: "Marketo provides the leading marketing software and solutions designed to help marketers master the art and science of digital marketing. Through a unique combination of innovation and expertise, Marketo is focused solely on helping marketers keep pace in an ever-changing digital world. Spanning today's digital, social, mobile and offline channels, Marketo's Engagement Marketing Platform powers a set of breakthrough applications to help marketers tackle all aspects of digital marketing from the planning and orchestration of marketing activities to the delivery of personalized interactions that can be optimized in real-time."
         class: "gold"
   -
     title: "Silver Sponsors"
@@ -38,25 +39,25 @@ sponsor_levels:
         display_url: "www.analyticspros.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/a_pros.png"
         site_link: "https://www.analyticspros.com/"
-        description: "Data isn’t just numbers, it’s the story of us. The more we understand it, the more we understand each other. Careful analysis, applied wisdom and knowledge inform actions that improve lives and solve human problems. Analytics Pros narrows the distance between our clients and their customers through measuring and optimizing digital experiences for many of the world's leading brands and apps, including Starbucks, Yelp, GoPro, Princess Cruises, F5 Networks, Wacom, Vans and many more. <a href='https://www.analyticspros.com'>www.analyticspros.com</a> "
+        description: "Data isn't just numbers, it's the story of us. The more we understand it, the more we understand each other. Careful analysis, applied wisdom and knowledge inform actions that improve lives and solve human problems. Analytics Pros narrows the distance between our clients and their customers through measuring and optimizing digital experiences for many of the world's leading brands and apps, including Starbucks, Yelp, GoPro, Princess Cruises, F5 Networks, Wacom, Vans and many more. <a href='https://www.analyticspros.com'>www.analyticspros.com</a> "
         class: "silver"
       -
         display_url: "www.blueacorn.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/blue_acorn_logo.png"
         site_link: "http://www.blueacorn.com/"
-        description: "Blue Acorn is a premium eCommerce agency dedicated to helping retailers and brands achieve superior eCommerce results through data-driven solutions.  Last year at Opticon, we won the coveted Optie for Partner Excellence, and we continue to be Optimizely’s agency of choice for building and updating their official Magento extension.  In fact, our commitment to providing best-in-class design, development, and optimization services is how we wound up with an entire development team that is Optimizely Certified."
+        description: "Blue Acorn is a premium eCommerce agency dedicated to helping retailers and brands achieve superior eCommerce results through data-driven solutions.  Last year at Opticon, we won the coveted Optie for Partner Excellence, and we continue to be Optimizely's agency of choice for building and updating their official Magento extension.  In fact, our commitment to providing best-in-class design, development, and optimization services is how we wound up with an entire development team that is Optimizely Certified."
         class: "silver"
       -
         display_url: "www.decibelinsight.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/decibel_insight2.png"
         site_link: "https://www.decibelinsight.com/"
-        description: "Decibel Insight is enterprise class customer experience analytics, trusted by marketers and web analysts in more than 50 countries worldwide. Providing the missing piece in web optimization, our software enables businesses to understand the visitor behavior behind site performance. Advanced heatmaps, visitor session replay, form analytics and behavior reports provide evidence that is so compelling it’s impossible to ignore. Forensically examine what website visitors see, where they scroll, what they click and why they convert; understand what to do next to improve paths to conversion and fuel successful split tests with hypotheses based on real user experience."
+        description: "Decibel Insight is enterprise class customer experience analytics, trusted by marketers and web analysts in more than 50 countries worldwide. Providing the missing piece in web optimization, our software enables businesses to understand the visitor behavior behind site performance. Advanced heatmaps, visitor session replay, form analytics and behavior reports provide evidence that is so compelling it's impossible to ignore. Forensically examine what website visitors see, where they scroll, what they click and why they convert; understand what to do next to improve paths to conversion and fuel successful split tests with hypotheses based on real user experience."
         class: "silver"
       -
         display_url: "www.funnelenvy.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/funnel_envy_logo.png"
         site_link: "http://www.funnelenvy.com/"
-        description: "We’re the bridge between engineering and marketing. At FunnelEnvy we turn traffic into customers with strategic business alignment, an agile process and rapid execution. As a Three Star Optimizely Solutions Partner we manage the full CRO process from strategy through execution. Our technical focus lets us move faster with minimal impact to your developers. And when you need the complicated tests, real-time personalization and integration or deeper data analysis we’re ready to handle it."
+        description: "We're the bridge between engineering and marketing. At FunnelEnvy we turn traffic into customers with strategic business alignment, an agile process and rapid execution. As a Three Star Optimizely Solutions Partner we manage the full CRO process from strategy through execution. Our technical focus lets us move faster with minimal impact to your developers. And when you need the complicated tests, real-time personalization and integration or deeper data analysis we're ready to handle it."
         class: "silver"
       -
         display_url: "teamroboboogie.com"
@@ -80,7 +81,7 @@ sponsor_levels:
         display_url: "tealium.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/tealium_logo.png"
         site_link: "http://tealium.com/"
-        description: "Tealium is the leader in real-time unified marketing solutions, helping brands seamlessly integrate their siloed applications and data, and drive more profitable interactions across all digital touch points. Tealium’s open platform for tag management and data enrichment enables marketers to bring order to chaos and build better customer experiences. Tealium’s integration with Optimizely’s experience optimization and testing platform enables more targeted digital marketing initiatives and powers more relevant, intelligent digital marketing experiences for joint customers."
+        description: "Tealium is the leader in real-time unified marketing solutions, helping brands seamlessly integrate their siloed applications and data, and drive more profitable interactions across all digital touch points. Tealium's open platform for tag management and data enrichment enables marketers to bring order to chaos and build better customer experiences. Tealium's integration with Optimizely's experience optimization and testing platform enables more targeted digital marketing initiatives and powers more relevant, intelligent digital marketing experiences for joint customers."
         class: "silver"
       -
         display_url: "www.widerfunnel.com"
@@ -102,7 +103,7 @@ sponsor_levels:
         display_url: "www.clicktale.com"
         image_link: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/opticon/sponsors/clicktale_logo.svg"
         site_link: "http://www.clicktale.com/"
-        description: "ClickTale®, the enterprise leader in Digital Customer Experience, enables businesses to maximize revenues by optimizing the way people experience the Web and Mobile. ClickTale’s comprehensive solution features the industry’s most innovative heatmap technology, playback of individual-user browsing sessions and Customer Experience Consultants dedicated to your success. ClickTale effortlessly integrates with web analytics, testing tools and more."
+        description: "ClickTale®, the enterprise leader in Digital Customer Experience, enables businesses to maximize revenues by optimizing the way people experience the Web and Mobile. ClickTale's comprehensive solution features the industry's most innovative heatmap technology, playback of individual-user browsing sessions and Customer Experience Consultants dedicated to your success. ClickTale effortlessly integrates with web analytics, testing tools and more."
         class: "bronze"
       -
         display_url: "www.demandbase.com"

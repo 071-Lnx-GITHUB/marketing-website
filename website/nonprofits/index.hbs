@@ -1,6 +1,6 @@
 ---
 layout: non_profits
-TR_seo_title: Optimizely.org
+TR_seo_title: "Optimizely.org"
 compact_header: true
 footer_style: grey
 body_class:
@@ -9,8 +9,6 @@ modals:
 - nonprofits_video_modal
 page_script: non-profits.js
 ---
-
-
 <section id="panel-1" class="panel bg-img" style="background-image: url('{{page_data.panel_1.bg_img}}')">
   <div class="container">
 {{#with page_data.panel_1}}
@@ -29,9 +27,9 @@ page_script: non-profits.js
           <h3><i>{{header}}</i></h3>
           <h2>{{sub_header}}</h2>
         </div>
-      {{/with}}
-        <img src="{{page_data.panel_2.img}}" />
+        <img src="{{panel_2.img}}" />
       </div>
+      {{/with}}
       {{#with page_data.panel_2}}
       <div class="columns six right-content">
         <div class="hide-mobile header-cont">
@@ -119,4 +117,3 @@ page_script: non-profits.js
   </div>
   {{/with}}
 </section>
-

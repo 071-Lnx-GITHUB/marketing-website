@@ -1,42 +1,39 @@
----
-HTML_page_content: true
----
 <label id="name-label">
-    <span>Name</span>
-    <span class="name-related error-hide error-right">Required</span>
+    <span>{{tr 'Name'}}</span>
+    <span class="name-related error-hide error-right">{{tr 'Required'}}</span>
     <input type="text" name="name" autofocus>
 </label>
 <label>
-    <span>Work email</span>
-    <span class="email-related error-hide error-right">Required</span>
+    <span>{{tr 'Work email'}}</span>
+    <span class="email-related error-hide error-right">{{tr 'Required'}}</span>
     <input type="email" name="email" required>
 </label>
 <label>
-    <span>Password</span>
-    <span class="password1-related error-hide error-right">Required</span>
-    <h5 class="password-req">Use at least 8 characters and a mix of upper/lowercase letters, numbers or symbols</h5>
+    <span>{{tr 'Password'}}</span>
+    <span class="password1-related error-hide error-right">{{tr 'Required'}}</span>
+    <h5 class="password-req">{{tr 'Use at least 8 characters and a mix of upper/lowercase letters, numbers or symbols'}}</h5>
     <input type="password" name="password1" required>
 </label>
 <label>
-    <span>Confirm password</span>
-    <span class="password2-related error-hide error-right">Required</span>
+    <span>{{tr 'Confirm password'}}</span>
+    <span class="password2-related error-hide error-right">{{tr 'Required'}}</span>
     <input type="password" name="password2" required>
 </label>
 <label id="phone-label">
-    <span>Phone number</span>
+    <span>{{tr 'Phone number'}}</span>
     <input type="text" name="phone_number">
 </label>
 <div id="channels">
-  <label><span>Channels You'd Like to Test</span></label>
+  <label><span>{{tr 'Channels You\'d Like to Test'}}</span></label>
   <div class="checkboxes">
-    <label for="web"><input type="checkbox" name="Web_Interest__c"> Web</label>
-    <label for="mobile_web"><input type="checkbox" name="Mobile_Web_Interest__c"> Mobile web</label>
-    <label for="ios"><input type="checkbox" name="iOS_Interest__c"> iOS</label>
-    <label for="android"><input type="checkbox" name="Android_Interest__c"> Android</label>
+    <label for="web"><input type="checkbox" name="Web_Interest__c"> {{tr 'Web'}}</label>
+    <label for="mobile_web"><input type="checkbox" name="Mobile_Web_Interest__c"> {{tr 'Mobile web'}}</label>
+    <label for="ios"><input type="checkbox" name="iOS_Interest__c"> {{tr 'iOS'}}</label>
+    <label for="android"><input type="checkbox" name="Android_Interest__c"> {{tr 'Android'}}</label>
   </div><!--/.checkboxes-->
 </div><!--/#channels-->
 <div class="terms">
-  <p>By clicking the &quot;Create account&quot; button below I agree to the <br><a href="{{linkPath}}/terms" target="_blank">Terms of Service</a> and <a href="{{linkPath}}/privacy" target="_blank">Privacy Policy</a>.</p>
+  <p>{{{tr 'By clicking the "Create account" button below I agree to the <br><a href="{0}/terms" target="_blank">Terms of Service</a> and <a href="{0}/privacy" target="_blank">Privacy Policy</a>.' linkPath}}}</p>
 </div>
 <input id="hidden" type="hidden" name="hidden" value="" />
 <input type="hidden" name="flow" value="nux"></input>
@@ -44,6 +41,6 @@ HTML_page_content: true
 <input type="hidden" name="Lead_Source_Category__c" value="Create Account">
 <input type="hidden" name="Lead_Source_Subcategory__c" value="Optimizely">
 <div class="options">
-  <p>Already have an Optimizely account? <br><a class="show-sign-in" data-modal-click="signin">Sign in here</a></p>
-  <p class="error-message error-hide">Create Account Error</p>
+  <p>{{{tr 'Already have an Optimizely account? <br><a class="show-sign-in" data-modal-click="signin">Sign in here</a>'}}}</p>
+  <p class="error-message error-hide">{{tr 'Create Account Error'}}</p>
 </div>

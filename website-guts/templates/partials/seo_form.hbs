@@ -1,6 +1,3 @@
----
-HTML_page_content: true
----
 <form id="seo-form" method="POST" class="seo-form inline-labels" action="{{apiDomain}}/account/free_trial_create" autocomplete="off" novalidate="novalidate">
   <div class="options">
     <p class="error-message oform-error-show"></p>
@@ -9,31 +6,30 @@ HTML_page_content: true
   <input id="hidden" type="hidden" name="hidden" value="">
   <ul>
     <li class="url-input-related">
-    <label for="url">Type in a URL to try it out</label>
+    <label for="url">{{tr 'Type in a URL to try it out'}}</label>
     <input id="url" required name="url-input" type="url">
     </li>
     <li class="name-related">
-    <label for="name">Your Name</label>
+    <label for="name">{{tr 'Your Name'}}</label>
     <input id="name" required data-validation="name" name="name" type="text">
     </li>
     <li id="phone-email-cont">
     <div class="label half left email-related">
-      <label for="email">Email - no spam</label>
+      <label for="email">{{{tr 'Email &mdash; no spam'}}}</label>
       <input id="email" required name="email" type="email">
     </div>
 
     <div class="label half right phone_number-related">
-      <label for="phone">Phone Number</label>
+      <label for="phone">{{tr 'Phone Number'}}</label>
       <input id="phone" name="phone_number" type="tel">
     </div>
     </li>
     <li class="terms">
-    <small>By clicking the <q>Test it Out</q> button below I agree to the <br><a href="{{linkPath}}/terms" target="_blank">Terms of Service</a> and <a href="{{linkPath}}/privacy" target="_blank">Privacy Policy</a>.</small>
+      <small>{{{tr 'By clicking the <q>Test it Out</q> button below I agree to the <br><a href="{0}/terms" target="_blank">Terms of Service</a> and <a href="{0}/privacy" target="_blank">Privacy Policy</a>.'}}}</small>
     </li>
     <li class="a-center">
-    <button type="submit" id="submit" class="button oform-processing-hide">Test it Out</button>
-    <p class="oform-processing-show">Processing...</p>
+    <button type="submit" id="submit" class="button oform-processing-hide">{{tr 'Test it Out'}}</button>
+    <p class="oform-processing-show">{{tr 'Processing...'}}</p>
     </li>
   </ul>
 </form>
-

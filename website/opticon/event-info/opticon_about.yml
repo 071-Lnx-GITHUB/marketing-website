@@ -1,8 +1,9 @@
+---
 page_title: "Event Info"
 
 top_paragraph:
   title: "From incredible speakers to creative networking, Opticon is all about the experience."
-  blurb: "In 2015 Opticon will be an unforgettable experience, taking place on San Francisco’s scenic waterfront at Pier 27 with twice as much content, double the number of attendees, and visionary speakers like Marc Andreessen, the General Partner of Andreessen Horowitz."
+  blurb: "In 2015 Opticon will be an unforgettable experience, taking place on San Francisco's scenic waterfront at Pier 27 with twice as much content, double the number of attendees, and visionary speakers like Marc Andreessen, the General Partner of Andreessen Horowitz."
   cta: "Justify Your Trip"
   cta_2014: "Want to get a taste of what's in store? Check out our "
   cta_2014_link_text: "Opticon 2014 recap"
@@ -33,19 +34,19 @@ faq_section:
     -
       question: "What can I do in San Francisco?"
       answer: "
-        <p class='adelle-sans'>Start your day off right with breakfast at <a target='_blank' href='http://www.mamas-sf.com/'>Mama’s</a> (the best breakfast in town).</p>
+        <p class='adelle-sans'>Start your day off right with breakfast at <a target='_blank' href='http://www.mamas-sf.com/'>Mama's</a> (the best breakfast in town).</p>
         <p class='adelle-sans'>Explore the <a target='_blank' href='http://www.nps.gov/prsf/index.htm'>Presidio</a> and the Golden Gate Bridge.</p>
-        <p class='adelle-sans'>Visit <a target='_blank' href='http://www.golden-gate-park.com/'>Golden Gate Park</a>–there’s so much to do here, including a visit to the <a target='_blank' href='http://www.conservatoryofflowers.org/'>Conservatory of Flowers</a>, an exploration of the <a target='_blank' href='http://www.calacademy.org/'>California Academy of Sciences</a>, and saying hello to the <a target='_blank' href='http://www.golden-gate-park.com/buffalo-paddock.html'>local Bison</a>.</p>
+        <p class='adelle-sans'>Visit <a target='_blank' href='http://www.golden-gate-park.com/'>Golden Gate Park</a>–there's so much to do here, including a visit to the <a target='_blank' href='http://www.conservatoryofflowers.org/'>Conservatory of Flowers</a>, an exploration of the <a target='_blank' href='http://www.calacademy.org/'>California Academy of Sciences</a>, and saying hello to the <a target='_blank' href='http://www.golden-gate-park.com/buffalo-paddock.html'>local Bison</a>.</p>
         <p class='adelle-sans'><a target='_blank' href='http://sanfrancisco.giants.mlb.com/schedule/?c_id=sf#y=2015&m=6&calendar=DEFAULT'>Catch a ball game</a> at AT&T Park, home of the San Francisco Giants.</p>
-        <p class='adelle-sans'>Wander through San Francisco’s “most famous landmark”–the marketplace at the <a href='http://www.ferrybuildingmarketplace.com/'>Ferry Building</a>.</p>
+        <p class='adelle-sans'>Wander through San Francisco's \"most famous landmark\"–the marketplace at the <a href='http://www.ferrybuildingmarketplace.com/'>Ferry Building</a>.</p>
 
         "
     -
       question: "What is the weather like?"
-      answer: "<p class='adelle-sans'>“The coldest winter I ever spent was a summer in San Francisco.”
+      answer: "<p class='adelle-sans'>\"The coldest winter I ever spent was a summer in San Francisco.\"
         -The coolest thing Mark Twain never said. While usually attributed to him,
         the actual source of these words is unknown.</p>
-        <p class='adelle-sans'>While it won’t be balmy, San Francisco usually has a wonderfully
+        <p class='adelle-sans'>While it won't be balmy, San Francisco usually has a wonderfully
         <a target='_blank' href='http://www.wunderground.com/history/airport/KSFO/2015/3/5/DailyHistory.html?req_city=San+Francisco+International&req_state=CA&req_statename=California&reqdb.zip=94128&reqdb.magic=6&reqdb.wmo=99999'>moderate climate</a> all year long. The average daily temperature is 62.5 degrees. Expect some
         of the famous fog during the summer so be sure to bring a jacket.</p>"
     -
@@ -53,7 +54,7 @@ faq_section:
       answer: "<p class='adelle-sans'>San Francisco is lucky enough to be situated between two major airports: <a target='_blank' href='http://www.oaklandairport.com/'>Oakland International Airport</a> and <a target='_blank' href='http://www.flysfo.com/'>San Francisco International Airport</a>. The <a target='_blank' href='http://www.bart.gov/'>Bay Area Rapid Transit System</a> (BART) goes to both airports.</p>"
     -
       question: "What should I wear?"
-      answer: "<p class='adelle-sans'>Opticon is a business casual affair which means jeans, blazers, skirts, and t-shirts are all acceptable. Wear what you’re comfortable in and come dressed to have an amazing time.</p>"
+      answer: "<p class='adelle-sans'>Opticon is a business casual affair which means jeans, blazers, skirts, and t-shirts are all acceptable. Wear what you're comfortable in and come dressed to have an amazing time.</p>"
     -
       question: "Can I register for sessions?"
       answer: "<p class='adelle-sans'>No need to register, just show up to any session you want!</p>"
@@ -63,24 +64,24 @@ faq_section:
     -
       question: "Can I get certified at the conference?"
       answer: "<p class='adelle-sans'>Optimizely certification tests require all your focus
-        and Opticon is going to be such an eventful experience that we don’t want you to
-        get distracted. That’s the long way of saying no, we will not be offering certification
+        and Opticon is going to be such an eventful experience that we don't want you to
+        get distracted. That's the long way of saying no, we will not be offering certification
         tests at Opticon.</p>
         <p class='adelle-sans'>We will be answering all of your Optimizely questions and possibly even giving away free certification test codes, so stop by the Innovation Station on-site for more information.</p>"
     -
       question: "How do I set up a meeting with someone from Optimizely?"
-      answer: "<p class='adelle-sans'>You can either call us directly at 1-800-252-9480 or send us an email (<a href='mailto:events@optimizely.com'>events@optimizely.com</a>) and we’ll help you set something up.</p>"
+      answer: "<p class='adelle-sans'>You can either call us directly at 1-800-252-9480 or send us an email (<a href='mailto:events@optimizely.com'>events@optimizely.com</a>) and we'll help you set something up.</p>"
     -
       question: "Can I cancel?"
       answer: "<p class='adelle-sans'>Our cancellation policy is listed below. This goes for Opticon and the Optimizely training sessions the day before the conference.</p><p class='adelle-sans'><b>Cancellation Policy</b>: Refund requests must be made in writing to <a href='mailto:events@optimizely.com'>events@optimizely.com</a>. No refunds will be given after April 15, 2015.</p><p class='adelle-sans'><b>100% refund</b>: Requests must be received by March 18, 2015</p><p class='adelle-sans'><b>50% refund</b>: Requests must be received by April 15, 2015</p>
          "
     -
       question: "Can I bring a guest?"
-      answer: "<p class='adelle-sans'>You can bring anyone you’d like but
+      answer: "<p class='adelle-sans'>You can bring anyone you'd like but
         every attendee must have a valid Opticon ticket so be sure to
         <a target='_blank' href='https://www.eventbrite.com/e/opticon-2015-tickets-14328636337'>register</a>.</p>
         <p class='adelle-sans'>If you want to bring someone just for the Opticon bash,
-        that’s ok too. We’ve got a special ticket add-on called “Opticon Bash Guest”
+        that's ok too. We've got a special ticket add-on called \"Opticon Bash Guest\"
         for $150 that can be found on the registration check out page. If you got a
         free pass to Opticon this option will not show up so <a href='mailto:events@optimizely.com'>email</a> us if you need help.</p>"
     -

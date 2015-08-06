@@ -9,38 +9,38 @@ api_domain: true
 form_id: webinar-registration-form
 TR_modal_title: "Webinar Signup"
 form_method: POST
-TR_primary_button_text: Register
-TR_negative_button_text: Cancel
+TR_primary_button_text: "Register"
+TR_negative_button_text: "Cancel"
 ---
-          <div class="webinar-info-cont">
-            <div class="left">
-              <p>{{tr 'Selected date'}}:</p>
-            </div>
-            <div class="right webinar-info">
-              <div class="webinar-detail-info"></div>
-            </div>
-          </div>
-          <div class="clearfix" style="clear: both;">
-            <label>
-              <span>{{tr 'Name'}}:</span>
-              <span class="name-related error-hide error-right">{{tr 'Name is required'}}</span>
-              <input type="text" id="name" name="name" required></input>
-            </label>
-            <label>
-              <span>{{tr 'Email'}}:</span>
-              <span class="email-related error-hide error-right">{{tr 'Email is required'}}</span>
-              <input type="email" id="email" name="Email" required></input>
-            </label>
-            <input type="hidden" name="WebinarRegistrationDate" id="date-long" value="">
-            <input type="hidden" name="lpId" value="-1">
-            <input type="hidden" name="subId" value="56">
-            <input type="hidden" name="FirstName" value="">
-            <input type="hidden" name="LastName" value="">
-            <input type="hidden" name="Initial_Form_Source__c" value="Live Demo Signup">
-            <input type="hidden" name="leadSource" value="Website">
-            <input type="hidden" name="Lead_Source_Category__c" value="Content">
-            <input type="hidden" name="Lead_Source_Subcategory__c" value="Live Demo">
-          </div>
-          <div class="privacy-policy">
-            <a href="{{linkPath}}/privacy">{{tr 'Privacy Policy'}}</a>
-          </div>
+<div class="webinar-info-cont">
+  <div class="left">
+    <p>{{tr 'Selected date'}}:</p>
+  </div>
+  <div class="right webinar-info">
+    <div class="webinar-detail-info"></div>
+  </div>
+</div>
+<div class="clearfix" style="clear: both;">
+  <label>
+    <span>{{tr 'Name'}}:</span>
+    <span class="name-related error-hide error-right">{{tr 'Name is required'}}</span>
+    <input type="text" id="name" name="name" required></input>
+  </label>
+  <label>
+    <span>{{tr 'Email'}}:</span>
+    <span class="email-related error-hide error-right">{{tr 'Email is required'}}</span>
+    <input type="email" id="email" name="Email" required></input>
+  </label>
+  <input type="hidden" name="WebinarRegistrationDate" id="date-long" value="">
+  <input type="hidden" name="lpId" value="-1">
+  <input type="hidden" name="subId" value="56">
+  <input type="hidden" name="FirstName" value="">
+  <input type="hidden" name="LastName" value="">
+  <input type="hidden" name="Initial_Form_Source__c" value="Live Demo Signup">
+  <input type="hidden" name="leadSource" value="Website">
+  <input type="hidden" name="Lead_Source_Category__c" value="Content">
+  <input type="hidden" name="Lead_Source_Subcategory__c" value="Live Demo">
+</div>
+<div class="privacy-policy">
+  <a href="{{linkPath}}/privacy">{{tr 'Privacy Policy'}}</a>
+</div>

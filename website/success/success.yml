@@ -1,4 +1,4 @@
-TR_services:
+services:
 -
   TR_title: "Support"
   icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/success/support.png"
@@ -8,12 +8,12 @@ TR_services:
   TR_title: "Education"
   icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/success/education.png"
   TR_headline: "A massive library of optimization strategy and product resources at your fingertips."
-  TR_description: "Whether you’re just getting started with learning the basics or expanding to advanced areas, we’ve built a massive library of <a href='http://learn.optimizely.com'>learning resources</a> to guide your testing strategy and product learning needs."
+  TR_description: "Whether you're just getting started with learning the basics or expanding to advanced areas, we've built a massive library of <a href='http://learn.optimizely.com'>learning resources</a> to guide your testing strategy and product learning needs."
 -
   TR_title: "Enablement"
   icon: "//d1qmdf3vop2l07.cloudfront.net/optimizely-marketer-assets.cloudvent.net/raw/success/enablement.png"
   TR_headline: "Your success starts on day one."
-  TR_description: "With the help of our Customer Success organization, our customers are changing the way business is done.  The enterprise enablement program will walk you through advanced product training, testing strategy and optimization best practices."
+  TR_description: "With the help of our Customer Success organization, our customers are changing the way business is done. The enterprise enablement program will walk you through advanced product training, testing strategy and optimization best practices."
 -
   TR_title: "Solutions Partners"
   TR_headline: "Network of partner agencies to provide strategy and execution."
