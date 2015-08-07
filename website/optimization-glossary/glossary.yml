@@ -1,5 +1,11 @@
+---
 TR_title: "Optimization Glossary"
-# Must be all capitalized and in alphabetical order
+# Alphabet must be all capitalized and in alphabetical order
+# Leaving alphabet empty will result in the page being built with the terms below in that order, without the following:
+#    + terms sorted in alphebatical order
+#    + large, single-letter headers for all definitions starting with that letter 
+#    + a table of contents 
+# This may be desired behavior, for exmaple, the Japanese version of the page
 alphabet: "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 TR_cta: "Read more"
 glossary:

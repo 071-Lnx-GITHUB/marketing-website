@@ -1,14 +1,17 @@
-$(function(){
-  //first gather all terms that are on page
+var alphabet = $('#alphabet').text();
+
+var buildTOCandSortedPage = function() {
+  
+  //first gather all terms that are on page. terms may be in any of our languages.
   var termsElements = $('.term-container');
   
-  //build object with term and summary:
-  //key is string, value is the html <p> definition of term
+  //build object with term and summarykey: "value",             
+  //key is string, value is the <p>  html element with summary of term
   var terms = {};
   for (var i = 0; i < termsElements.length; i++){
     var term = $.text(termsElements[i].children[0]);
-    var definition = termsElements[i].children[1];
-    terms[term] = definition;
+    var summary = termsElements[i].children[1];
+    terms[term] = summary;
   }
 
   //now we need to sort terms. objects are by definition unsorted, so let's grab all terms in an array
@@ -16,9 +19,8 @@ $(function(){
   var sortedTermsList = Object.keys(terms).sort(function (a, b) {
     return a.toLowerCase().localeCompare(b.toLowerCase());
   });
-  
+
   //build alphabet hash
-  var alphabet = $('#alphabet').text();
   var alphabetHash = {};
   for (var j = 0; j < alphabet.length; j++){
     var letter = alphabet[j];
@@ -29,7 +31,7 @@ $(function(){
   for (var k = 0; k < sortedTermsList.length; k++){
     var firstLetter = sortedTermsList[k].charAt(0).toUpperCase();
     alphabetHash[firstLetter] += 1;
-  } 
+  }
 
   //clear page to then rebuild
   $('.glossary-container').empty();
@@ -43,7 +45,7 @@ $(function(){
     }
   }
 
-  //add terms and definitions under appropriate letter headline
+  //add terms and summaries under appropriate letter headline
   for (var l = 0; l < sortedTermsList.length; l++) {
     var currentTerm = sortedTermsList[l];
     var termHeadline = $('<h4>' + currentTerm + '</h4>');
@@ -56,7 +58,7 @@ $(function(){
     $('#' + nestUnder).append(newDefinition);
   }
 
-  //build table of contents (toc) then add to page
+  //build table of contents (toc) 
   var toc = $('<div class="flex justify-content--space-between toc-container"></div>');
   for (var letterInAlphabet in alphabetHash){
     var newTOCletter = $('<span class="toc-index">' + letterInAlphabet + '</span>');
@@ -68,9 +70,15 @@ $(function(){
     toc.append(newTOCletter);
   }
 
+  //add table of contents to top of the page
   $('.glossary-container').prepend(toc);
-
 
   //add smooth scrolling to all the links with smooth-scroll attribute
   $('[smooth-scroll]').on('click', w.optly.mrkt.utils.smoothScroll);
+};
+
+//on page load, check to see if there is an alphabet used to build TOC and letter-headers. 
+//If not, such as for our Japanese page in this v1.0 of this glossary page, the page will merely present all definitions in the order they are entered into glossary.yml
+$(function(){
+  if (alphabet) { buildTOCandSortedPage(); }
 });
