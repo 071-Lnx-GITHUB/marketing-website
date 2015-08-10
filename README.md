@@ -2,7 +2,7 @@
 
 ![Optimizely logo](http://styleguide.optimizely.com/img/logos/optimizely/blue/optimizely_logo_BLUE.svg)
 
-##Overview
+## Overview
 
 This is the repository for the Optimizely marketing website.
 
